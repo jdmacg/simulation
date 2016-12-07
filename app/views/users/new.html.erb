@@ -8,6 +8,7 @@
     <%= f.submit :Signup %>
   <% end %>
   <% if @user.errors.any? %>
+  	<%= session.inspect %>
     <ul class="Signup_Errors">
     <% for message_error in @user.errors.full_messages %>
       <li>* <%= message_error %></li>

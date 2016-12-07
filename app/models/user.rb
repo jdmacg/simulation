@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :salt, :password, :encrypted_password
+  
 
   before_save :encrypt_password
   after_save :clear_password
@@ -7,8 +9,6 @@ class User < ApplicationRecord
   validates :password, :confirmation => true
   #Only on Create so other actions like update password attribute can be nil
   validates_length_of :password, :in => 6..20, :on => :create
-
-  attr_accessor :password
 
 
   def self.authenticate(username_or_email="", login_password="")
@@ -29,6 +29,7 @@ class User < ApplicationRecord
 
 
   def encrypt_password
+  	self.salt = "12345567"
     unless password.blank?
       self.salt = BCrypt::Engine.generate_salt
       self.encrypted_password = BCrypt::Engine.hash_secret(password, salt)
@@ -41,8 +42,5 @@ class User < ApplicationRecord
 
   private
 
-  def user_params
-    params.require(:user).permit(:username, :email, :password)
-  end
 
 end
