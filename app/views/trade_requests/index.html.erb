@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Trade Requests</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Outgoing property</th>
+      <th>Outgoing cash</th>
+      <th>Offeror</th>
+      <th>Offeree</th>
+      <th>Response</th>
+      <th>Incoming cash</th>
+      <th>Incoming property</th>
+      <th>Completed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trade_requests.each do |trade_request| %>
+      <tr>
+        <td><%= trade_request.outgoing_property %></td>
+        <td><%= trade_request.outgoing_cash %></td>
+        <td><%= trade_request.offeror_id %></td>
+        <td><%= trade_request.offeree_id %></td>
+        <td><%= trade_request.response %></td>
+        <td><%= trade_request.incoming_cash %></td>
+        <td><%= trade_request.incoming_property %></td>
+        <td><%= trade_request.completed %></td>
+        <td><%= link_to 'Show', trade_request %></td>
+        <td><%= link_to 'Edit', edit_trade_request_path(trade_request) %></td>
+        <td><%= link_to 'Destroy', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trade Request', new_trade_request_path %>
