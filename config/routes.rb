@@ -1,15 +1,23 @@
 Rails.application.routes.draw do
-  resources :property_types
-  resources :properties
-  resources :developments
-  resources :trade_requests
-  resources :teams
-  get 'sessions/new'
-  get    '/login',   to: 'sessions#new'
-  post   '/login',   to: 'sessions#create'
-  delete '/logout',  to: 'sessions#destroy'
+  #match ':controller(/:action(/:id))(.:format)'
 
-  root to: 'teams#index'
+  match '/login_attempt', to: 'sessions#login_attempt', via: :all
+
+  post '/signup', to:  'users#create'
+
+  get '/signup', to:  'users#new'
+
+  match '/login', to:  'sessions#login', via: :all
+
+  match '/logout', to:  'sessions#logout', via: :all
+
+  match '/home', to:  'sessions#home', via: :all
+
+  match '/profile', to:  'sessions#profile', via: :all
+
+  match '/setting', to:  'sessions#setting', via: :all
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
