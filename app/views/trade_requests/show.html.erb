@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Outgoing property:</strong>
+  <%= @trade_request.outgoing_property %>
+</p>
+
+<p>
+  <strong>Outgoing cash:</strong>
+  <%= @trade_request.outgoing_cash %>
+</p>
+
+<p>
+  <strong>Offeror:</strong>
+  <%= @trade_request.offeror_id %>
+</p>
+
+<p>
+  <strong>Offeree:</strong>
+  <%= @trade_request.offeree_id %>
+</p>
+
+<p>
+  <strong>Response:</strong>
+  <%= @trade_request.response %>
+</p>
+
+<p>
+  <strong>Incoming cash:</strong>
+  <%= @trade_request.incoming_cash %>
+</p>
+
+<p>
+  <strong>Incoming property:</strong>
+  <%= @trade_request.incoming_property %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @trade_request.completed %>
+</p>
+
+<%= link_to 'Edit', edit_trade_request_path(@trade_request) %> |
+<%= link_to 'Back', trade_requests_path %>

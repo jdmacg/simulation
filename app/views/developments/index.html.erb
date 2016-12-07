@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Developments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cost</th>
+      <th>Used</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @developments.each do |development| %>
+      <tr>
+        <td><%= development.cost %></td>
+        <td><%= development.used %></td>
+        <td><%= link_to 'Show', development %></td>
+        <td><%= link_to 'Edit', edit_development_path(development) %></td>
+        <td><%= link_to 'Destroy', development, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Development', new_development_path %>

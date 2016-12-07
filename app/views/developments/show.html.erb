@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @development.cost %>
+</p>
+
+<p>
+  <strong>Used:</strong>
+  <%= @development.used %>
+</p>
+
+<%= link_to 'Edit', edit_development_path(@development) %> |
+<%= link_to 'Back', developments_path %>

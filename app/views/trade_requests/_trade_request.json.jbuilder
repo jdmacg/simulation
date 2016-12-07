@@ -1,0 +1,2 @@
+json.extract! trade_request, :id, :outgoing_property, :outgoing_cash, :offeror_id, :offeree_id, :response, :incoming_cash, :incoming_property, :completed, :created_at, :updated_at
+json.url trade_request_url(trade_request, format: :json)
