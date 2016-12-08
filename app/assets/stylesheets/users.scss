@@ -1,3 +1,168 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#login-signup{
+  width: 300px;
+  height: 420px;
+  top:50%; left: 50%;
+  margin-left: -150px;
+  margin-top: -210px;
+  position: absolute;
+  border: 3.5px solid #bdc3c7;
+  background-color: white;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+}
+header {
+    width: auto;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    background-color: #c0392b;
+    -moz-border-top-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -khtml-border-top-left-radius: 5px;
+    -moz-border-top-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -khtml-border-top-right-radius: 5px;
+}
+h1.title {
+    font-size: 20px;
+    font-weight: 400;
+    text-shadow: 1px 1px 1px #2c3e50;
+}
+section {
+    width: 260px;
+    height: auto;
+    padding: 20px;
+}
+.loginform a {
+    font-size: 11px;
+    color: #7f8c8d;
+}
+.loginform a:hover {
+    text-decoration: underline;
+}
+.mail {
+    width: 202px;
+    height: auto;
+    padding: 17px 17px 17px 40px;
+    font-size: 15px;
+    color: #7f8c8d;
+    background: #ecf0f1 url("http://www.ahmetkaplan.net/calismalar/flatixlogin/images/user.png") no-repeat 12px;
+    margin-bottom: 10px;
+    border: 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+}
+.mail:hover {
+    box-shadow: 0 0 5px #3498db;
+}
+.mail:focus {
+    box-shadow: 0 0 5px #2ecc71;
+    color: #2ecc71;
+}
+.password {
+    width: 202px;
+    height: auto;
+    padding: 17px 17px 17px 40px;
+    font-size: 15px;
+    color: #7f8c8d;
+    background: #ecf0f1 url("http://www.ahmetkaplan.net/calismalar/flatixlogin/images/pass.png") no-repeat 12px;
+    margin-bottom: 10px;
+    border: 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+}
+.password:hover {
+    box-shadow: 0 0 5px #3498db;
+}
+.password:focus {
+    box-shadow: 0 0 5px #2ecc71;
+    color: #2ecc71;
+}
+.login {
+    width: 260px;
+    height: auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    text-shadow: 1px 1px 1px #f1c40f;
+    box-shadow: 0 3px 0 #f1c40f;
+    margin-top: 10PX;
+    background-color: #f1c40f;
+    border: 0;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+}
+.login:hover {
+    background-color: #f39c12;
+    box-shadow: 0 3px 0 #f39c12;
+}
+.or {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px;
+    border-top-color: #ecf0f1;
+    border-top-style: solid;
+}
+.facebook a {
+    float: left;
+    width: 105px;
+    height: auto;
+    padding: 10px;
+    color: white;
+    text-align: right;
+    font-size: 11px;
+    background: #297fb8 url("images/facebook.png") no-repeat 5px;
+    border-bottom: 2px;
+    border-bottom-color: #206da5;
+    border-bottom-style: solid;
+    text-shadow: 1px 1px 1px #206da5;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+}
+.facebook a:hover {
+    background-color: #206da5;
+}
+.twitter a {
+    float: right;
+    width: 105px;
+    height: auto;
+    padding: 10px;
+    color: white;
+    text-align: right;
+    font-size: 11px;
+    background: #3598dc url("images/twitter.png") no-repeat 5px;
+    border-bottom: 2px;
+    border-bottom-color: #2886cc;
+    border-bottom-style: solid;
+    text-shadow: 1px 1px 1px #2886cc;
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.3s ease-in-out;
+}
+.twitter a:hover {
+    background-color: #2886cc;
+}
+footer {
+    width: 280px;
+    height: auto;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    background-color: #bdc3c7;
+    bottom: 0;
+    position: absolute;
+    -moz-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+}
