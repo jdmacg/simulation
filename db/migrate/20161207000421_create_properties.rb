@@ -1,7 +1,7 @@
 class CreateProperties < ActiveRecord::Migration[5.0]
   def change
     create_table :properties do |t|
-      t.integer :team_id
+      belongs_to :team
       t.integer :property_type
       t.integer :property_values_id
       t.boolean :in_development
