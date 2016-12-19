@@ -8,6 +8,7 @@ class CreateProperties < ActiveRecord::Migration[5.0]
       t.integer :development_id
       t.string :city
       t.string :province
+      t.boolean :developed
 
       t.timestamps
     end

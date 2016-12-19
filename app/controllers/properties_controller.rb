@@ -21,6 +21,26 @@ class PropertiesController < ApplicationController
   def edit
   end
 
+  def calculateIncentives
+    Property.where(:team_id => 'x', :property_type => 'Multi-Res').count >= 7
+    Property.where(:team_id => 'x', :property_type => 'Industrial').count >= 4
+    Property.where(:team_id => 'x', :property_type => 'Office').count >= 3
+    Property.where(:team_id => 'x', :property_type => 'Retail').count >= 7
+    Property.where(:team_id => 'x', :location => 'Alberta').count >= 4
+    Property.where(:team_id => 'x', :location => 'BC').count >= 4
+    Property.where(:team_id => 'x', :location => 'NS').count >= 3
+    Property.where(:team_id => 'x', :location => 'Ontario').count >= 3
+    Property.where(:team_id => 'x', :location => 'Quebec').count >= 3
+    Property.where(:team_id => 'x', :location => 'Saskatchewan').count >= 2
+    #then goes to acquisitions??
+    TradeRequest.where(:requester => 'x',:completed => 'true').or(:requestee => 'x',:completed => 'true').count >= 10,20,30
+    Property.where(:team_id => 'x', :developed => 'true').count >= 2,5,8
+
+    Team.maximum(:cash_balance)
+    Team.minimum(:cash_balance)
+    #most acquisitions, developments, properties, most x type properties
+  end
+
   # POST /properties
   # POST /properties.json
   def create

@@ -3,8 +3,6 @@ class CreateTradeRequests < ActiveRecord::Migration[5.0]
     create_table :trade_requests do |t|
       t.integer :outgoing_property
       t.integer :outgoing_cash
-      t.integer :offeror_id
-      t.integer :offeree_id
       t.boolean :response
       t.integer :incoming_cash
       t.integer :incoming_property
