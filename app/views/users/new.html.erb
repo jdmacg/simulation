@@ -3,12 +3,16 @@
 			<h1 class="title"><i class="fa fa-user"></i> Delegate Sign In</h1>
 	</header>
 	<section>
-    <%= form_for :user, url: '/users', html: {class: "loginform"} do |f| %>
-			<input type="text" name="email" class="mail" placeholder="E-Mail Address">
-			<input type="password" name="password" class="password" placeholder="Password">
-      <input type="password" name="password-confirmation" class="password" placeholder="Password Confirmation">
-			<a href="#" title="Lost your password?">Lost your password?</a>
-      <%= f.submit 'SIGN UP', :class => 'login' %>
+    <%= form_for(@user) do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'mail' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password , class: 'password'%>
+
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation , class: 'password'%>
+      <%= f.submit 'Create Account', class: 'login' %>
     <% end %>
 	</section>
 	<footer>
