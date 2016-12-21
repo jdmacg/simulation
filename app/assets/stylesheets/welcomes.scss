@@ -1,34 +1,31 @@
-#welcome-options{
+.welcome-options{
   width: 500px;
-  height: 200px;
+  height: 100px;
   top:50%; left: 50%;
   margin-left: -250px;
-  margin-top: -150px;
+  margin-top: -100px;
   position: absolute;
-  border: 3.5px solid #bdc3c7;
-  background-color: white;
   -moz-border-radius: 7.5px;
   -webkit-border-radius: 7.5px;
   display: flex;
   justify-content: space-between;
-}
+  #login-btn{
+    width:50%;
+    border-radius: 2px;
+    background: #03A9F4;
+    color: white;
+    padding: 25px;
+    font-size: 1.5em;
+    margin: 5px;
 
-#login-btn{
-  width:50%;
-  border: 1px solid black;
-  border-radius: 2px;
-}
-
-#signup-btn{
-  width:50%;
-  border: 1px solid black;
-  border-radius: 2px;
-}
-
-#login-btn p{
-  align-self: center;
-}
-
-#signup-btn p{
-  align-self: center;
+  }
+  #signup-btn{
+    width:50%;
+    border-radius: 2px;
+    background: #FF5722;
+    color: white;
+    padding: 25px;
+    font-size: 1.5em;
+    margin: 5px;
+  }
 }
