@@ -1,8 +1,4 @@
-<div class="home-page" id="welcome-options">
-  <div id="login-btn">
-      <%= link_to "Login", login_path, class: 'btn btn-primary'%>
-  </div>
-  <div id="signup-btn">
-    <%= link_to "Sign Up", signup_path, class: 'btn btn-primary'%>
-  </div>
+<div class="welcome-options">
+    <%= link_to "Login", login_path, id: 'login-btn'%>
+    <%= link_to "Sign Up", signup_path, id: 'signup-btn'%>
 </div>
