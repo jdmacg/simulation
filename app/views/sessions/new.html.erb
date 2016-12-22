@@ -1,13 +1,15 @@
 <div class="home-page" id="login-signup">
   <header>
-			<h1 class="title"><i class="fa fa-user"></i> Delegate Log In</h1>
+			<h1 class="title"><i class="fa fa-user"></i> User Log In</h1>
 	</header>
 	<section>
-    <%= form_for :user, url: '/login', html: {class: "loginform"} do |f| %>
-      <input type="text" name="email" class="mail" placeholder="E-Mail Address">
-      <input type="password" name="password" class="password" placeholder="Password">
-      <a href="#" title="Lost your password?">Lost your password?</a>
-      <%= f.submit 'Log In', :class => 'login' %>
+    <%= form_for(:session, url: login_path) do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'mail' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password , class: 'password'%>
+      <%= f.submit 'Log In', class: 'login' %>
     <% end %>
   </section>
 	<footer>
