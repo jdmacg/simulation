@@ -5,4 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-#User.create([{name: jordan'}])
+#   User.create([{name: jordan'}])
+
+Property.create([{ property_type: 1, in_development: false, city: "Ottawa", province: "Ontario"}])
