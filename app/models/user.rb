@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_secure_password
   has_one :team
   #
-  # validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
+  validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
   # #Only on Create so other actions like update password attribute can be nil
   # validates_length_of :password, :in => 6..20, :on => :create
 

@@ -26,9 +26,9 @@
         <td><%= property.development_id %></td>
         <td><%= property.city %></td>
         <td><%= property.province %></td>
-        <td><%= link_to 'Show', property %></td>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', properties_path %></td>
+        <td><%= link_to 'Edit', edit_property_path(property.id) %></td>
+        <td><%= link_to 'Destroy', properties_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Property', new_property_path %>
+<%= link_to 'New Property', properties_path %>
