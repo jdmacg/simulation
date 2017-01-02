@@ -1,15 +1,17 @@
 #sidebar {
   overflow: hidden;
+  margin-right:10px;
   width: 210px;
   height: 100%;
   float: left;
-  background: #2A2D33;
+  background: #2c3e50;
 }
+
 #sidebar-nav {
   width: 106%;
   height: calc(100% - 95px);
   padding: 0;
-  background: #2A2D33;
+  background: #2c3e50;
   border-right: 1px solid #E0E0E0;
   overflow-y: scroll;
 }

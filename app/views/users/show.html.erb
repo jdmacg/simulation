@@ -1,7 +1,7 @@
 <%= render "sidebar" %>
 <div class='profile-content'>
-  Profile.
   <%= user = User.find(session[:user_id]) %>
   <%= user.username %>
+  <%= properties = User.properties %>
   <!-- TODO: Display relevant profile information. -->
 </div>
