@@ -1,4 +1,5 @@
 <%= form_for(trade_request) do |f| %>
+
   <% if trade_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(trade_request.errors.count, "error") %> prohibited this trade_request from being saved:</h2>
@@ -13,7 +14,7 @@
 
   <div class="field">
     <%= f.label :outgoing_property %>
-    <%= f.text_field :outgoing_property %>
+    <%= collection_select(:property_id, 0, Property.all, :id, :city) %>
   </div>
 
   <div class="field">
@@ -21,7 +22,7 @@
     <%= f.text_field :outgoing_cash %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :offeror_id %>
     <%= f.text_field :offeror_id %>
   </div>
@@ -49,7 +50,7 @@
   <div class="field">
     <%= f.label :completed %>
     <%= f.check_box :completed %>
-  </div>
+  </div> -->
 
   <div class="actions">
     <%= f.submit %>

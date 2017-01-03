@@ -24,6 +24,9 @@
       <div class="cell">
         Province
       </div>
+      <!-- <div class="cell">
+        Trade Request
+      </div> -->
     </div>
 
     <% @properties.each do |property| %>
@@ -46,9 +49,27 @@
         <div class="cell">
           <%= property.province %>
         </div>
+        <!-- <div class="cell">
+          <%= link_to "Issue Request", new_trade_request_path %>
+        </div> -->
       </div>
     <% end %>
 
   </div>
+
+<!-- <script>
+  // $('.trade-request').on('click', function(){
+  //   let property_id = this.id;
+  //   $.ajax({
+  //     url: "localhost:3000/trade_requests",
+  //     type: 'post',
+  //     data: property_id
+  //   }).done(function(){
+  //     debugger;
+  //   });
+  // });
+
+</script> -->
+
 
 <!-- <%= link_to 'New Property', properties_path %> -->
