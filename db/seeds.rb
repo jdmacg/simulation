@@ -8,3 +8,9 @@
 #   User.create([{name: jordan'}])
 
 Property.create([{ property_type: 1, in_development: false, city: "Ottawa", province: "Ontario"}])
+Property.create([{ property_type: 1, in_development: false, city: "Toronto", province: "Ontario"}])
+Property.create([{ property_type: 1, in_development: false, city: "Halifax", province: "Nova Scotia"}])
+Property.create([{ property_type: 1, in_development: false, city: "Calgary", province: "Ontario"}])
+Property.create([{ property_type: 1, in_development: false, city: "St. John's", province: "Newfoundland"}])
+Property.create([{ property_type: 1, in_development: false, city: "Ottawa", province: "Ontario"}])
+Property.create([{ property_type: 1, in_development: false, city: "Vancouver", province: "British Columbia"}])

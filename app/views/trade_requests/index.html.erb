@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Trade Requests</h1>
+<%= render 'sidebar' %>
+<h1>Active Trade Requests</h1>
 
 <table>
   <thead>
@@ -38,4 +37,8 @@
 
 <br>
 
-<%= link_to 'New Trade Request', new_trade_request_path %>
+<%= link_to 'Issue New Trade Request', new_trade_request_path %>
+
+<!-- TODO: Must edit trade_requests in the db to handle multiple incoming and outgoing properties -->
+<!-- TODO: Create a request interface that allows users to submit requests/offers including multiple properties -->
+<!-- TODO: Create a panel that let's users view current 'active' requests, and completed trades. Active requests can be accepted, declined, or edited (counter-offer) -->
