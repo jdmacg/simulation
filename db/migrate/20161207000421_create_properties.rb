@@ -1,7 +1,7 @@
 class CreateProperties < ActiveRecord::Migration[5.0]
   def change
     create_table :properties do |t|
-      belongs_to :team
+      t.integer  :team_id
       t.integer :property_type
       t.integer :property_values_id
       t.boolean :in_development
@@ -9,7 +9,6 @@ class CreateProperties < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :province
       t.boolean :developed
-
       t.timestamps
     end
   end

@@ -12,4 +12,8 @@ task "db:populate" do
   Property.create!(city: "Montreal", latitude: "45.5017", longitude: "73.5673")
   Property.create!(city: "Halifax", latitude: "44.6488", longitude: "63.5752")
   Property.create!(city: "Calgary", latitude: "51.0486", longitude: "114.0708")
+
+  User.create!(username: "graham.sm94@gmail.com", password: "minotaur", password_confirmation: "minotaur")
+  User.create!(username: "jordan@gmail.com", password: "jordan", password_confirmation: "jordan")
+
 end
