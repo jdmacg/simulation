@@ -7,11 +7,12 @@ class UsersController < ApplicationController
    def create
   	@user = User.new(user_params)
   	if @user.save
+      binding.pry
       session[:user_id] = @user.id
     else
       # TODO: ERROR HANDLING
     end
-    redirect_to users_path, notice: "Welcome, #{@user.username}!"
+    redirect_to properties_path, notice: "Welcome!"
   end
 
   private
