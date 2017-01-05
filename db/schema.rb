@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105193118) do
+ActiveRecord::Schema.define(version: 20170105195637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,13 +51,13 @@ ActiveRecord::Schema.define(version: 20170105193118) do
 
   create_table "trade_requests", force: :cascade do |t|
     t.integer  "outgoing_cash"
-    t.boolean  "response"
     t.integer  "incoming_cash"
     t.boolean  "completed"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "outgoing_properties", default: [],              array: true
     t.integer  "incoming_properties", default: [],              array: true
+    t.integer  "response_turn"
   end
 
   create_table "users", force: :cascade do |t|
