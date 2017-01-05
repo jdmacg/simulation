@@ -12,47 +12,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :outgoing_property %>
-    <%= collection_select(:property_id, 0, Property.all, :id, :city) %>
-  </div>
+    <label for="sel1" class="form-signin-heading text-muted">Select Team to Trade with: </label>
+    <select class="form-control" name="user_selection">
+      <%= User.all.each do |x| %>
+        <option value="<%= x.id %>"><%= x.username %></option>
+      <% end %>
+    </select>
 
-  <div class="field">
-    <%= f.label :outgoing_cash %>
-    <%= f.text_field :outgoing_cash %>
-  </div>
+    <label for="sel1" class="form-signin-heading text-muted">Select Outgoing Properties: </label>
+    <select class="form-control" name="outgoing_properties">
+      <%= current_user.properties do |x| %>
+        <option value="<%= Property.find(x.id) %>"><%= Property.find(x.city) %></option>
+      <% end %>
+    </select>
 
-  <!-- <div class="field">
-    <%= f.label :offeror_id %>
-    <%= f.text_field :offeror_id %>
-  </div>
+    Cash Offer:<br>
+    <input type="text" name="outgoing_cash"><br>
 
-  <div class="field">
-    <%= f.label :offeree_id %>
-    <%= f.text_field :offeree_id %>
-  </div>
 
-  <div class="field">
-    <%= f.label :response %>
-    <%= f.check_box :response %>
-  </div>
-
-  <div class="field">
-    <%= f.label :incoming_cash %>
-    <%= f.text_field :incoming_cash %>
-  </div>
-
-  <div class="field">
-    <%= f.label :incoming_property %>
-    <%= f.text_field :incoming_property %>
-  </div>
-
-  <div class="field">
-    <%= f.label :completed %>
-    <%= f.check_box :completed %>
-  </div> -->
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
