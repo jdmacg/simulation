@@ -2,6 +2,9 @@
 <div class='profile-content'>
   <%= user = User.find(session[:user_id]) %>
   <%= user.username %>
-  <%= properties = User.properties %>
+  <%= @properties = Property.where(user_id: user.id).all %>
+  <% @properties.each do |property| %>
+  <%= property %>
+  <% end %>
   <!-- TODO: Display relevant profile information. -->
 </div>

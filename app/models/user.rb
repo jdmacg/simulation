@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_one :team
+  belongs_to :team
   has_many :properties
   has_many :trade_requests
   validates :username, :presence => true, :uniqueness => true, :length => { :in => 3..20 }
