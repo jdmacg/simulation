@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20170105195637) do
     t.integer  "development_id"
     t.string   "city"
     t.string   "province"
-    t.boolean  "developed"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
@@ -42,15 +41,14 @@ ActiveRecord::Schema.define(version: 20170105195637) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "cash_balance"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["user_id"], name: "index_teams_on_user_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "trade_requests", force: :cascade do |t|
     t.integer  "outgoing_cash"
+    t.integer  "offeror_id"
+    t.integer  "offeree_id"
     t.integer  "incoming_cash"
     t.boolean  "completed"
     t.datetime "created_at",                       null: false
