@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # get '/incentives' => 'incentives#index' TODO: Do we need this in the db?
 
   resources :trade_requests
+
   get '/trading' => 'trade_requests#home'
 
   resources :properties
