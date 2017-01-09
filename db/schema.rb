@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105195637) do
+ActiveRecord::Schema.define(version: 20170109025835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,16 @@ ActiveRecord::Schema.define(version: 20170105195637) do
 
   create_table "properties", force: :cascade do |t|
     t.integer  "team_id"
-    t.integer  "property_type"
-    t.integer  "property_values_id"
     t.boolean  "in_development"
     t.integer  "development_id"
     t.string   "city"
     t.string   "province"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.boolean  "developed"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "property_type_id"
+    t.decimal  "value"
+    t.index ["property_type_id"], name: "index_properties_on_property_type_id", using: :btree
   end
 
   create_table "property_types", force: :cascade do |t|
@@ -41,14 +43,14 @@ ActiveRecord::Schema.define(version: 20170105195637) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "cash_balance"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "team_name"
   end
 
   create_table "trade_requests", force: :cascade do |t|
     t.integer  "outgoing_cash"
-    t.integer  "offeror_id"
-    t.integer  "offeree_id"
     t.integer  "incoming_cash"
     t.boolean  "completed"
     t.datetime "created_at",                       null: false
@@ -66,6 +68,7 @@ ActiveRecord::Schema.define(version: 20170105195637) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "password_digest"
+    t.integer  "team_id"
   end
 
 end

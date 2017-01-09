@@ -28,17 +28,17 @@
         Trade Request
       </div> -->
     </div>
-
+    <% binding.pry %>
     <% @properties.each do |property| %>
       <div class="row">
         <div class="cell">
           <%= property.team_id %>
         </div>
         <div class="cell">
-          <%= property.property_type %>
+          <%= property.property_type.description %>
         </div>
         <div class="cell">
-          <%= property.property_values_id %>
+          <%= property.value %>
         </div>
         <div class="cell">
           <%= property.in_development %>
