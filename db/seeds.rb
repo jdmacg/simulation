@@ -7,12 +7,26 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #   User.create([{name: jordan'}])
 
-Property.create([{ user_id: 1, property_type: 1, in_development: false, city: "Ottawa", province: "Ontario"}])
-Property.create([{ user_id: 2, property_type: 1, in_development: false, city: "Toronto", province: "Ontario"}])
-Property.create([{ user_id: 3, property_type: 1, in_development: false, city: "Halifax", province: "Nova Scotia"}])
-Property.create([{ property_type: 1, in_development: false, city: "Calgary", province: "Ontario"}])
-Property.create([{ property_type: 1, in_development: false, city: "St. John's", province: "Newfoundland"}])
-Property.create([{ property_type: 1, in_development: false, city: "Ottawa", province: "Ontario"}])
-Property.create([{ property_type: 1, in_development: false, city: "Vancouver", province: "British Columbia"}])
 
-Team.create([{ }])
+Team.create!([{team_name: "Team One", cash_balance: 100000}])
+Team.create!([{team_name: "Team Two", cash_balance: 100000}])
+Team.create!([{team_name: "Team Three", cash_balance: 100000}])
+Team.create!([{team_name: "Team Four", cash_balance: 100000}])
+Team.create!([{team_name: "Team Five", cash_balance: 100000}])
+Team.create!([{team_name: "Team Six", cash_balance: 100000}])
+
+6.times do |i|
+	my_type = PropertyType.create!([{description: Faker::Hacker.say_something_smart}])
+	my_property = Property.create!([{property_type: my_type[0], in_development: false, city: Faker::University.name, province: Faker::Vehicle.manufacture, value: Faker::Number.decimal(2)}])
+	Team.all[i].properties << my_property
+end
+
+6.times do |i|
+  user = User.new
+	user.username = Faker::Name.unique.name
+	user.password = 'valid_password'
+	user.password_confirmation = 'valid_password'
+	user.team_id = i+1
+	user.save!
+end
+
