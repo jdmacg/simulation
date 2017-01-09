@@ -18,7 +18,7 @@
         <li>
           <label for="sel1" class="form-signin-heading text-muted">Select Outgoing Properties: </label>
           <select class="form-control" name="outgoing_properties">
-            <%= current_user.properties do |x| %>
+            <%= current_user.team.properties do |x| %>
               <option value="<%= Property.find(x.id) %>"><%= x.city %></option>
             <% end %>
           </select>
@@ -33,9 +33,9 @@
       <ul>
         <li>
           <label for="sel1" class="form-signin-heading text-muted">Select Team to Trade with: </label>
-          <select class="form-control" name="user_selection" onchange="getRequestedProps(this.value);">
+          <select class="form-control" name="user_selection" onchange="getRequestedProps(this.value)">
             <%= Team.all.each do |x| %> 
-              <option id="request-selection" value="<%= x.id %>"><%= x.username %></option>
+              <option id="request-selection" value="<%= x.id %>"><%= x.team_name %></option>
             <% end %>
           </select>
         </li>
@@ -61,6 +61,7 @@ function getRequestedProps(value){
     url: '/properties/' + value,
     success: function(response_data){
       if (response_data.length === 0){
+        debugger;
         var $property_html = $('<li class=property-item>' + 'This team does not have any properties to trade!' + '</li>');
         $('#requested-properties-list').append($property_html);
       }
