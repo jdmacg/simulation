@@ -10,7 +10,9 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @properties = Property.where(team_id: @team.id)
   end
+
 
   # GET /teams/new
   def new

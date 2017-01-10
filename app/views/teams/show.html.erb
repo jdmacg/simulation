@@ -1,4 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<h1>Properties Owned</h1>
+<table>
+<% @properties.each do |property| %>
+  <tr>
+    <td><%= property.id %> </td>
+    <td><%= property.city %> </td>
+  </tr>
+<% end %>
+</table>
+
+<p>
+  <%= link_to 'Edit', edit_team_path(@team) %>
+  <%= link_to 'Back', teams_path %>
+</p>

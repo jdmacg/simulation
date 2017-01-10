@@ -1,9 +1,17 @@
 <%= render "sidebar" %>
 <div class='profile-content'>
+<table>
+<tr>
+  <td>Property ID</td>
+  <td>City</td>
+</tr>
   <% @properties.each do |property| %>
-  Property ID:
-  <%= property.id %>
+    <tr>
+      <td><%= property.id %></td>
+      <td><%= property.city %></td>
+    </tr>
   <% end %>
+</table>
   Team ID:
   <%= @team.id %>
   <!-- TODO: Display relevant profile information. -->

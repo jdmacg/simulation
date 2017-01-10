@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :trade_requests
 
+  resources :teams
+
   get '/trading' => 'trade_requests#home'
 
   resources :properties

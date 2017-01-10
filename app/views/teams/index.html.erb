@@ -12,9 +12,11 @@
   <tbody>
     <% @teams.each do |team| %>
       <tr>
-        <td><%= link_to 'Show', team %></td>
+        <td><%= link_to 'Show', team_path(team.id) %></td>
         <td><%= link_to 'Edit', edit_team_path(team) %></td>
         <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= team.id %> </td>
+        <td><%= team.team_name %> </td>
       </tr>
     <% end %>
   </tbody>
