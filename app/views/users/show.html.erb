@@ -1,10 +1,10 @@
 <%= render "sidebar" %>
 <div class='profile-content'>
-  <%= user = User.find(session[:user_id]) %>
-  <%= user.username %>
-  <%= @properties = Property.where(user_id: user.id).all %>
   <% @properties.each do |property| %>
-  <%= property %>
+  Property ID:
+  <%= property.id %>
   <% end %>
+  Team ID:
+  <%= @team.id %>
   <!-- TODO: Display relevant profile information. -->
 </div>
