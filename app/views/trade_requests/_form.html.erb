@@ -18,8 +18,9 @@
         <li>
           <label for="sel1" class="form-signin-heading text-muted">Select Outgoing Properties: </label>
           <select class="form-control" name="outgoing_properties">
-            <%= current_user.team.properties do |x| %>
-              <option value="<%= Property.find(x.id) %>"><%= x.city %></option>
+            <%= current_user.team.properties.each do |x| %>
+              <%= binding.pry %>
+              <option value="<%= x.id %>"><%= x.city %></option>
             <% end %>
           </select>
         </li>
@@ -34,7 +35,7 @@
         <li>
           <label for="sel1" class="form-signin-heading text-muted">Select Team to Trade with: </label>
           <select class="form-control" name="user_selection" onchange="getRequestedProps(this.value)">
-            <%= Team.all.each do |x| %> 
+            <%= Team.all.each do |x| %>
               <option id="request-selection" value="<%= x.id %>"><%= x.team_name %></option>
             <% end %>
           </select>

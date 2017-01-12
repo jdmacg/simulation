@@ -6,8 +6,9 @@ class UsersController < ApplicationController
 
    def create
   	@user = User.new(user_params)
+    @user.team_id = 1
+    # TODO Update to even dist
   	if @user.save
-      binding.pry
       session[:user_id] = @user.id
     else
       # TODO: ERROR HANDLING

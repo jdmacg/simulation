@@ -29,4 +29,3 @@ end
 	user.team_id = i+1
 	user.save!
 end
-
