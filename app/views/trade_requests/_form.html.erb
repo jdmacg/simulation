@@ -15,40 +15,42 @@
   <div class="new-trade">
     <div class="new-trade" id="outgoing-items">
       <ul>
+        <p id="offer-heading">Your Offer</p>
         <li>
-          <label for="sel1" class="form-signin-heading text-muted">Select Outgoing Properties: </label>
-          <select class="form-control" name="outgoing_properties">
-            <%= current_user.team.properties.each do |x| %>
-              <option value="<%= x.id %>"><%= x.city %></option>
-            <% end %>
-          </select>
+          <% current_user.team.properties.each do |x| %>
+             <label class="checkbox"><input id="p-outgoing" type="checkbox" name="p-o-radios" value="<%= x.id %>"><span class="outer"><span class="inner"></span></span><%= x.city %></label>
+          <% end %>
         </li>
         <li>
-          Cash Offer:<br>
-          <input type="text" name="outgoing_cash"><br>
+          <label for="outgoing-cash" class="mat-label">Cash Offer</label>
+          <input type="text" class="mat-input" id="cash-outgoing">
         </li>
       </ul>
     </div>
     <div class="new-trade" id="requested-items">
       <ul>
         <li>
+          <p id="offer-heading">Your Request</p>
           <label for="sel1" class="form-signin-heading text-muted">Select Team to Trade with: </label>
-          <select class="form-control" name="user_selection" onchange="getRequestedProps(this.value)">
+          <select class="default-dropdown" name="user_selection" onchange="getRequestedProps(this.value)">
             <%= Team.all.each do |x| %>
               <option id="request-selection" value="<%= x.id %>"><%= x.team_name %></option>
             <% end %>
           </select>
         </li>
-        <li>
-          <label for="sel1" class="form-signin-heading text-muted">Select Desired Properties: </label>
-          <ul id='requested-properties-list'>
+        <li class="p-selection-list" id='container'>
+          <ul id="requested-properties-list">
           </ul>
+        </li>
+        <li>
+          <label for="requested-cash" class="mat-label">Requested Cash</label>
+          <input type="text" class="mat-input" id="requested-cash">
         </li>
       </ul>
     </div>
   </div>
 
-<%= f.submit %>
+<%= f.submit 'Submit Request', class: 'submit-btn' %>
 <% end %>
 
 
@@ -66,10 +68,8 @@ function getRequestedProps(value){
       }
       else{
           response_data.forEach(function(property){
-            var $property_html = $('<li class=properties id=property.id>' + property.city + '</li>');
-            var $property_checkbox = $('<input type=checkbox autocomplete=off value=property.id'> + property.city + '</label>');
+            var $property_html = $('<label class="checkbox"><input id="p-outgoing" type="checkbox" name="p-r-radios" value='+property.id+'><span class="outer"><span class="inner"></span></span>'+property.city+'</label>');
             $('#requested-properties-list').append($property_html);
-            $('#requested-properties-list').append($property_checkbox);
           });
         }
       },
@@ -78,5 +78,21 @@ function getRequestedProps(value){
     }
   });
 };
+
+
+
+$(".mat-input").focus(function(){
+  $(this).parent().addClass("is-active is-completed");
+});
+
+$(".mat-input").focusout(function(){
+  if($(this).val() === "")
+    $(this).parent().removeClass("is-completed");
+  $(this).parent().removeClass("is-active");
+})
+
+function checkboxHandler(){
+  $('#p-outgoing').is(":checked") ? $("#p-outgoing").removeAttr("checked") : $("#p-outgoing").attr("checked","checked");
+}
 
 </script>

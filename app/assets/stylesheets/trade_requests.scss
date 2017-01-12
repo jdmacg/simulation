@@ -5,10 +5,108 @@
 	display: flex;
 }
 
+.new-trade #offer-heading{
+	font-size: 20px;
+}
+
 .new-trade #outgoing-items{
 	display: flex;
+	width: 50%;
+	border-right: 1px solid #2980b9;
 }
 
 .new-trade #requested-items{
 	display: flex;
+}
+///RADIOS
+ul li .checkbox {
+  display: inline-block;
+  padding-right: 20px;
+  line-height: 49px;
+  cursor: pointer;
+	border: 1px solid black;
+  &:hover .inner {
+    opacity: .5;
+	}
+}
+
+ul li .checkbox input {
+	size: 1px;
+	opacity: 0; // Hide input, but leave it available for tabbing
+	&:checked + .outer .inner {
+		opacity: 1;
+	}
+	&:checked + .outer { border: 3px solid black; }
+	&:focus + .outer .inner {
+		opacity: 1;
+		background-color: darken(black, 10);
+	}
+}
+///END RADIOS
+
+////INPUTS
+.mat-label {
+  display: block;
+  font-size: 16px;
+  transform: translateY(25px);
+  color: #e2e2e2;
+  transition: all 0.5s;
+}
+
+.mat-input {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+.is-active::after {
+  transform: scaleX(1);
+}
+
+.is-active .mat-label {
+  color: #3498db;
+}
+
+.is-completed .mat-label {
+  font-size: 12px;
+  transform: translateY(0);
+}
+///END INPUTS
+
+///DROPDOWN
+.default-dropdown{
+	width: 200px;
+	background-color: #3498db;
+	color: #fff;
+	font-size: inherit;
+	padding: .5em;
+	padding-right: 2.5em;
+	border: 0;
+	margin: 0;
+	border-radius: 3px;
+	text-indent: 0.01px;
+	text-overflow: '';
+	cursor: pointer;
+	border: 1px solid black;
+	background: white;
+	color: black;
+	-webkit-appearance: button;
+}
+///END DROPDOWN
+
+.submit-btn{
+	width: 200px;
+	height: 50px;
+	border: 1px solid black;
+	background: white;
+	cursor: pointer;
+	&:hover{
+		border: none;
+		background: black;
+		color: white;
+	}
 }
