@@ -19,7 +19,6 @@
           <label for="sel1" class="form-signin-heading text-muted">Select Outgoing Properties: </label>
           <select class="form-control" name="outgoing_properties">
             <%= current_user.team.properties.each do |x| %>
-              <%= binding.pry %>
               <option value="<%= x.id %>"><%= x.city %></option>
             <% end %>
           </select>
@@ -62,23 +61,22 @@ function getRequestedProps(value){
     url: '/properties/' + value,
     success: function(response_data){
       if (response_data.length === 0){
-        debugger;
         var $property_html = $('<li class=property-item>' + 'This team does not have any properties to trade!' + '</li>');
         $('#requested-properties-list').append($property_html);
       }
       else{
-        response_data.forEach(function(property){
-          var $property_html = $('<li class='properties' id='property.id'>' + property.city + '</li>');
-          var $property_checkbox = $('<input type='checkbox' autocomplete='off' value='property.id'>' + property.city + '</label>');
-          $('#requested-properties-list').append($property_html);
-          $('#requested-properties-list').append($property_checkbox);
-        });
-      }
-    },
+          response_data.forEach(function(property){
+            var $property_html = $('<li class=properties id=property.id>' + property.city + '</li>');
+            var $property_checkbox = $('<input type=checkbox autocomplete=off value=property.id'> + property.city + '</label>');
+            $('#requested-properties-list').append($property_html);
+            $('#requested-properties-list').append($property_checkbox);
+          });
+        }
+      },
     error: function(){
       alert("Unable to retrieve properties");
     }
-  })
-}
+  });
+};
 
 </script>

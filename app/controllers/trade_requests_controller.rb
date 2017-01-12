@@ -24,7 +24,6 @@ class TradeRequestsController < ApplicationController
   # POST /trade_requests
   # POST /trade_requests.json
   def create
-    binding.pry
     @trade_request = TradeRequest.new(trade_request_params)
     respond_to do |format|
       if @trade_request.save
