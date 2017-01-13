@@ -17,32 +17,15 @@
 
 .new-trade #requested-items{
 	display: flex;
-}
-///RADIOS
-ul li .checkbox {
-  display: inline-block;
-  padding-right: 20px;
-  line-height: 49px;
-  cursor: pointer;
-	border: 1px solid black;
-  &:hover .inner {
-    opacity: .5;
-	}
+	flex-direction: column;
+	width: 50%;
 }
 
-ul li .checkbox input {
-	size: 1px;
-	opacity: 0; // Hide input, but leave it available for tabbing
-	&:checked + .outer .inner {
-		opacity: 1;
-	}
-	&:checked + .outer { border: 3px solid black; }
-	&:focus + .outer .inner {
-		opacity: 1;
-		background-color: darken(black, 10);
-	}
+.new-trade #property-options{
+	display: flex;
+	margin-top: 25px;
+	flex-wrap: wrap;
 }
-///END RADIOS
 
 ////INPUTS
 .mat-label {

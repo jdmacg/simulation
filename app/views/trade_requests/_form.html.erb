@@ -16,41 +16,46 @@
     <div class="new-trade" id="outgoing-items">
       <ul>
         <p id="offer-heading">Your Offer</p>
-        <li>
+        <li onClick=handleCheckbox()>
           <% current_user.team.properties.each do |x| %>
-             <label class="checkbox"><input id="p-outgoing" type="checkbox" name="p-o-radios" value="<%= x.id %>"><span class="outer"><span class="inner"></span></span><%= x.city %></label>
+            <%= check_box_tag "outgoing_property[]", x.id, false, :id => "p-checks" %>
+            <label class="checkbox"><span class="outer"><span class="inner"></span></span><%= x.city %></label>
+             <!-- <label class="checkbox"><input id="p-outgoing" type="checkbox" name="outgoing_property" value="<%= x.id %>"><span class="outer"><span class="inner"></span></span><%= x.city %></label> -->
           <% end %>
         </li>
         <li>
           <label for="outgoing-cash" class="mat-label">Cash Offer</label>
-          <input type="text" class="mat-input" id="cash-outgoing">
+          <input type="text" class="mat-input" id="cash-outgoing" value="outgoing-cash">
         </li>
       </ul>
     </div>
     <div class="new-trade" id="requested-items">
-      <ul>
-        <li>
-          <p id="offer-heading">Your Request</p>
-          <label for="sel1" class="form-signin-heading text-muted">Select Team to Trade with: </label>
-          <select class="default-dropdown" name="user_selection" onchange="getRequestedProps(this.value)">
-            <%= Team.all.each do |x| %>
-              <option id="request-selection" value="<%= x.id %>"><%= x.team_name %></option>
-            <% end %>
-          </select>
-        </li>
-        <li class="p-selection-list" id='container'>
-          <ul id="requested-properties-list">
-          </ul>
-        </li>
-        <li>
-          <label for="requested-cash" class="mat-label">Requested Cash</label>
-          <input type="text" class="mat-input" id="requested-cash">
-        </li>
-      </ul>
+      <div id="team-options">
+        <p id="offer-heading">Your Request</p>
+        <label for="sel1" class="form-signin-heading text-muted">Select Team to Trade with: </label>
+        <select class="default-dropdown" name="user_selection">
+          <%= Team.all.each do |x| %>
+            <option id="request-selection" value="<%= x.id %>"><%= x.team_name %></option>
+          <% end %>
+        </select>
+      </div>
+      <div id="property-options">
+        <% Property.all.each do |x| %>
+          <label class="checkbox">
+            <%= check_box_tag "incoming_property[]", x.id, false, :id => "p-checks" %>
+            <%= x.city %>
+          </label>
+        <% end %>
+      </div>
+      <div id="request-cash-input">
+        <label for="requested-cash" class="mat-label">Requested Cash</label>
+        <input type="text" class="mat-input" id="requested-cash" value="incoming-cash">
+      </div>
     </div>
   </div>
 
-<%= f.submit 'Submit Request', class: 'submit-btn' %>
+  <%= f.submit 'Submit Request', class: 'submit-btn' %>
+
 <% end %>
 
 
@@ -68,8 +73,11 @@ function getRequestedProps(value){
       }
       else{
           response_data.forEach(function(property){
-            var $property_html = $('<label class="checkbox"><input id="p-outgoing" type="checkbox" name="p-r-radios" value='+property.id+'><span class="outer"><span class="inner"></span></span>'+property.city+'</label>');
+            // TODO: Figure this out
+            var $p_desc_html = $('<label class="checkbox"><span class="outer"><span class="inner"></span></span>'+property.city+'</label>')
+            // var $property_html = $('<label class="checkbox"><input id="p-outgoing" type="checkbox" name="incoming_property" value='+property.id+'><span class="outer"><span class="inner"></span></span>'+property.city+'</label>');
             $('#requested-properties-list').append($property_html);
+            $('#requested-properties-list').append($p_desc_html);
           });
         }
       },
@@ -91,7 +99,7 @@ $(".mat-input").focusout(function(){
   $(this).parent().removeClass("is-active");
 })
 
-function checkboxHandler(){
+function handleCheckbox(){
   $('#p-outgoing').is(":checked") ? $("#p-outgoing").removeAttr("checked") : $("#p-outgoing").attr("checked","checked");
 }
 
