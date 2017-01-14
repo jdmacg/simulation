@@ -10,10 +10,9 @@
       </ul>
     </div>
   <% end %>
-  
-  <!-- <%= f.hidden_field :task_id, :value => task.id%>
-  <%= f.hidden_field :task_id, :value => task.id%> -->
-  <!-- ADD AS NECESSARY! -->
+
+  <%= f.hidden_field :offeror_id, :value => current_user.id%>
+  <%= f.hidden_field :offeree_id, :value => @team_id%> -->
 
   <div class="new-trade">
     <div class="new-trade" id="outgoing-items">

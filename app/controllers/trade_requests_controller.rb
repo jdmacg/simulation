@@ -25,10 +25,19 @@ class TradeRequestsController < ApplicationController
   # POST /trade_requests
   # POST /trade_requests.json
   def create
-    @trade_request = TradeRequest.new(trade_request_params)
+    @trade_request = TradeRequest.new
+    t_r = params[:trade_request]
+    @trade_request.offeror_id = t_r[:offeror_id]
+    @trade_request.offeree_id = t_r[:offeree_id]
+    @trade_request.outgoing_cash = t_r[:outgoing_cash]
+    @trade_request.incoming_cash = t_r[:incoming_cash]
+    @trade_request.completed = false
+    @trade_request.response_turn = t_r[:offeree_id]
+    @trade_request.outgoing_properties = params[:outgoing_property]
+    @trade_request.incoming_properties = params[:incoming_property]
     respond_to do |format|
       if @trade_request.save
-        format.html { redirect_to @trade_request, notice: 'Trade request was successfully created.' }
+        format.html { redirect_to trade_requests_path, notice: 'Trade request was successfully created.' }
         format.json { render :show, status: :created, location: @trade_request }
       else
         format.html { render :new }
