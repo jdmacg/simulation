@@ -10,6 +10,10 @@
       </ul>
     </div>
   <% end %>
+  
+  <!-- <%= f.hidden_field :task_id, :value => task.id%>
+  <%= f.hidden_field :task_id, :value => task.id%> -->
+  <!-- ADD AS NECESSARY! -->
 
   <div class="new-trade">
     <div class="new-trade" id="outgoing-items">
@@ -22,8 +26,8 @@
           <% end %>
         </li>
         <li>
-          <label for="outgoing-cash" class="mat-label">Cash Offer</label>
-          <%= f.input :outgoing_cash, :input_html => { :value => 'Outgoing Cash' }, :class => 'mat-input', :id => 'cash-outgoing' %>
+          <%= f.label :outgoing_cash, :class=>"mat-label"%>:
+          <%= f.text_field :outgoing_cash, :class =>'mat-input', :id =>'cash-outgoing'%><br />
         </li>
       </ul>
     </div>
@@ -36,8 +40,8 @@
         <% end %>
       </div>
       <div id="request-cash-input">
-        <label for="requested-cash" class="mat-label">Requested Cash</label>
-        <%= f.input :incoming_cash, :input_html => { :value => 'Incoming Cash' }, :class => 'mat-input', :id => 'cash-incoming' %>
+        <%= f.label :incoming_cash, :class=>"mat-label"%>:
+        <%= f.text_field :incoming_cash, :class =>'mat-input', :id =>'cash-incoming'%><br />
       </div>
     </div>
   </div>

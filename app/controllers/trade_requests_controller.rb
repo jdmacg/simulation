@@ -25,7 +25,6 @@ class TradeRequestsController < ApplicationController
   # POST /trade_requests
   # POST /trade_requests.json
   def create
-    binding.pry
     @trade_request = TradeRequest.new(trade_request_params)
     respond_to do |format|
       if @trade_request.save
@@ -70,6 +69,6 @@ class TradeRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trade_request_params
-      params.require(:trade_request).permit(:outgoing_property, :outgoing_cash, :offeror_id, :offeree_id, :response, :incoming_cash, :incoming_property, :completed)
+      params.require(:trade_request).permit(:outgoing_cash, :completed, :outgoing_properties, :incoming_properties, :incoming_cash, :response_turn)
     end
 end
