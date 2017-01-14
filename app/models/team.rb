@@ -15,6 +15,14 @@ class Team < ApplicationRecord
   	results[:countProvince4] = Property.where(:team_id => self.id, :province => 4).count
   	results[:countProvince5] = Property.where(:team_id => self.id, :province => 5).count
   	results[:countProvince6] = Property.where(:team_id => self.id, :province => 6).count
+  	results[:tradedProperties] = 0
+  	TradeRequest.where(:completed => true, :offeror_id => self.id).each do |request|
+  		results[:tradedProperties] += request.incoming_properties.size
+  	end
+  	TradeRequest.where(:completed => true, :offeree_id => self.id).each do |request|
+  		results[:tradedProperties] += request.outgoing_properties.size
+  	end
+  	results[:developments] = Property.where(:team_id => self.id, :developed => true).count
 
   	return results
   end
