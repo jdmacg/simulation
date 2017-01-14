@@ -37,10 +37,15 @@
 
 <br>
 
-
+<h4>Select a Team to Trade With</h4>
+<div class="team-links">
   <% Team.all.each do |team| %>
-    <%= link_to 'Issue New Trade Request' , new_trade_request_path(:id => team.id) %>
+    <% if team.id != current_user.team_id %>
+      <%= link_to "Team " + team.id.to_s, new_trade_request_path(:id => team.id), :data_hover => "team_links" %>
+    <% end %>
   <% end %>
+</div>
+
 
 <!-- TODO: Must edit trade_requests in the db to handle multiple incoming and outgoing properties -->
 <!-- TODO: Create a request interface that allows users to submit requests/offers including multiple properties -->

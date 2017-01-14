@@ -1,6 +1,7 @@
 // Place all the styles related to the TradeRequests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .new-trade{
 	display: flex;
 }
@@ -31,6 +32,8 @@ label[for="team-check"]{
 	border: 1px solid black;
 	border-radius: 0.5px;
 }
+
+
 #team-check{
     display:none;
 }
