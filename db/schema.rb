@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170114162626) do
+ActiveRecord::Schema.define(version: 20170114191749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,13 @@ ActiveRecord::Schema.define(version: 20170114162626) do
     t.boolean  "in_development"
     t.integer  "development_id"
     t.string   "city"
-    t.string   "province"
     t.boolean  "developed"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "property_type_id"
     t.decimal  "value"
+    t.string   "poster_image_url"
+    t.integer  "province"
     t.index ["property_type_id"], name: "index_properties_on_property_type_id", using: :btree
   end
 
@@ -40,6 +41,12 @@ ActiveRecord::Schema.define(version: 20170114162626) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|

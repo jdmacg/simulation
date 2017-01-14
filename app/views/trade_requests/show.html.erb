@@ -2,7 +2,7 @@
 
 <p>
   <strong>Outgoing property:</strong>
-  <%= @trade_request.outgoing_properties.length %>
+  <%= link_to image_tag(Property.find(@trade_request.outgoing_properties[0]).poster_image_url) %>
 </p>
 
 <p>
