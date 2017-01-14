@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @incentives = @team.calcIncentives()
     @properties = Property.where(team_id: @team.id)
   end
 
