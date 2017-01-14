@@ -1,49 +1,83 @@
-<p id="notice"><%= notice %></p>
+<%= render 'sidebar' %>
+<div class='trade-request-view'>
+  <p id="notice"><%= notice %></p>
+  <h1>Trade Request</h1>
+  <p>
+    <strong>Outgoing properties</strong>
+    <div class='props-container'>
+      <% @trade_request.outgoing_properties.each do |prop| %>
+        <% p = Property.find(prop) %>
+        <div class="blog-card">
+        	<div class="photo photo1">
+            <%= link_to image_tag(p.poster_image_url) %>
+          </div>
+        	<ul class="details">
+        		<li class="author"><a href="#">Owner: <%= Team.find(p.team_id).team_name %></a></li>
+        	</ul>
+        	<div class="description">
+        		<h1><%= p.city %></h1>
+        		<h2><%= p.city %></h2>
+        		<p class="summary">Value: <%= p.value %></p>
+        		<a href="#">Details</a>
+        	</div>
+        </div>
+      <% end %>
+    </div>
+  </p>
 
-<p>
-  <strong>Outgoing property:</strong>
-  <%= link_to image_tag(Property.find(@trade_request.outgoing_properties[0]).poster_image_url) %>
-</p>
+  <p>
+    <strong>Outgoing cash:</strong>
+    <%= @trade_request.outgoing_cash %>
+  </p>
 
-<p>
-  <strong>Outgoing cash:</strong>
-  <%= @trade_request.outgoing_cash %>
-</p>
+  <p>
+    <strong>Offeror:</strong>
+    <%= Team.find(@trade_request.offeror_id).team_name %>
+  </p>
 
-<p>
-  <strong>Offeror:</strong>
-  <%= @trade_request.offeror_id %>
-</p>
+  <p>
+    <strong>Offeree:</strong>
+    <%= Team.find(@trade_request.offeree_id).team_name %>
+  </p>
 
-<p>
-  <strong>Offeree:</strong>
-  <%= @trade_request.offeree_id %>
-</p>
+  <p>
+    <strong>Incoming cash:</strong>
+    <%= @trade_request.incoming_cash %>
+  </p>
 
-<p>
-  <strong>Response:</strong>
-  <%= @trade_request.response_turn %>
-</p>
+  <p>
+    <strong>Incoming properties:</strong>
+    <div class='props-container'>
+      <% @trade_request.incoming_properties.each do |prop| %>
+        <% p = Property.find(prop) %>
+        <div class="blog-card">
+        	<div class="photo photo1">
+            <%= link_to image_tag(p.poster_image_url) %>
+          </div>
+        	<ul class="details">
+        		<li class="author"><a href="#">Owner: <%= Team.find(p.team_id).team_name %></a></li>
+        	</ul>
+        	<div class="description">
+        		<h1><%= p.city %></h1>
+        		<h2><%= p.city %></h2>
+        		<p class="summary">Value: <%= p.value %></p>
+        		<a href="#">Details</a>
+        	</div>
+        </div>
+      <% end %>
+    </div>
+  </p>
 
-<p>
-  <strong>Incoming cash:</strong>
-  <%= @trade_request.incoming_cash %>
-</p>
+  <p>
+    <strong>Completed:</strong>
+    <%= @trade_request.completed %>
+  </p>
 
-<p>
-  <strong>Incoming property:</strong>
-  <%= @trade_request.incoming_properties.length %>
-</p>
-
-<p>
-  <strong>Completed:</strong>
-  <%= @trade_request.completed %>
-</p>
-
-<% if @trade_request.response_turn == current_user.team_id %>
-  <%= link_to 'Counter Offer', edit_trade_request_path(@trade_request) %>
-  <td><%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-<% end %>
+  <% if @trade_request.response_turn == current_user.team_id %>
+    <%= link_to 'Counter Offer', edit_trade_request_path(@trade_request) %>
+    <td><%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
 
 
-<%= link_to 'Back', trade_requests_path %>
+  <%= link_to 'Back', trade_requests_path %>
+</div>
