@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field :offeror_id, :value => current_user.id%>
+  <%= f.hidden_field :offeror_id, :value => current_user.team_id%>
   <%= f.hidden_field :offeree_id, :value => @team_id%>
 
   <div class="new-trade">

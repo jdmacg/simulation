@@ -41,6 +41,9 @@
 </p>
 
 <% if @trade_request.response_turn == current_user.team_id %>
-  <%= link_to 'Counter Offer', edit_trade_request_path(@trade_request) %> |
+  <%= link_to 'Counter Offer', edit_trade_request_path(@trade_request) %>
+  <td><%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
+
+
 <%= link_to 'Back', trade_requests_path %>

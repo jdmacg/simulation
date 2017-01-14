@@ -27,9 +27,11 @@
         <td><%= trade_request.incoming_cash %></td>
         <td><%= trade_request.incoming_properties.length %></td>
         <td><%= trade_request.completed %></td>
-        <td><%= link_to 'Show', trade_request %></td>
-        <td><%= link_to 'Counter Offer', edit_trade_request_path(trade_request) %></td>
-        <td><%= link_to 'Destroy', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View Request', trade_request %></td>
+        <% if trade_request.response_turn == current_user.team_id %>
+          <td><%= link_to 'Counter Offer', edit_trade_request_path(trade_request) %></td>
+          <td><%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

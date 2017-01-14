@@ -11,7 +11,7 @@ class TradeRequest < ApplicationRecord
 	end
 
 	def self.getOtherParty(tr, id)
-		(tr.offeror_id == id) ? offeree_id : id
+		(tr.offeror_id == id) ? tr.offeree_id : id
 	end
 
 

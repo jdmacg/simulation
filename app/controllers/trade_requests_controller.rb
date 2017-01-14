@@ -25,7 +25,6 @@ class TradeRequestsController < ApplicationController
     elsif trade_request
       @team_id = TradeRequest.getOtherParty(trade_request, current_user.team_id)
     end
-    binding.pry
   end
 
   # POST /trade_requests
