@@ -5,10 +5,168 @@
 	display: flex;
 }
 
+.new-trade #offer-heading{
+	font-size: 20px;
+}
+
 .new-trade #outgoing-items{
 	display: flex;
+	width: 50%;
+	border-right: 1px solid #2980b9;
 }
 
 .new-trade #requested-items{
 	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+.new-trade #property-options{
+	display: flex;
+	margin-top: 25px;
+	flex-wrap: wrap;
+}
+
+label[for="team-check"]{
+	border: 1px solid black;
+	border-radius: 0.5px;
+}
+#team-check{
+    display:none;
+}
+
+
+////INPUTS
+.mat-label {
+  display: block;
+  font-size: 16px;
+  transform: translateY(25px);
+  color: #e2e2e2;
+  transition: all 0.5s;
+}
+
+.mat-input {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+.is-active::after {
+  transform: scaleX(1);
+}
+
+.is-active .mat-label {
+  color: #3498db;
+}
+
+.is-completed .mat-label {
+  font-size: 12px;
+  transform: translateY(0);
+}
+///END INPUTS
+
+///DROPDOWN
+div.dropdown {
+  text-align: left;
+  font-size: 0.9em;
+  color: rgb(240, 240, 240);
+  text-shadow: 0px 1px 1px black;
+  width: inherit;
+  &.closed {
+    ul {
+      margin-top: 0px;
+      li {
+        margin-top: -40px;
+        height: 0px;
+      }
+    }
+    div.title:after {
+      margin-top: -14px;
+      transform: rotate(0deg);
+    }
+  }
+
+  div.title {
+		margin-left: 10px;
+		margin-right: 10px;
+    width: 80%;
+    height: 40px;
+    border: 1px solid rgba(25,25,25,0.3);
+    padding: 12px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 0px 2px 6px rgba(0,0,0,0.3);
+
+    &:after {
+      display: block;
+      content: "▾";
+      position: absolute;
+      right: 20px;
+      margin-top: -12px;
+      transform: rotate(180deg);
+    }
+  }
+
+  ul {
+    overflow: hidden;
+    transition: margin-top 1s;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 0px 2px 6px rgba(0,0,0,0.3);
+    border-radius: 0px 0px 3px 3px;
+
+    li {
+      width: 100%;
+      height: 40px;
+      border: 1px solid rgba(25,25,25,0.3);
+      padding: 12px;
+      vertical-align: top;
+      overflow: hidden;
+      cursor: pointer;
+      transition: margin-top 0.5s, height 0.5s;
+      box-sizing: border-box;
+      background-image: linear-gradient(top, rgba(230, 230, 230, 2), rgba(160, 160, 160, 2));
+
+      &:first-child {
+        border-bottom: none;
+        border-top: none;
+      }
+      &:last-child {
+        border-top: none;
+        border-radius: 0px 0px 3px 3px;
+      }
+      &:hover {
+        text-shadow: 0px 1px 1px black, 0px 0px 4px white;
+      }
+      &:before {
+        content: " ";
+        display: inline-block;
+        position: relative;
+        margin-top: -12px;
+        margin-right: 10px;
+        width: 20px;
+        height: 40px;
+        opacity: 0.7;
+        transition: all 0.5s;
+      }
+    }
+  }
+}
+///END DROPDOWN
+
+.submit-btn{
+	width: 200px;
+	height: 50px;
+	border: 1px solid black;
+	background: white;
+	cursor: pointer;
+	&:hover{
+		border: none;
+		background: black;
+		color: white;
+	}
 }

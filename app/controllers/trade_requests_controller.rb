@@ -15,6 +15,7 @@ class TradeRequestsController < ApplicationController
   # GET /trade_requests/new
   def new
     @trade_request = TradeRequest.new
+    @team_id = params[:id]
   end
 
   # GET /trade_requests/1/edit
@@ -24,11 +25,19 @@ class TradeRequestsController < ApplicationController
   # POST /trade_requests
   # POST /trade_requests.json
   def create
-    binding.pry
-    @trade_request = TradeRequest.new(trade_request_params)
+    @trade_request = TradeRequest.new
+    t_r = params[:trade_request]
+    @trade_request.offeror_id = t_r[:offeror_id]
+    @trade_request.offeree_id = t_r[:offeree_id]
+    @trade_request.outgoing_cash = t_r[:outgoing_cash]
+    @trade_request.incoming_cash = t_r[:incoming_cash]
+    @trade_request.completed = false
+    @trade_request.response_turn = t_r[:offeree_id]
+    @trade_request.outgoing_properties = params[:outgoing_property]
+    @trade_request.incoming_properties = params[:incoming_property]
     respond_to do |format|
       if @trade_request.save
-        format.html { redirect_to @trade_request, notice: 'Trade request was successfully created.' }
+        format.html { redirect_to trade_requests_path, notice: 'Trade request was successfully created.' }
         format.json { render :show, status: :created, location: @trade_request }
       else
         format.html { render :new }
@@ -69,6 +78,6 @@ class TradeRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trade_request_params
-      params.require(:trade_request).permit(:outgoing_property, :outgoing_cash, :offeror_id, :offeree_id, :response, :incoming_cash, :incoming_property, :completed)
+      params.require(:trade_request).permit(:outgoing_cash, :completed, :outgoing_properties, :incoming_properties, :incoming_cash, :response_turn)
     end
 end
