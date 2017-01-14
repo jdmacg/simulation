@@ -22,7 +22,7 @@
       Status
     </div>
     <div class="cell">
-      Something
+      Actions
     </div>
   </div>
   <% @trade_requests.each do |trade_request| %>
@@ -43,10 +43,18 @@
         <%= trade_request.incoming_cash %>
       </div>
       <div class="cell">
-        <%= trade_request.completed %>
+        <% if trade_request.completed %>
+          Trade Complete
+        <% else %>
+          Pending
+        <% end %>
       </div>
       <div class="cell">
-        Something
+        <% if trade_request.response_turn == current_user.team_id %>
+          <%= link_to 'Counter Offer', edit_trade_request_path(trade_request) %>
+          <td><%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <%= link_to 'Show', trade_request_path(trade_request.id) %>
       </div>
     </div>
   <% end %>
