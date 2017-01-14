@@ -37,7 +37,10 @@
 
 <br>
 
-<%= link_to 'Issue New Trade Request', new_trade_request_path %>
+
+  <% Team.all.each do |team| %>
+    <%= link_to 'Issue New Trade Request' , new_trade_request_path(:id => team.id) %>
+  <% end %>
 
 <!-- TODO: Must edit trade_requests in the db to handle multiple incoming and outgoing properties -->
 <!-- TODO: Create a request interface that allows users to submit requests/offers including multiple properties -->

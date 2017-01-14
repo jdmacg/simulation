@@ -15,6 +15,7 @@ class TradeRequestsController < ApplicationController
   # GET /trade_requests/new
   def new
     @trade_request = TradeRequest.new
+    @team_id = params[:id]
   end
 
   # GET /trade_requests/1/edit

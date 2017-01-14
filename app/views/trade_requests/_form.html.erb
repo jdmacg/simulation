@@ -3,7 +3,6 @@
   <% if trade_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(trade_request.errors.count, "error") %> prohibited this trade_request from being saved:</h2>
-
       <ul>
       <% trade_request.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -16,35 +15,29 @@
     <div class="new-trade" id="outgoing-items">
       <ul>
         <p id="offer-heading">Your Offer</p>
-        <li onClick=handleCheckbox()>
+        <li>
           <% current_user.team.properties.each do |prop| %>
-            <label class="prop-label">
-            <input type="checkbox" autocomplete="off" name="property" value=""+<%=prop.id%>+""><%=prop.city%></label>
+            <%= check_box_tag "outgoing_property[]", prop.id %>
+            <%= label_tag 'outgoing_property', prop.city %>
           <% end %>
         </li>
         <li>
           <label for="outgoing-cash" class="mat-label">Cash Offer</label>
-          <input type="text" class="mat-input" id="cash-outgoing">
+          <%= f.input :outgoing_cash, :input_html => { :value => 'Outgoing Cash' }, :class => 'mat-input', :id => 'cash-outgoing' %>
         </li>
       </ul>
     </div>
     <div class="new-trade" id="requested-items">
       <div>
         <p id="offer-heading">Your Request</p>
-        <div class="dropdown">
-          <div class="title">Team Selection</div>
-          <ul>
-            <% Team.all.each do |team| %>
-              <li onClick="getRequestedProps('+<%=team.id%>+');"><%=team.team_name%></li>
-            <% end %>
-          </ul>
-          <ul id="team-props-list">
-          </ul>
-        </div>
+        <% Team.find(@team_id).properties.each do |prop| %>
+          <%= check_box_tag "incoming_property[]", prop.id %>
+          <%= label_tag 'incoming_property', prop.city %>
+        <% end %>
       </div>
       <div id="request-cash-input">
         <label for="requested-cash" class="mat-label">Requested Cash</label>
-        <input type="text" class="mat-input" id="requested-cash">
+        <%= f.input :incoming_cash, :input_html => { :value => 'Incoming Cash' }, :class => 'mat-input', :id => 'cash-incoming' %>
       </div>
     </div>
   </div>
@@ -56,32 +49,6 @@
 
 
 <script>
-
-function getRequestedProps(value){
-  $('#team-props-list').empty();
-  $.ajax({
-    url: '/properties/' + value,
-    success: function(response_data){
-      if (response_data.length === 0){
-        var $property_html = $('<li class=property-item>' + 'This team does not have any properties to trade!' + '</li>');
-        $('#team-props-list').append($property_html);
-      }
-      else{
-          response_data.forEach(function(property){
-            // TODO: Figure this out
-            $property_html = '<label class="prop-label"><input type="checkbox" autocomplete="off" name="property" value="'+property.id+'">'+property.city+'</label>'
-            $('#team-props-list').append($property_html);
-          });
-        }
-      },
-    error: function(){
-      alert("Unable to retrieve properties");
-    }
-  });
-};
-
-
-
 $(".mat-input").focus(function(){
   $(this).parent().addClass("is-active is-completed");
 });
@@ -91,17 +58,4 @@ $(".mat-input").focusout(function(){
     $(this).parent().removeClass("is-completed");
   $(this).parent().removeClass("is-active");
 })
-
-function handleCheckbox(){
-  $('#p-outgoing').is(":checked") ? $("#p-outgoing").removeAttr("checked") : $("#p-outgoing").attr("checked","checked");
-}
-
-$(".dropdown .title").click(function () {
-  $(this).parent().toggleClass("closed");
-});
-
-$(".dropdown li").click(function () {
-  $(this).parent().parent().toggleClass("closed").find(".title").text($(this).text());
-});
-
 </script>
