@@ -1,0 +1,13 @@
+.team-links{
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  flex-direction: row;
+}
+
+.team-links a{
+  border: 1px solid black;
+  margin: 5px;
+  border-radius: 1px;
+  padding: 5px;
+}

@@ -20,6 +20,11 @@ class TradeRequestsController < ApplicationController
 
   # GET /trade_requests/1/edit
   def edit
+    if @trade_request
+      @team_id = TradeRequest.getOtherParty(@trade_request, current_user.team_id)
+    elsif trade_request
+      @team_id = TradeRequest.getOtherParty(trade_request, current_user.team_id)
+    end
   end
 
   # POST /trade_requests

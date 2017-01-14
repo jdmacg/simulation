@@ -11,8 +11,8 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field :offeror_id, :value => current_user.id%>
-  <%= f.hidden_field :offeree_id, :value => @team_id%> -->
+  <%= f.hidden_field :offeror_id, :value => current_user.team_id%>
+  <%= f.hidden_field :offeree_id, :value => @team_id%>
 
   <div class="new-trade">
     <div class="new-trade" id="outgoing-items">
@@ -20,28 +20,34 @@
         <p id="offer-heading">Your Offer</p>
         <li>
           <% current_user.team.properties.each do |prop| %>
-            <%= check_box_tag "outgoing_property[]", prop.id %>
-            <%= label_tag 'outgoing_property', prop.city %>
+            <div id="property-option">
+              <%= check_box_tag "outgoing_property[]", prop.id %>
+              <%= label_tag 'outgoing_property', prop.city %>
+            </div>
           <% end %>
         </li>
         <li>
-          <%= f.label :outgoing_cash, :class=>"mat-label"%>:
+          <%= f.label :outgoing_cash, :class=>"mat-label"%>
           <%= f.text_field :outgoing_cash, :class =>'mat-input', :id =>'cash-outgoing'%><br />
         </li>
       </ul>
     </div>
     <div class="new-trade" id="requested-items">
-      <div>
+      <ul>
         <p id="offer-heading">Your Request</p>
-        <% Team.find(@team_id).properties.each do |prop| %>
-          <%= check_box_tag "incoming_property[]", prop.id %>
-          <%= label_tag 'incoming_property', prop.city %>
-        <% end %>
-      </div>
-      <div id="request-cash-input">
-        <%= f.label :incoming_cash, :class=>"mat-label"%>:
-        <%= f.text_field :incoming_cash, :class =>'mat-input', :id =>'cash-incoming'%><br />
-      </div>
+        <li>
+          <% Team.find(@team_id).properties.each do |prop| %>
+            <div id="property-option">
+              <%= check_box_tag "incoming_property[]", prop.id %>
+              <%= label_tag 'incoming_property', prop.city %>
+            </div>
+          <% end %>
+        </li>
+        <li>
+          <%= f.label :incoming_cash, :class=>"mat-label"%>
+          <%= f.text_field :incoming_cash, :class =>'mat-input', :id =>'cash-incoming'%><br />
+        </li>
+      </ul>
     </div>
   </div>
 

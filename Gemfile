@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'pry'
 
+gem 'carrierwave'
+
 gem 'bcrypt-ruby', :require => 'bcrypt'
 
 gem 'faker'

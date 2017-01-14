@@ -2,7 +2,7 @@
 
 <p>
   <strong>Outgoing property:</strong>
-  <%= @trade_request.outgoing_properties.length %>
+  <%= link_to image_tag(Property.find(@trade_request.outgoing_properties[0]).poster_image_url) %>
 </p>
 
 <p>
@@ -40,5 +40,10 @@
   <%= @trade_request.completed %>
 </p>
 
-<%= link_to 'Edit', edit_trade_request_path(@trade_request) %> |
+<% if @trade_request.response_turn == current_user.team_id %>
+  <%= link_to 'Counter Offer', edit_trade_request_path(@trade_request) %>
+  <td><%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>
+
+
 <%= link_to 'Back', trade_requests_path %>

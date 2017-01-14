@@ -1,46 +1,76 @@
 <%= render 'sidebar' %>
 <h1>Active Trade Requests</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Outgoing property</th>
-      <th>Outgoing cash</th>
-      <th>Offeror</th>
-      <th>Offeree</th>
-      <th>Response</th>
-      <th>Incoming cash</th>
-      <th>Incoming property</th>
-      <th>Completed</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @trade_requests.each do |trade_request| %>
-      <tr>
-        <td><%= trade_request.outgoing_properties.length %></td>
-        <td><%= trade_request.outgoing_cash %></td>
-        <td><%= trade_request.offeror_id %></td>
-        <td><%= trade_request.offeree_id %></td>
-        <td><%= trade_request.response_turn %></td>
-        <td><%= trade_request.incoming_cash %></td>
-        <td><%= trade_request.incoming_properties.length %></td>
-        <td><%= trade_request.completed %></td>
-        <td><%= link_to 'Show', trade_request %></td>
-        <td><%= link_to 'Edit', edit_trade_request_path(trade_request) %></td>
-        <td><%= link_to 'Destroy', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="table">
+  <div class="row header blue">
+    <div class="cell">
+      Your Property Offer
+    </div>
+    <div class="cell">
+      Your Cash Offer
+    </div>
+    <div class="cell">
+      Counterparty
+    </div>
+    <div class="cell">
+      Counterparty Properties
+    </div>
+    <div class="cell">
+      Counterparty Cash
+    </div>
+    <div class="cell">
+      Status
+    </div>
+    <div class="cell">
+      Actions
+    </div>
+  </div>
+  <% @trade_requests.each do |trade_request| %>
+    <div class="row">
+      <div class="cell">
+        <%= trade_request.outgoing_properties.length %>
+      </div>
+      <div class="cell">
+        <%= trade_request.outgoing_cash %>
+      </div>
+      <div class="cell">
+        <%= trade_request.offeror_id %>
+      </div>
+      <div class="cell">
+        <%= trade_request.incoming_properties.length %>
+      </div>
+      <div class="cell">
+        <%= trade_request.incoming_cash %>
+      </div>
+      <div class="cell">
+        <% if trade_request.completed %>
+          Trade Complete
+        <% else %>
+          Pending
+        <% end %>
+      </div>
+      <div class="cell">
+        <% if trade_request.response_turn == current_user.team_id %>
+          <%= link_to 'Counter Offer', edit_trade_request_path(trade_request) %>
+          <td><%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+        <%= link_to 'Show', trade_request_path(trade_request.id) %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <br>
 
-
+<h4>Select a Team to Trade With</h4>
+<div class="team-links">
   <% Team.all.each do |team| %>
-    <%= link_to 'Issue New Trade Request' , new_trade_request_path(:id => team.id) %>
+    <% if team.id != current_user.team_id %>
+      <%= link_to "Team " + team.id.to_s, new_trade_request_path(:id => team.id), :data_hover => "team_links" %>
+    <% end %>
   <% end %>
+</div>
+
 
 <!-- TODO: Must edit trade_requests in the db to handle multiple incoming and outgoing properties -->
 <!-- TODO: Create a request interface that allows users to submit requests/offers including multiple properties -->

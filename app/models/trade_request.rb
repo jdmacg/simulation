@@ -10,5 +10,9 @@ class TradeRequest < ApplicationRecord
 		return return_props
 	end
 
+	def self.getOtherParty(tr, id)
+		(tr.offeror_id == id) ? tr.offeree_id : id
+	end
+
 
 end
