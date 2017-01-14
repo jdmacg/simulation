@@ -17,39 +17,34 @@
       <ul>
         <p id="offer-heading">Your Offer</p>
         <li onClick=handleCheckbox()>
-          <% current_user.team.properties.each do |x| %>
-            <%= check_box_tag "outgoing_property[]", x.id, false, :id => "p-checks" %>
-            <label class="checkbox"><span class="outer"><span class="inner"></span></span><%= x.city %></label>
-             <!-- <label class="checkbox"><input id="p-outgoing" type="checkbox" name="outgoing_property" value="<%= x.id %>"><span class="outer"><span class="inner"></span></span><%= x.city %></label> -->
+          <% current_user.team.properties.each do |prop| %>
+            <label class="prop-label">
+            <input type="checkbox" autocomplete="off" name="property" value=""+<%=prop.id%>+""><%=prop.city%></label>
           <% end %>
         </li>
         <li>
           <label for="outgoing-cash" class="mat-label">Cash Offer</label>
-          <input type="text" class="mat-input" id="cash-outgoing" value="outgoing-cash">
+          <input type="text" class="mat-input" id="cash-outgoing">
         </li>
       </ul>
     </div>
     <div class="new-trade" id="requested-items">
-      <div id="team-options">
+      <div>
         <p id="offer-heading">Your Request</p>
-        <label for="sel1" class="form-signin-heading text-muted">Select Team to Trade with: </label>
-        <select class="default-dropdown" name="user_selection">
-          <%= Team.all.each do |x| %>
-            <option id="request-selection" value="<%= x.id %>"><%= x.team_name %></option>
-          <% end %>
-        </select>
-      </div>
-      <div id="property-options">
-        <% Property.all.each do |x| %>
-          <label class="checkbox">
-            <%= check_box_tag "incoming_property[]", x.id, false, :id => "p-checks" %>
-            <%= x.city %>
-          </label>
-        <% end %>
+        <div class="dropdown">
+          <div class="title">Team Selection</div>
+          <ul>
+            <% Team.all.each do |team| %>
+              <li onClick="getRequestedProps('+<%=team.id%>+');"><%=team.team_name%></li>
+            <% end %>
+          </ul>
+          <ul id="team-props-list">
+          </ul>
+        </div>
       </div>
       <div id="request-cash-input">
         <label for="requested-cash" class="mat-label">Requested Cash</label>
-        <input type="text" class="mat-input" id="requested-cash" value="incoming-cash">
+        <input type="text" class="mat-input" id="requested-cash">
       </div>
     </div>
   </div>
@@ -63,21 +58,19 @@
 <script>
 
 function getRequestedProps(value){
-  $('#requested-properties-list').empty();
+  $('#team-props-list').empty();
   $.ajax({
     url: '/properties/' + value,
     success: function(response_data){
       if (response_data.length === 0){
         var $property_html = $('<li class=property-item>' + 'This team does not have any properties to trade!' + '</li>');
-        $('#requested-properties-list').append($property_html);
+        $('#team-props-list').append($property_html);
       }
       else{
           response_data.forEach(function(property){
             // TODO: Figure this out
-            var $p_desc_html = $('<label class="checkbox"><span class="outer"><span class="inner"></span></span>'+property.city+'</label>')
-            // var $property_html = $('<label class="checkbox"><input id="p-outgoing" type="checkbox" name="incoming_property" value='+property.id+'><span class="outer"><span class="inner"></span></span>'+property.city+'</label>');
-            $('#requested-properties-list').append($property_html);
-            $('#requested-properties-list').append($p_desc_html);
+            $property_html = '<label class="prop-label"><input type="checkbox" autocomplete="off" name="property" value="'+property.id+'">'+property.city+'</label>'
+            $('#team-props-list').append($property_html);
           });
         }
       },
@@ -102,5 +95,13 @@ $(".mat-input").focusout(function(){
 function handleCheckbox(){
   $('#p-outgoing').is(":checked") ? $("#p-outgoing").removeAttr("checked") : $("#p-outgoing").attr("checked","checked");
 }
+
+$(".dropdown .title").click(function () {
+  $(this).parent().toggleClass("closed");
+});
+
+$(".dropdown li").click(function () {
+  $(this).parent().parent().toggleClass("closed").find(".title").text($(this).text());
+});
 
 </script>

@@ -27,6 +27,15 @@
 	flex-wrap: wrap;
 }
 
+label[for="team-check"]{
+	border: 1px solid black;
+	border-radius: 0.5px;
+}
+#team-check{
+    display:none;
+}
+
+
 ////INPUTS
 .mat-label {
   display: block;
@@ -61,23 +70,91 @@
 ///END INPUTS
 
 ///DROPDOWN
-.default-dropdown{
-	width: 200px;
-	background-color: #3498db;
-	color: #fff;
-	font-size: inherit;
-	padding: .5em;
-	padding-right: 2.5em;
-	border: 0;
-	margin: 0;
-	border-radius: 3px;
-	text-indent: 0.01px;
-	text-overflow: '';
-	cursor: pointer;
-	border: 1px solid black;
-	background: white;
-	color: black;
-	-webkit-appearance: button;
+div.dropdown {
+  text-align: left;
+  font-size: 0.9em;
+  color: rgb(240, 240, 240);
+  text-shadow: 0px 1px 1px black;
+  width: inherit;
+  &.closed {
+    ul {
+      margin-top: 0px;
+      li {
+        margin-top: -40px;
+        height: 0px;
+      }
+    }
+    div.title:after {
+      margin-top: -14px;
+      transform: rotate(0deg);
+    }
+  }
+
+  div.title {
+		margin-left: 10px;
+		margin-right: 10px;
+    width: 80%;
+    height: 40px;
+    border: 1px solid rgba(25,25,25,0.3);
+    padding: 12px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 0px 2px 6px rgba(0,0,0,0.3);
+
+    &:after {
+      display: block;
+      content: "▾";
+      position: absolute;
+      right: 20px;
+      margin-top: -12px;
+      transform: rotate(180deg);
+    }
+  }
+
+  ul {
+    overflow: hidden;
+    transition: margin-top 1s;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.3), 0px 2px 6px rgba(0,0,0,0.3);
+    border-radius: 0px 0px 3px 3px;
+
+    li {
+      width: 100%;
+      height: 40px;
+      border: 1px solid rgba(25,25,25,0.3);
+      padding: 12px;
+      vertical-align: top;
+      overflow: hidden;
+      cursor: pointer;
+      transition: margin-top 0.5s, height 0.5s;
+      box-sizing: border-box;
+      background-image: linear-gradient(top, rgba(230, 230, 230, 2), rgba(160, 160, 160, 2));
+
+      &:first-child {
+        border-bottom: none;
+        border-top: none;
+      }
+      &:last-child {
+        border-top: none;
+        border-radius: 0px 0px 3px 3px;
+      }
+      &:hover {
+        text-shadow: 0px 1px 1px black, 0px 0px 4px white;
+      }
+      &:before {
+        content: " ";
+        display: inline-block;
+        position: relative;
+        margin-top: -12px;
+        margin-right: 10px;
+        width: 20px;
+        height: 40px;
+        opacity: 0.7;
+        transition: all 0.5s;
+      }
+    }
+  }
 }
 ///END DROPDOWN
 
