@@ -54,6 +54,7 @@
           <%= link_to 'Counter Offer', edit_trade_request_path(trade_request) %>
           <td><%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+        <%= link_to 'Accept Offer', accept_path(trade_request.id) %>
         <%= link_to 'Show', trade_request_path(trade_request.id) %>
       </div>
     </div>

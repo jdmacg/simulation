@@ -65,6 +65,10 @@ class TradeRequestsController < ApplicationController
     end
   end
 
+  def accept
+
+  end
+
   # DELETE /trade_requests/1
   # DELETE /trade_requests/1.json
   def destroy
