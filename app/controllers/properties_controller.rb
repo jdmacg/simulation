@@ -9,8 +9,8 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
-    @properties = Property.where(team_id: params[:id].to_i)
-    render json: @properties
+    # @properties = Property.where(team_id: params[:id].to_i)
+    # render json: @properties
   end
 
   def new
@@ -40,6 +40,17 @@ class PropertiesController < ApplicationController
     #most acquisitions, developments, properties, most x type properties
   # POST /properties
   # POST /properties.json
+  end
+
+  def develop
+    @property = Property.find(params[:id])
+    # Make sure team can develop (cash balance, property is already developed)
+    # If possible
+    #   Drop team's cash balance
+    #   Change properties development field to true
+    #   Call a method that updates a property's cash value after development_time amount of time
+    #   ---> adjust_property_value(@property, @development)
+    # NOTE: MUST MAKE SURE THAT ALL TRADE REQUESTS MAKE CHECKS TO ENSURE PROPERTY ISNT DEVELOPED
   end
 
   def create

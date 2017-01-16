@@ -1,39 +1,63 @@
-<p id="notice"><%= notice %></p>
+<%= render "sidebar" %>
 
-<p>
-  <strong>Team:</strong>
-  <%= @property.team_id %>
-</p>
+<div class="wrapper">
+  <div class="card radius shadowDepth1">
+  	<div class="card__image border-tlr-radius">
+      <%= link_to image_tag(@property.poster_image_url) %>
+    </div>
+  	<div class="card__content card__padding">
+              <div class="card__share">
+                  <div class="card__social">
+                      <a class="share-icon facebook" href="#"><span class="fa fa-facebook"></span></a>
+                      <a class="share-icon twitter" href="#"><span class="fa fa-twitter"></span></a>
+                      <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>
+                  </div>
+                  <a id="share" class="share-toggle share-icon" href="#"></a>
+              </div>
 
-<p>
-  <strong>Property type:</strong>
-  <%= @property.property_type.description %>
-</p>
+  		<div class="card__meta">
+  			<a href="#"> Value: <%= @property.value %></a>
+                  <time></time>
+  		</div>
 
-<p>
-  <strong>Property value:</strong>
-  <%= @property.value %>
-</p>
+  		<article class="card__article">
+  			<h2><a href="#"><%= @property.city %></a></h2>
+  			<p><%= @property.property_type.description %></p>
+        <p><h2>In Development?</h2>
+          <% if @property.in_development == false %>
+            No
+          <% else %>
+            Yes
+          <% end %>
+        </p>
+        <p><h2>Development Value</h2>
+          TODO
+        <p><h2>Province</h2>
+          <%= @property.province %>
+        </p>
+  		</article>
+  	</div>
 
-<p>
-  <strong>In development:</strong>
-  <%= @property.in_development %>
-</p>
+  	<div class="card__action">
 
-<p>
-  <strong>Development:</strong>
-  <%= @property.development_id %>
-</p>
+  		<div class="card__author">
+  			<img src="http://lorempixel.com/40/40/sports/" alt="user">
+  			<div class="card__author-content">
+  				Owned By <a href="#"><%= Team.find(@property.team_id).team_name %></a>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+</div>
 
-<p>
-  <strong>City:</strong>
-  <%= @property.city %>
-</p>
-
-<p>
-  <strong>Province:</strong>
-  <%= @property.province %>
-</p>
-
-<%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>
+
+<script>
+
+$('.card__share > a').on('click', function(e){
+  e.preventDefault() // prevent default action - hash doesn't appear in url
+  $(this).parent().find( 'div' ).toggleClass( 'card__social--active' );
+  $(this).toggleClass('share-expanded');
+});
+
+</script>

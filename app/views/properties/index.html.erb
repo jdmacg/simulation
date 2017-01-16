@@ -24,6 +24,8 @@
       <div class="cell">
         Province
       </div>
+      <div class="cell">
+      </div>
       <!-- <div class="cell">
         Trade Request
       </div> -->
@@ -48,9 +50,9 @@
         <div class="cell">
           <%= property.province %>
         </div>
-        <!-- <div class="cell">
-          <%= link_to "Issue Request", new_trade_request_path %>
-        </div> -->
+        <div class="cell">
+          <%= link_to 'Show', property_path(property.id) %>
+        </div>
       </div>
     <% end %>
 

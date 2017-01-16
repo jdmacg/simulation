@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   # get '/incentives' => 'incentives#index' TODO: Do we need this in the db?
 
   resources :trade_requests
-  get '/trading' => 'trade_requests#home'
   get "accept/:id" => "trade_requests#accept", :as => "accept"
 
 
@@ -19,6 +18,7 @@ Rails.application.routes.draw do
   # get '/teams' => 'teams#index'
 
   resources :properties
+  get "develop/:id" => "properties#develop", :as => "develop"
 
   resources :incentives
 
