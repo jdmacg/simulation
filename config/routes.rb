@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   resources :properties
 
+  resources :incentives
+
   root "welcome#home"
 
 
