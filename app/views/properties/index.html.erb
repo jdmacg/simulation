@@ -1,62 +1,41 @@
 <%= render "sidebar" %>
 <p id="notice"><%= notice %></p>
-<h1>All Properties</h1>
+<div class='content-container'>
+  <h1>All Properties</h1>
+  <br>
+  <% @teams.each do |team| %>
+    <h2> <%= team.team_name %> Properties</h2>
+    <ul class="cards">
+      <% team.properties.each do |prop| %>
+        <li class="cards__item">
+          <div class="card">
+            <div class="card__image card__image--fence"></div>
+            <div class="card__content">
+              <div class="card__title"><%= prop.city %></div>
+                <ul id="card__info">
+                  <li>
+                    Value: <%= prop.value %>
+                  </li>
+                  <li>
+                    <% if prop.developed %>
+                      Developed: Yes
+                    <% else %>
+                      Developed: No
+                    <% end %>
+                  </li>
+                  <li>
+                    Development Value: <%= prop.development.value %>
+                  </li>
+                </ul>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
 
-<br>
 
-<div class="table">
-    <div class="row header blue">
-      <div class="cell">
-        Team
-      </div>
-      <div class="cell">
-        Property Type
-      </div>
-      <div class="cell">
-        Property Value
-      </div>
-      <div class="cell">
-        In Development
-      </div>
-      <div class="cell">
-        City
-      </div>
-      <div class="cell">
-        Province
-      </div>
-      <div class="cell">
-      </div>
-      <!-- <div class="cell">
-        Trade Request
-      </div> -->
-    </div>
-    <% @properties.each do |property| %>
-      <div class="row">
-        <div class="cell">
-          <%= property.team_id %>
-        </div>
-        <div class="cell">
-          <%= property.property_type.description %>
-        </div>
-        <div class="cell">
-          <%= property.value %>
-        </div>
-        <div class="cell">
-          <%= property.in_development %>
-        </div>
-        <div class="cell">
-          <%= property.city %>
-        </div>
-        <div class="cell">
-          <%= property.province %>
-        </div>
-        <div class="cell">
-          <%= link_to 'Show', property_path(property.id) %>
-        </div>
-      </div>
-    <% end %>
-
-  </div>
 
 <!-- <script>
   // $('.trade-request').on('click', function(){

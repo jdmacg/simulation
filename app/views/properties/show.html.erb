@@ -1,62 +1,33 @@
 <%= render "sidebar" %>
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
-
-<div class="wrapper">
-  <div class="card radius shadowDepth1">
-  	<div class="card__image border-tlr-radius">
-      <h2>Simulation brought to you by:</h2>
-      <img src="https://pbs.twimg.com/media/Cg_WlKDWkAAiqn4.jpg">
-    </div>
-  	<div class="card__content card__padding">
-              <div class="card__share">
-                  <a id="share" class="share-toggle share-icon" href="#"></a>
-              </div>
-
-  		<div class="card__meta">
-  			<a href="#"> Value: <%= @property.value %></a>
-                  <time></time>
-  		</div>
-
-  		<article class="card__article">
-  			<h2><a href="#"><%= @property.city %></a></h2>
-  			<p><%= @property.property_type.description %></p>
-        <p><h2>In Development?</h2>
-          <% if @property.in_development == false %>
-            No
-          <% else %>
-            Yes
-          <% end %>
-        </p>
-        <p><h2>Development Value</h2>
-          <%= @property.development.value %>
-        <p><h2>Province</h2>
-          <%= @property.province %>
-        </p>
-  		</article>
-  	</div>
-
-  	<div class="card__action">
-
-  		<div class="card__author">
-  			<img src="http://lorempixel.com/40/40/sports/" alt="user">
-  			<div class="card__author-content">
-  				Owned By <a href="#"><%= Team.find(@property.team_id).team_name %></a>
-  			</div>
-  		</div>
-  	</div>
-  </div>
+<div class='content-container'>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <ul class="cards">
+      <li class="cards__item">
+        <div class="card">
+          <div class="card__image card__image--fence"></div>
+          <div class="card__content">
+            <div class="card__title"><%= @property.city %></div>
+              <ul id="card__info">
+                <li>
+                  Value: <%= @property.value %>
+                </li>
+                <li>
+                  <% if @property.developed %>
+                    Developed: Yes
+                  <% else %>
+                    Developed: No
+                  <% end %>
+                </li>
+                <li>
+                  Development Value: <%= @property.development.value %>
+                </li>
+              </ul>
+            <%= link_to 'Develop', develop_path(@property.id), class: "btn btn--block card__btn" %>
+          </div>
+        </div>
+      </li>
+  </ul>
+  <%= link_to 'Back', properties_path %>
 </div>
-
-<%= link_to 'Back', properties_path %>
-
-<script>
-
-$('.card__share > a').on('click', function(e){
-  e.preventDefault() // prevent default action - hash doesn't appear in url
-  $(this).parent().find( 'div' ).toggleClass( 'card__social--active' );
-  $(this).toggleClass('share-expanded');
-});
-
-</script>

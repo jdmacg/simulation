@@ -1,57 +1,57 @@
 <%= render "sidebar" %>
+<div class='content-container'>
 <h1>Incentives</h1>
 
 <br>
 
-<div class="table">
-    <div class="row header blue">
-      <div class="cell">
-        Incentive
-      </div>
-      <div class="cell">
-        Value
-      </div>
-      <div class="cell">
-        Team 1 Count
-      </div>
-      <div class="cell">
-        Team 2 Count
-      </div>
-      <div class="cell">
-        Team 3 Count
-      </div>
-      <div class="cell">
-        Team 4 Count
-      </div>
-      <div class="cell">
-        Team 5 Count
-      </div>
-      <div class="cell">
-        Team 6 Count
-      </div>
-      <!-- <div class="cell">
-        Trade Request
-      </div> -->
-    </div>
-    <% @incentives1.each do |incentive| %>
-      <div class="row">
+  <div class="table">
+      <div class="row header blue">
         <div class="cell">
-          <%=incentive.description%>
+          Incentive
         </div>
         <div class="cell">
-        <%=incentive.value%>
+          Value
         </div>
-        <% @calculations.each do |team,values| %>
-          <div class="cell">
-            <%= values[incentive.calculation_key.to_sym] %>
-          </div>
-        <%end %>
+        <div class="cell">
+          Team 1 Count
+        </div>
+        <div class="cell">
+          Team 2 Count
+        </div>
+        <div class="cell">
+          Team 3 Count
+        </div>
+        <div class="cell">
+          Team 4 Count
+        </div>
+        <div class="cell">
+          Team 5 Count
+        </div>
+        <div class="cell">
+          Team 6 Count
+        </div>
         <!-- <div class="cell">
-          <%= link_to "Issue Request", new_trade_request_path %>
+          Trade Request
         </div> -->
       </div>
-    <% end %>
-
+      <% @incentives1.each do |incentive| %>
+        <div class="row">
+          <div class="cell">
+            <%=incentive.description%>
+          </div>
+          <div class="cell">
+          <%=incentive.value%>
+          </div>
+          <% @calculations.each do |team,values| %>
+            <div class="cell">
+              <%= values[incentive.calculation_key.to_sym] %>
+            </div>
+          <%end %>
+          <!-- <div class="cell">
+            <%= link_to "Issue Request", new_trade_request_path %>
+          </div> -->
+        </div>
+      <% end %>
   </div>
-
-<%= link_to 'New Incentive', new_incentive_path %>
+  
+</div>

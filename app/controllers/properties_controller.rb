@@ -5,6 +5,7 @@ class PropertiesController < ApplicationController
   # GET /properties.json
   def index
     @properties = Property.all
+    @teams = Team.all
   end
   # GET /properties/1
   # GET /properties/1.json

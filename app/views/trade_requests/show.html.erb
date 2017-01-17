@@ -1,153 +1,106 @@
 <%= render 'sidebar' %>
-<div class='trade-request-view'>
-  <p id="notice"><%= notice %></p>
-  <h1>Trade Request</h1>
-  <p>
-    <strong>Outgoing properties</strong>
-    <div class='props-container'>
+<div class='content-container'>
+  <div class='show-trade-req'>
+    <p id="notice"><%= notice %></p>
+    <h2>Properties Offered By <%= Team.find(@trade_request.offeror_id).team_name %>
+    <ul class="cards">
       <% @trade_request.outgoing_properties.each do |prop| %>
-        <% p = Property.find(prop) %>
-        <div class="wrapper">
-          <div class="card radius shadowDepth1">
-          	<div class="card__image border-tlr-radius">
-              <h2>Simulation brought to you by:</h2>
-              <img src="https://pbs.twimg.com/media/Cg_WlKDWkAAiqn4.jpg">
+        <% prop = Property.find(prop) %>
+        <li class="cards__item">
+          <div class="card">
+            <div class="card__image card__image--fence"></div>
+            <div class="card__content">
+              <div class="card__title"><%= prop.city %></div>
+                <ul id="card__info">
+                  <li>
+                    Value: <%= prop.value %>
+                  </li>
+                  <li>
+                    <% if prop.developed %>
+                      Developed: Yes
+                    <% else %>
+                      Developed: No
+                    <% end %>
+                  </li>
+                  <li>
+                    Development Value: <%= prop.development.value %>
+                  </li>
+                </ul>
+              <button class="btn btn--block card__btn">Button</button>
             </div>
-          	<div class="card__content card__padding">
-                      <div class="card__share">
-                          <div class="card__social">
-                              <a class="share-icon facebook" href="#"><span class="fa fa-facebook"></span></a>
-                              <a class="share-icon twitter" href="#"><span class="fa fa-twitter"></span></a>
-                              <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>
-                          </div>
-                          <a id="share" class="share-toggle share-icon" href="#"></a>
-                      </div>
-
-          		<div class="card__meta">
-          			<a href="#"> Value: <%= p.value %></a>
-                          <time></time>
-          		</div>
-
-          		<article class="card__article">
-          			<h2><a href="#"><%= p.city %></a></h2>
-          			<p><%= p.property_type.description %></p>
-                <p><h2>In Development?</h2>
-                  <% if p.in_development == false %>
-                    No
-                  <% else %>
-                    Yes
-                  <% end %>
-                </p>
-                <p><h2>Development Value</h2>
-                  TODO
-                <p><h2>Province</h2>
-                  <%= p.province %>
-                </p>
-          		</article>
-          	</div>
-
-          	<div class="card__action">
-
-          		<div class="card__author">
-          			<img src="http://lorempixel.com/40/40/sports/" alt="user">
-          			<div class="card__author-content">
-          				Owned By <a href="#"><%= Team.find(p.team_id).team_name %></a>
-          			</div>
-          		</div>
-          	</div>
           </div>
-        </div>
+        </li>
       <% end %>
-    </div>
-  </p>
+    </ul>
 
-  <p>
-    <strong>Outgoing cash:</strong>
-    <%= @trade_request.outgoing_cash %>
-  </p>
+    <br>
 
-  <p>
-    <strong>Offeror:</strong>
-    <%= Team.find(@trade_request.offeror_id).team_name %>
-  </p>
-
-  <p>
-    <strong>Offeree:</strong>
-    <%= Team.find(@trade_request.offeree_id).team_name %>
-  </p>
-
-  <p>
-    <strong>Incoming cash:</strong>
-    <%= @trade_request.incoming_cash %>
-  </p>
-
-  <p>
-    <strong>Incoming properties:</strong>
-    <div class='props-container'>
+    <h2>Properties Offered By <%= Team.find(@trade_request.offeree_id).team_name %>
+    <ul class="cards">
       <% @trade_request.incoming_properties.each do |prop| %>
-        <% p = Property.find(prop) %>
-          <div class="card radius shadowDepth1">
-            <div class="card__image border-tlr-radius">
-              <%= link_to image_tag(p.poster_image_url) %>
-            </div>
-            <div class="card__content card__padding">
-                      <div class="card__share">
-                          <div class="card__social">
-                              <a class="share-icon facebook" href="#"><span class="fa fa-facebook"></span></a>
-                              <a class="share-icon twitter" href="#"><span class="fa fa-twitter"></span></a>
-                              <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>
-                          </div>
-                          <a id="share" class="share-toggle share-icon" href="#"></a>
-                      </div>
-
-              <div class="card__meta">
-                <a href="#"> Value: <%= p.value %></a>
-                          <time></time>
-              </div>
-
-              <article class="card__article">
-                <h2><a href="#"><%= p.city %></a></h2>
-                <p><%= p.property_type.description %></p>
-                <p><h2>In Development?</h2>
-                  <% if p.in_development == false %>
-                    No
-                  <% else %>
-                    Yes
-                  <% end %>
-                </p>
-                <p><h2>Development Value</h2>
-                  TODO
-                </p>
-                <p><h2>Province</h2>
-                  <%= p.province %>
-                </p>
-              </article>
-            </div>
-
-            <div class="card__action">
-
-              <div class="card__author">
-                <img src="http://lorempixel.com/40/40/sports/" alt="user">
-                <div class="card__author-content">
-                  Owned By <a href="#"><%= Team.find(p.team_id).team_name %></a>
-                </div>
-              </div>
+        <% prop = Property.find(prop) %>
+        <li class="cards__item">
+          <div class="card">
+            <div class="card__image card__image--fence"></div>
+            <div class="card__content">
+              <div class="card__title"><%= prop.city %></div>
+                <ul id="card__info">
+                  <li>
+                    Value: <%= prop.value %>
+                  </li>
+                  <li>
+                    <% if prop.developed %>
+                      Developed: Yes
+                    <% else %>
+                      Developed: No
+                    <% end %>
+                  </li>
+                  <li>
+                    Development Value: <%= prop.development.value %>
+                  </li>
+                </ul>
+              <button class="btn btn--block card__btn">Button</button>
             </div>
           </div>
-        </div>
+        </li>
       <% end %>
-  </p>
+    </ul>
 
-  <p>
-    <strong>Completed:</strong>
-    <%= @trade_request.completed %>
-  </p>
+    <br>
 
-  <% if @trade_request.response_turn == current_user.team_id %>
-    <%= link_to 'Counter Offer', edit_trade_request_path(@trade_request) %>
-    <td><%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  <% end %>
-
-
-  <%= link_to 'Back', trade_requests_path %>
+    <h2> Cash Offers
+    <ul class="cards">
+        <li class="cards__item">
+          <div class="card">
+            <div class="card__content">
+              <div class="card__title">Trade Initiator: <%= Team.find(@trade_request.offeror_id).team_name %></div>
+                <ul id="card__info">
+                  <li>
+                    Cash Offer: <%= @trade_request.outgoing_cash %>
+                  </li>
+                </ul>
+              <button class="btn btn--block card__btn">Button</button>
+            </div>
+          </div>
+        </li>
+        <li class="cards__item">
+          <div class="card">
+            <div class="card__content">
+              <div class="card__title">Trade Recipient: <%= Team.find(@trade_request.offeree_id).team_name %></div>
+                <ul id="card__info">
+                  <li>
+                    Cash Offer: <%= @trade_request.incoming_cash %>
+                  </li>
+                </ul>
+              <button class="btn btn--block card__btn">Button</button>
+            </div>
+          </div>
+        </li>
+    </ul>
+    <% if @trade_request.response_turn == current_user.team_id %>
+      <%= link_to 'Counter Offer', edit_trade_request_path(@trade_request) %>
+      <td><%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+    <%= link_to 'Back', trade_requests_path %>
+  </div>
 </div>
