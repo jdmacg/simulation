@@ -22,6 +22,11 @@ Team.create!([{team_name: "Team Six", cash_balance: 100000}])
 end
 
 6.times do |i|
+	my_development = Development.create!([{cost: 500, used: false, value: 1000, development_time: 2}])
+	Property.all[i].development = Development.all[i]
+end
+
+6.times do |i|
   user = User.new
 	user.username = Faker::Name.unique.name
 	user.password = 'valid_password'

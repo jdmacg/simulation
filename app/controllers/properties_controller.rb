@@ -43,12 +43,19 @@ class PropertiesController < ApplicationController
   end
 
   def develop
+
     @property = Property.find(params[:id])
+    binding.pry()
+    flash[:notice] = @property.develop()
+    binding.pry()
+    redirect_to users_path
+    #assume check for development is happening in front end. need to add this
     # Make sure team can develop (cash balance, property is already developed)
     # If possible
     #   Drop team's cash balance
     #   Change properties development field to true
     #   Call a method that updates a property's cash value after development_time amount of time
+    #^^^^^^^^^^should happen in the time update method in admin panel
     #   ---> adjust_property_value(@property, @development)
     # NOTE: MUST MAKE SURE THAT ALL TRADE REQUESTS MAKE CHECKS TO ENSURE PROPERTY ISNT DEVELOPED
   end
