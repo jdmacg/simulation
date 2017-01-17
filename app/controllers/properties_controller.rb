@@ -43,21 +43,23 @@ class PropertiesController < ApplicationController
   end
 
   def develop
-
     @property = Property.find(params[:id])
-    binding.pry()
-    flash[:notice] = @property.develop()
-    binding.pry()
-    redirect_to users_path
-    #assume check for development is happening in front end. need to add this
-    # Make sure team can develop (cash balance, property is already developed)
-    # If possible
-    #   Drop team's cash balance
-    #   Change properties development field to true
-    #   Call a method that updates a property's cash value after development_time amount of time
-    #^^^^^^^^^^should happen in the time update method in admin panel
-    #   ---> adjust_property_value(@property, @development)
-    # NOTE: MUST MAKE SURE THAT ALL TRADE REQUESTS MAKE CHECKS TO ENSURE PROPERTY ISNT DEVELOPED
+    flash = {}
+    if @property.development.used
+      flash[:error] = "You have already developed this property" #TODO not displaying
+      render 'show'
+    elsif !(Team.find(current_user.team_id).can_drop_cash_balance(@property.development.cost))
+      flash[:error] = "You cannot afford to develop this property" #TODO not displaying
+    else
+      message = @property.develop(current_user.team_id)
+      @development = @property.development
+      @development.save!
+      flash[:success] = message
+      respond_to do |format|
+        format.html { redirect_to @property, notice: 'Development was successfully initiated.' } #TODO not displaying
+        format.json { render :show, status: :created, location: @property }
+      end
+    end
   end
 
   def create
@@ -84,9 +86,10 @@ class PropertiesController < ApplicationController
   # DELETE /properties/1.json
   def destroy
     @property.destroy
-      format.html { redirect_to properties_url, notice: 'Property was successfully destroyed.' }
-      format.json { head :no_content }
+    format.html { redirect_to properties_url, notice: 'Property was successfully destroyed.' }
+    format.json { head :no_content }
   end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_property
@@ -96,4 +99,5 @@ class PropertiesController < ApplicationController
     def property_params
       params.require(:property).permit(:team_id, :property_type, :property_values_id, :in_development, :development_id, :city, :province)
     end
+
 end

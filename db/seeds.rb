@@ -22,10 +22,13 @@ Team.create!([{team_name: "Team Six", cash_balance: 100000}])
 end
 
 6.times do |i|
-	my_development = Development.create!([{cost: 500, used: false, value: 1000, development_time: 2}])
+	development = Development.create!([{cost: 500, used: false, value: 1000, development_time: 2}])
+	my_development = development[0]
 	my_property = Property.all[i]
-	my_property.development = my_development[0]
+	my_property.development = my_development
+	my_development.property = my_property
 	my_property.save!
+	my_development.save!
 	binding.pry
 end
 

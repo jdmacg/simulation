@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117052918) do
+ActiveRecord::Schema.define(version: 20170117195545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20170117052918) do
     t.datetime "updated_at",       null: false
     t.decimal  "value"
     t.decimal  "development_time"
+    t.integer  "property_id"
+    t.index ["property_id"], name: "index_developments_on_property_id", using: :btree
   end
 
   create_table "incentives", force: :cascade do |t|
@@ -94,5 +96,6 @@ ActiveRecord::Schema.define(version: 20170117052918) do
     t.integer  "team_id"
   end
 
+  add_foreign_key "developments", "properties"
   add_foreign_key "properties", "developments"
 end

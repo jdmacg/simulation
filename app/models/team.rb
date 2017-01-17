@@ -62,7 +62,11 @@ class Team < ApplicationRecord
   	return results
   end
 
-  def self.calcExclusiveIncentives
+  def drop_cash_balance(value)
+    self.cash_balance -= value
   end
 
+  def can_drop_cash_balance(value)
+    self.cash_balance >= value ? true : false
+  end
 end

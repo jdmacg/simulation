@@ -1,17 +1,16 @@
 <%= render "sidebar" %>
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
 
 <div class="wrapper">
   <div class="card radius shadowDepth1">
   	<div class="card__image border-tlr-radius">
-      <%= link_to image_tag(@property.poster_image_url) %>
+      <h2>Simulation brought to you by:</h2>
+      <img src="https://pbs.twimg.com/media/Cg_WlKDWkAAiqn4.jpg">
     </div>
   	<div class="card__content card__padding">
               <div class="card__share">
-                  <div class="card__social">
-                      <a class="share-icon facebook" href="#"><span class="fa fa-facebook"></span></a>
-                      <a class="share-icon twitter" href="#"><span class="fa fa-twitter"></span></a>
-                      <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>
-                  </div>
                   <a id="share" class="share-toggle share-icon" href="#"></a>
               </div>
 
@@ -31,7 +30,7 @@
           <% end %>
         </p>
         <p><h2>Development Value</h2>
-          TODO
+          <%= @property.development.value %>
         <p><h2>Province</h2>
           <%= @property.province %>
         </p>

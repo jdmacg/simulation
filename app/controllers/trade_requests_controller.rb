@@ -41,11 +41,12 @@ class TradeRequestsController < ApplicationController
     @trade_request.outgoing_properties = params[:outgoing_property]
     @trade_request.incoming_properties = params[:incoming_property]
     respond_to do |format|
-      if @trade_request.save
+      if @trade_request.save!
         format.html { redirect_to trade_requests_path, notice: 'Trade request was successfully created.' }
         format.json { render :show, status: :created, location: @trade_request }
       else
-        format.html { render :new }
+        binding.pry
+        format.html { redirect_to trade_requests_path, render :new }
         format.json { render json: @trade_request.errors, status: :unprocessable_entity }
       end
     end
