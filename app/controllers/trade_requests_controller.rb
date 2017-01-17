@@ -40,15 +40,11 @@ class TradeRequestsController < ApplicationController
     @trade_request.response_turn = t_r[:offeree_id]
     @trade_request.outgoing_properties = params[:outgoing_property]
     @trade_request.incoming_properties = params[:incoming_property]
-    respond_to do |format|
-      if @trade_request.save!
-        format.html { redirect_to trade_requests_path, notice: 'Trade request was successfully created.' }
-        format.json { render :show, status: :created, location: @trade_request }
-      else
-        binding.pry
-        format.html { redirect_to trade_requests_path, render :new }
-        format.json { render json: @trade_request.errors, status: :unprocessable_entity }
-      end
+    if @trade_request.save
+      redirect_to trade_requests_path, notice: "Your trade request was successfully submitted"
+    else
+      flash[:error] = "Please specify properties, cash, or both!"
+      render :action => "index"
     end
   end
 

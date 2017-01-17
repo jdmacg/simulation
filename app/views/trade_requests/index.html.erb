@@ -1,10 +1,12 @@
 <%= render 'sidebar' %>
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
+
 
 <h1>Active Trade Requests</h1>
-
+<h4>
+  <% flash.each do |k, v| %>
+    <div id="error"><%= v %></div>
+  <% end %>
+</h4>
 <div class="table">
   <div class="row header blue">
     <div class="cell">
@@ -29,7 +31,7 @@
       Actions
     </div>
   </div>
-  <% @trade_requests.each do |trade_request| %>
+  <% TradeRequest.all.each do |trade_request| %>
     <div class="row">
       <div class="cell">
         <%= trade_request.outgoing_properties.length %>
