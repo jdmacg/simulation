@@ -23,7 +23,10 @@ end
 
 6.times do |i|
 	my_development = Development.create!([{cost: 500, used: false, value: 1000, development_time: 2}])
-	Property.all[i].development = Development.all[i]
+	my_property = Property.all[i]
+	my_property.development = my_development[0]
+	my_property.save!
+	binding.pry
 end
 
 6.times do |i|
