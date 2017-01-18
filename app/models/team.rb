@@ -62,6 +62,14 @@ class Team < ApplicationRecord
   	return results
   end
 
+  def calcTotalPropertyValue()
+  	sum = 0
+  	self.properties.each do |prop|
+  		sum += prop.getValue();
+  	end
+  	return sum
+  end
+
   def drop_cash_balance(value)
     self.cash_balance -= value
     self.save!

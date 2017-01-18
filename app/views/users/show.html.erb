@@ -14,13 +14,15 @@
                 <li>
                   <% if prop.developed %>
                     Developed: Yes
-                  <% else %>
-                    Developed: No
+                  <% elsif prop.in_development%>
+                    Developed: In Development
                   <% end %>
                 </li>
                 <li>
                   Development Value: <%= prop.development.value %>
                 </li>
+                <li>
+                  Total Value: <%=prop.getValue()%>
               </ul>
             <%= link_to 'Develop', develop_path(prop.id), class: "btn btn--block card__btn" %>
           </div>

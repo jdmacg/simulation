@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # get '/teams' => 'teams#index'
 
   resources :properties
-  get "develop/:id" => "properties#develop", :as => "develop"
+  get "develop/:id" => "users#develop", :as => "develop"
 
   resources :incentives
 
