@@ -64,6 +64,7 @@ class Team < ApplicationRecord
 
   def drop_cash_balance(value)
     self.cash_balance -= value
+    self.save!
   end
 
   def can_drop_cash_balance(value)
