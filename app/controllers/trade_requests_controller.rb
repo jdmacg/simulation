@@ -6,6 +6,7 @@ class TradeRequestsController < ApplicationController
   def index
     @trade_requests = TradeRequest.all
     @team = Team.find(current_user.team_id)
+    binding.pry()
   end
 
   # GET /trade_requests/1
@@ -46,7 +47,7 @@ class TradeRequestsController < ApplicationController
       redirect_to trade_requests_path, notice: "Your trade request was successfully submitted"
     else
       flash[:error] = "Please specify properties, cash, or both!"
-      render :action => "index"
+      redirect_to trade_requests_path
     end
   end
 

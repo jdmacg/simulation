@@ -17,8 +17,7 @@ class Property < ApplicationRecord
       @team.drop_cash_balance(self.development.cost)
       @team.save!
       self.in_development = true
-      self.developed = true
-      self.value += self.development.value
+      self.developed = false
       self.development.used = true
       self.save!
       binding.pry()

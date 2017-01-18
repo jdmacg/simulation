@@ -31,7 +31,9 @@
                 <li>
                   Total Value: <%=prop.getValue()%>
               </ul>
-            <%= link_to 'Develop', develop_path(prop.id), class: "btn btn--block card__btn" %>
+            <%if !prop.developed and !prop.in_development%>
+              <%= link_to 'Develop', develop_path(prop.id), class: "btn btn--block card__btn" %>
+            <%end%>
           </div>
         </div>
       </li>
