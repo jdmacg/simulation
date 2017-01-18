@@ -21,6 +21,10 @@ Rails.application.routes.draw do
 
   resources :incentives
 
+  namespace :admin do
+    resources :properties
+  end
+
   root "welcome#home"
 
 
