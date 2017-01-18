@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #   User.create([{name: jordan'}])
 
-
 Team.create!([{team_name: "Team One", cash_balance: 100000}])
 Team.create!([{team_name: "Team Two", cash_balance: 100000}])
 Team.create!([{team_name: "Team Three", cash_balance: 100000}])

@@ -9,7 +9,7 @@
   <div class="table">
     <div class="row header blue">
       <div class="cell">
-        Your Property Offer
+        # Properties Offered
       </div>
       <div class="cell">
         Your Cash Offer
@@ -18,7 +18,7 @@
         Counterparty
       </div>
       <div class="cell">
-        Counterparty Properties
+        # Counterparty Properties
       </div>
       <div class="cell">
         Counterparty Cash
@@ -30,22 +30,22 @@
         Actions
       </div>
     </div>
-    <% TradeRequest.all.each do |trade_request| %>
+    <% TradeRequest.where(offeror_id: @team.id).each do |trade_request| %>
       <div class="row">
         <div class="cell">
-          <%= trade_request.outgoing_properties.length %>
+          <%= trade_request.outgoing_properties ? trade_request.outgoing_properties.length : nil %>
         </div>
         <div class="cell">
-          <%= trade_request.outgoing_cash %>
+          <%= trade_request.outgoing_cash ? trade_request.outgoing_cash : nil%>
         </div>
         <div class="cell">
           <%= trade_request.offeror_id %>
         </div>
         <div class="cell">
-          <%= trade_request.incoming_properties.length %>
+          <%= trade_request.incoming_properties ? trade_request.incoming_properties.length : nil %>
         </div>
         <div class="cell">
-          <%= trade_request.incoming_cash %>
+          <%= trade_request.incoming_cash ? trade_request.incoming_cash : nil %>
         </div>
         <div class="cell">
           <% if trade_request.completed %>

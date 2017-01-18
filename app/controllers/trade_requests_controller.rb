@@ -5,11 +5,13 @@ class TradeRequestsController < ApplicationController
   # GET /trade_requests.json
   def index
     @trade_requests = TradeRequest.all
+    @team = Team.find(current_user.team_id)
   end
 
   # GET /trade_requests/1
   # GET /trade_requests/1.json
   def show
+    @team = Team.find(current_user.team_id)
   end
 
   # GET /trade_requests/new
@@ -63,7 +65,18 @@ class TradeRequestsController < ApplicationController
   end
 
   def accept
-
+    @trade_request = TradeRequest.find(params[:id])
+    @trade_request.execute_trade
+    @trade_request.completed = true
+    respond_to do |format|
+      if @trade_request.save!
+        format.html { redirect_to trade_requests_url, notice: 'Trade request was successfully accepted.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to trade_requests_url, notice: 'Invalid trade request.' }
+        format.json { render json: @trade_request.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # DELETE /trade_requests/1

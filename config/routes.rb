@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   resources :trade_requests
   get "accept/:id" => "trade_requests#accept", :as => "accept"
 
-
   resources :teams
   # get '/teams' => 'teams#index'
 
