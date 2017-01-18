@@ -1,7 +1,9 @@
 <%= render "sidebar" %>
 <div class='content-container'>
+  <p>
   Total Cash: <%=@team.cash_balance%>
   Total Property Value: <%=@totalPropertyValue%>
+  </p>
   <ul class="cards">
     <% @properties.each do |prop| %>
       <li class="cards__item">
@@ -14,6 +16,9 @@
                   Value: <%= prop.value %>
                 </li>
                 <li>
+                  Development Value: <%= prop.development.value %>
+                </li>
+                <li>
                   Development Cost: <%=prop.development.cost%>
                 <li>
                   <% if prop.developed %>
@@ -22,9 +27,7 @@
                     Developed: In Development
                   <% end %>
                 </li>
-                <li>
-                  Development Value: <%= prop.development.value %>
-                </li>
+
                 <li>
                   Total Value: <%=prop.getValue()%>
               </ul>

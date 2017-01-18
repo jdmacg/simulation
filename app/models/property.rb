@@ -28,7 +28,7 @@ class Property < ApplicationRecord
   end
 
   def getValue()
-  	if !(self.development)
+  	if !(self.developed)
   		return self.value
   	else 
   		return self.value + self.development.value

@@ -1,5 +1,9 @@
 <%= render "sidebar" %>
 <div class='content-container'>
+  <p>
+  Total Cash: <%=@team.cash_balance%>
+  Total Property Value: <%=@totalPropertyValue%>
+  </p>
   <p id="notice"><%= notice %></p>
   <h1>Properties Owned</h1>
   <ul class="cards">
@@ -14,25 +18,25 @@
                   Value: <%= prop.value %>
                 </li>
                 <li>
+                  Development Value: <%= prop.development.value %>
+                </li>
+                <li>
+                  Development Cost: <%=prop.development.cost%>
+                <li>
                   <% if prop.developed %>
                     Developed: Yes
-                  <% else %>
+                  <% elsif prop.in_development%>
+                    Developed: In Development
+                  <%else%>
                     Developed: No
                   <% end %>
                 </li>
                 <li>
-                  Development Value: <%= prop.development.value %>
-                </li>
+                  Total Value: <%=prop.getValue()%>
               </ul>
           </div>
         </div>
       </li>
     <% end %>
   </ul>
-
-  Property Type 1 count:
-  <%= @incentives[:countType1] %>
-  <p>
-    <%= link_to 'Back', teams_path %>
-  </p>
 </div>

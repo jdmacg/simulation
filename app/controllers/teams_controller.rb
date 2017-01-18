@@ -12,6 +12,7 @@ class TeamsController < ApplicationController
   def show
     @incentives = @team.calcIncentives()
     @properties = Property.where(team_id: @team.id)
+    @totalPropertyValue = @team.calcTotalPropertyValue()
   end
 
 
