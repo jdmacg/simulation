@@ -6,7 +6,6 @@ class TradeRequestsController < ApplicationController
   def index
     @trade_requests = TradeRequest.all
     @team = Team.find(current_user.team_id)
-    binding.pry()
   end
 
   # GET /trade_requests/1

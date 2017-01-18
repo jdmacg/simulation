@@ -1,5 +1,8 @@
 <%= render "sidebar" %>
 <div class='content-container'>
+  <% flash.each do |k, v| %>
+    <div id="error"><%= v %></div>
+  <% end %>
   <p>
   Total Cash: <%=@team.cash_balance%>
   Total Property Value: <%=@totalPropertyValue%>

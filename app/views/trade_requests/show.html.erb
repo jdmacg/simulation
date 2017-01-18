@@ -4,32 +4,33 @@
     <p id="notice"><%= notice %></p>
     <h2>Properties Offered By <%= Team.find(@trade_request.offeror_id).team_name %>
     <ul class="cards">
-      <% @trade_request.outgoing_properties.each do |prop| %>
-        <% prop = Property.find(prop) %>
-        <li class="cards__item">
-          <div class="card">
-            <div class="card__image card__image--fence"></div>
-            <div class="card__content">
-              <div class="card__title"><%= prop.city %></div>
-                <ul id="card__info">
-                  <li>
-                    Value: <%= prop.value %>
-                  </li>
-                  <li>
-                    <% if prop.developed %>
-                      Developed: Yes
-                    <% else %>
-                      Developed: No
-                    <% end %>
-                  </li>
-                  <li>
-                    Development Value: <%= prop.development.value %>
-                  </li>
-                </ul>
-              <button class="btn btn--block card__btn">Button</button>
+      <%if @trade_request.outgoing_properties %>
+        <% @trade_request.outgoing_properties.each do |prop| %>
+          <% prop = Property.find(prop) %>
+          <li class="cards__item">
+            <div class="card">
+              <div class="card__image card__image--fence"></div>
+              <div class="card__content">
+                <div class="card__title"><%= prop.city %></div>
+                  <ul id="card__info">
+                    <li>
+                      Value: <%= prop.value %>
+                    </li>
+                    <li>
+                      <% if prop.developed %>
+                        Developed: Yes
+                      <% else %>
+                        Developed: No
+                      <% end %>
+                    </li>
+                    <li>
+                      Development Value: <%= prop.development.value %>
+                    </li>
+                  </ul>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
+        <% end %>
       <% end %>
     </ul>
 
@@ -37,32 +38,33 @@
 
     <h2>Properties Offered By <%= Team.find(@trade_request.offeree_id).team_name %>
     <ul class="cards">
-      <% @trade_request.incoming_properties.each do |prop| %>
-        <% prop = Property.find(prop) %>
-        <li class="cards__item">
-          <div class="card">
-            <div class="card__image card__image--fence"></div>
-            <div class="card__content">
-              <div class="card__title"><%= prop.city %></div>
-                <ul id="card__info">
-                  <li>
-                    Value: <%= prop.value %>
-                  </li>
-                  <li>
-                    <% if prop.developed %>
-                      Developed: Yes
-                    <% else %>
-                      Developed: No
-                    <% end %>
-                  </li>
-                  <li>
-                    Development Value: <%= prop.development.value %>
-                  </li>
-                </ul>
-              <button class="btn btn--block card__btn">Button</button>
+      <% if @trade_request.incoming_properties %>
+        <% @trade_request.incoming_properties.each do |prop| %>
+          <% prop = Property.find(prop) %>
+          <li class="cards__item">
+            <div class="card">
+              <div class="card__image card__image--fence"></div>
+              <div class="card__content">
+                <div class="card__title"><%= prop.city %></div>
+                  <ul id="card__info">
+                    <li>
+                      Value: <%= prop.value %>
+                    </li>
+                    <li>
+                      <% if prop.developed %>
+                        Developed: Yes
+                      <% else %>
+                        Developed: No
+                      <% end %>
+                    </li>
+                    <li>
+                      Development Value: <%= prop.development.value %>
+                    </li>
+                  </ul>
+              </div>
             </div>
-          </div>
-        </li>
+          </li>
+        <% end %>
       <% end %>
     </ul>
 
@@ -79,7 +81,6 @@
                     Cash Offer: <%= @trade_request.outgoing_cash %>
                   </li>
                 </ul>
-              <button class="btn btn--block card__btn">Button</button>
             </div>
           </div>
         </li>
@@ -92,7 +93,6 @@
                     Cash Offer: <%= @trade_request.incoming_cash %>
                   </li>
                 </ul>
-              <button class="btn btn--block card__btn">Button</button>
             </div>
           </div>
         </li>
