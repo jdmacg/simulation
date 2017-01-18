@@ -39,6 +39,7 @@ end
 	user.save!
 end
 
+
 Incentive.create([{description: "4 Industrial Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType1Count", completed_key: "propertyType1"}])
 Incentive.create([{description: "7 Multi-Residential Properties Owned", value: 4000000, incentive_type: 1, calculation_key: "propertyType2Count", completed_key: "propertyType1"}])
 Incentive.create([{description: "3 Office Properties Owned", value: 6000000, incentive_type: 1, calculation_key: "propertyType3Count", completed_key: "propertyType1"}])
