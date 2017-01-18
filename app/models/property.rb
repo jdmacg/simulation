@@ -27,6 +27,14 @@ class Property < ApplicationRecord
     return message
   end
 
+  def getValue()
+  	if !(self.development)
+  		return self.value
+  	else 
+  		return self.value + self.development.value
+  	end
+  end
+
 
 
 end
