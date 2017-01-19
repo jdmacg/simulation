@@ -27,18 +27,15 @@ class UsersController < ApplicationController
     @property = Property.find(params[:id])
     flash = {}
     if @property.development.used
-      flash[:error] = "You have already developed this property" #TODO not displaying
-      redirect_to users_path
+      redirect_to users_path, alert: "You have already developed this property"
     elsif !(Team.find(current_user.team_id).can_drop_cash_balance(@property.development.cost))
-      flash[:error] = "You cannot afford to develop this property" #TODO not displaying
-      redirect_to users_path
+      redirect_to users_path, alert: "You cannot afford to develop this property"
     else
+
       message = @property.develop(current_user.team_id)
       @development = @property.development
       @development.save!
-      flash[:success] = message
-      flash[:notice] =  'Development was successfully initiated.'
-      redirect_to users_path
+      redirect_to users_path, notice: "Development was succesfully initiated"
       #respond_to do |format|
         #format.html { redirect_to @property, notice: 'Development was successfully initiated.' } #TODO not displaying
         #format.json { render :show, status: :created, location: @property }

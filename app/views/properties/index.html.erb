@@ -1,6 +1,9 @@
 <%= render "sidebar" %>
 <p id="notice"><%= notice %></p>
 <div class='content-container'>
+  <% flash.each do |k, v| %>
+    <div id="error"><%= v %></div>
+  <% end %>
   <h1>All Properties</h1>
   <br>
   <% @teams.each do |team| %>
