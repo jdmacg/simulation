@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root "welcome#home"
+  root "sessions#new"
 
 
 
