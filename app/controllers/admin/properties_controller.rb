@@ -20,9 +20,9 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	end
       end
 	  end
+    redirect_to admin_properties_path, :notice => 'shocked 1 properly'
 	end
-	redirect_to admin_properties_path, :notice => 'shocked 1 properly'
-  end
+
 
   def shock2
   	Property.all.each do |prop|
@@ -95,6 +95,6 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	end
       end
 	  end
+    redirect_to admin_properties_path, :notice => 'shocked 4 properly'
 	end
-  redirect_to admin_properties_path, :notice => 'shocked 4 properly'
 end
