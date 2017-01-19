@@ -39,11 +39,7 @@ class TradeRequestsController < ApplicationController
     @trade_request.outgoing_cash = t_r[:outgoing_cash]
     @trade_request.incoming_cash = t_r[:incoming_cash]
     @trade_request.completed = false
-    if current_user.team_id == t_r[:offeree_id]
-      @trade_request.response_turn = t_r[:offeror_id]
-    else
-      @trade_request.response_turn = t_r[:offeree_id]
-    end
+    @trade_request.response_turn = TradeRequest.getOtherParty(@trade_request, current_user.team_id)
     @trade_request.outgoing_properties = params[:outgoing_property]
     @trade_request.incoming_properties = params[:incoming_property]
     can_trade_outgoing = TradeRequest.tradeable(@trade_request.outgoing_properties)
