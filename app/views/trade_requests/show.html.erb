@@ -11,7 +11,7 @@
             <div class="card">
               <div class="card__image card__image--fence"></div>
               <div class="card__content">
-                <div class="card__title"><%= prop.city %></div>
+                <div class="card__title"><%= prop.name %></div>
                   <ul id="card__info">
                     <li>
                       Value: <%= prop.value %>
@@ -48,7 +48,7 @@
             <div class="card">
               <div class="card__image card__image--fence"></div>
               <div class="card__content">
-                <div class="card__title"><%= prop.city %></div>
+                <div class="card__title"><%= prop.name %></div>
                   <ul id="card__info">
                     <li>
                       Value: <%= prop.value %>
@@ -101,7 +101,6 @@
         </li>
     </ul>
     <% if @trade_request.response_turn == current_user.team_id && !@trade_request.completed%>
-      <h2>response turn: <%= @trade_request.response_turn %>
       <%= link_to 'Counter Offer', edit_trade_request_path(@trade_request) %>
       <td><%= link_to 'Decline Offer', @trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
