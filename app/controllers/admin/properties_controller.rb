@@ -5,4 +5,6 @@ class Admin::PropertiesController < Admin::ApplicationController
     @properties = Property.all
   end
 
+
+
 end

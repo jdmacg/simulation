@@ -22,7 +22,14 @@ Rails.application.routes.draw do
   resources :incentives
 
   namespace :admin do
-    resources :properties
+    resources :properties do
+      collection do
+        get 'shockone'
+        get 'shocktwo'
+        get 'shockthree'
+        get 'shockfour'
+      end
+    end
   end
 
   root "welcome#home"
