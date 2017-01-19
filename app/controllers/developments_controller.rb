@@ -25,7 +25,6 @@ class DevelopmentsController < ApplicationController
   # POST /developments.json
   def create
     @development = Development.new(development_params)
-
     respond_to do |format|
       if @development.save
         format.html { redirect_to @development, notice: 'Development was successfully created.' }

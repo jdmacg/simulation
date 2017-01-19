@@ -65,5 +65,13 @@ class TradeRequest < ApplicationRecord
 		(tr.offeror_id == id) ? tr.offeree_id : id
 	end
 
+	def self.tradeable(props)
+		tradeable = true
+		props.each do |prop|
+			prop = Property.find(prop)
+			tradeable = !prop.developed
+		end
+		return tradeable
+	end
 
 end

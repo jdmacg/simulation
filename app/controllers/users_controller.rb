@@ -30,7 +30,6 @@ class UsersController < ApplicationController
       flash[:error] = "You have already developed this property" #TODO not displaying
       redirect_to users_path
     elsif !(Team.find(current_user.team_id).can_drop_cash_balance(@property.development.cost))
-      binding.pry
       flash[:error] = "You cannot afford to develop this property" #TODO not displaying
       redirect_to users_path
     else

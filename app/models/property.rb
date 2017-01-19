@@ -3,12 +3,11 @@ class Property < ApplicationRecord
   belongs_to :property_type
   belongs_to :development
 
-  def adjust_property_value(prop, dev)
-
+  def adjust_property_value
+    self.value += self.development.value
   end
 
   def develop(id)
-  	binding.pry()
   	message = ''
     @team = Team.find(id)
   	if !(self.development)
@@ -16,11 +15,11 @@ class Property < ApplicationRecord
   	else
       @team.drop_cash_balance(self.development.cost)
       @team.save!
+      self.adjust_property_value
       self.in_development = true
-      self.developed = false
+      self.developed = true
       self.development.used = true
       self.save!
-      binding.pry()
       message << 'Development Initiated Successfully'
     end
     return message
@@ -29,10 +28,12 @@ class Property < ApplicationRecord
   def getValue()
   	if !(self.developed)
   		return self.value
-  	else 
+  	else
   		return self.value + self.development.value
   	end
   end
+
+
 
 
 

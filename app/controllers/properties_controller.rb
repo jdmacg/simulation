@@ -51,7 +51,6 @@ class PropertiesController < ApplicationController
       render 'show'
       redirect_to users_path
     elsif !(Team.find(current_user.team_id).can_drop_cash_balance(@property.development.cost))
-      binding.pry
       flash[:error] = "You cannot afford to develop this property" #TODO not displaying
       render 'show'
       redirect_to users_path
@@ -62,9 +61,6 @@ class PropertiesController < ApplicationController
       flash[:success] = message
       flash[:notice] =  'Development was successfully initiated.'
       redirect_to users_path
-      #respond_to do |format|
-        #format.html { redirect_to @property, notice: 'Development was successfully initiated.' } #TODO not displaying
-        #format.json { render :show, status: :created, location: @property }
     end
   end
 
