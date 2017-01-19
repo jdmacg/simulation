@@ -30,7 +30,7 @@
         Actions
       </div>
     </div>
-    <% TradeRequest.where(offeror_id: @team.id).each do |trade_request| %>
+    <% TradeRequest.where(offeror_id: @team.id).or(TradeRequest.where(offeree_id: @team.id)).each do |trade_request| %>
       <div class="row">
         <div class="cell">
           <%= trade_request.outgoing_properties ? trade_request.outgoing_properties.length : nil %>
@@ -55,11 +55,13 @@
           <% end %>
         </div>
         <div class="cell">
-          <% if trade_request.response_turn == current_user.team_id %>
-            <%= link_to 'Counter Offer', edit_trade_request_path(trade_request) %>
-            <td><%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if !(trade_request.completed) %>
+            <% if trade_request.response_turn == current_user.team_id %>
+              <%= link_to 'Accept Offer', accept_path(trade_request.id) %>
+              <%= link_to 'Counter Offer', edit_trade_request_path(trade_request) %>
+              <%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
           <% end %>
-          <%= link_to 'Accept Offer', accept_path(trade_request.id) %>
           <%= link_to 'Show', trade_request_path(trade_request.id) %>
         </div>
       </div>

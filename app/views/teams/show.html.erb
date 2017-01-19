@@ -12,8 +12,11 @@
         <div class="card">
           <div class="card__image card__image--fence"></div>
           <div class="card__content">
-            <div class="card__title"><%= prop.city %></div>
+            <div class="card__title"><%= prop.name %></div>
               <ul id="card__info">
+                <li>
+                  City: <%= prop.city %>
+                </li>
                 <li>
                   Value: <%= prop.value %>
                 </li>
@@ -30,6 +33,9 @@
                   <%else%>
                     Developed: No
                   <% end %>
+                </li>
+                <li>
+                  Asset Class: <%= prop.property_type.description %>
                 </li>
                 <li>
                   Total Value: <%=prop.getValue()%>

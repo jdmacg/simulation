@@ -13,32 +13,217 @@ Team.create!([{team_name: "Team Three", cash_balance: 100000}])
 Team.create!([{team_name: "Team Four", cash_balance: 100000}])
 Team.create!([{team_name: "Team Five", cash_balance: 100000}])
 Team.create!([{team_name: "Team Six", cash_balance: 100000}])
+Team.create!([{team_name: "Team Seven", cash_balance: 100000}])
+Team.create!([{team_name: "Team Eight", cash_balance: 100000}])
+Team.create!([{team_name: "Team Nine", cash_balance: 100000}])
+Team.create!([{team_name: "Team Ten", cash_balance: 100000}])
 
-6.times do |i|
-	my_type = PropertyType.create!([{description: Faker::Hacker.say_something_smart}])
-	my_property = Property.create!([{property_type: my_type[0], in_development: false, city: Faker::University.name, province: Faker::Vehicle.manufacture, value: Faker::Number.decimal(2), poster_image_url: "https://www.google.ca/imgres?imgurl=https%3A%2F%2Fstatic1.squarespace.com%2Fstatic%2F56392e22e4b06f9cf23dc33e%2Ft%2F566a46f1e0327c71c29669c3%2F1449805554360%2Fproperty-connect-home.jpg%3Fformat%3D2500w&imgrefurl=http%3A%2F%2Fpropertyconnect.com%2F&docid=K6O_WmKHPSHKXM&tbnid=kRvboT9ulm_iuM%3A&vet=1&w=1600&h=1067&bih=703&biw=1280&q=property&ved=0ahUKEwiOpIDsqcLRAhVH8mMKHViiDD8QMwgyKAEwAQ&iact=mrc&uact=8"}])
-	Team.all[i].properties << my_property
-end
+User.create!([{username: "brodie.whitla", password: "QRIC2017-1", password_confirmation: "QRIC2017-1", team_id: 1}])
+User.create!([{username: "james.acres", password: "QRIC2017-1", password_confirmation: "QRIC2017-1", team_id: 1}])
+User.create!([{username: "justin.elias", password: "QRIC2017-1", password_confirmation: "QRIC2017-1",team_id: 1}])
+User.create!([{username: "sam.dobbin", password: "QRIC2017-1", password_confirmation: "QRIC2017-1",team_id: 1}])
+User.create!([{username: "tyler.balaban", password: "QRIC2017-1", password_confirmation: "QRIC2017-1",team_id: 1}])
+User.create!([{username: "brayden.lucchetta", password: "QRIC2017-1", password_confirmation: "QRIC2017-1",team_id: 1}])
 
+
+User.create!([{username: "mariah.mccrank", password: "QRIC2017-2", password_confirmation: "QRIC2017-2",team_id: 2}])
+User.create!([{username: "david.gouws", password: "QRIC2017-2", password_confirmation: "QRIC2017-2",team_id: 2}])
+User.create!([{username: "james.boland", password: "QRIC2017-2", password_confirmation: "QRIC2017-2",team_id: 2}])
+User.create!([{username: "alias.torano", password: "QRIC2017-2", password_confirmation: "QRIC2017-2",team_id: 2}])
+User.create!([{username: "leonidas.tomazos", password: "QRIC2017-2", password_confirmation: "QRIC2017-2",team_id: 2}])
+User.create!([{username: "kailey.beckwith", password: "QRIC2017-2", password_confirmation: "QRIC2017-2",team_id: 2}])
+
+
+User.create!([{username: "meghan.northmore", password: "QRIC2017-3", password_confirmation: "QRIC2017-3",team_id: 3}])
+User.create!([{username: "mackenzie.porter", password: "QRIC2017-3", password_confirmation: "QRIC2017-3",team_id: 3}])
+User.create!([{username: "meghan.bayley", password: "QRIC2017-3", password_confirmation: "QRIC2017-3",team_id: 3}])
+User.create!([{username: "alex.craig", password: "QRIC2017-3", password_confirmation: "QRIC2017-3",team_id: 3}])
+User.create!([{username: "adam.milito", password: "QRIC2017-3", password_confirmation: "QRIC2017-3",team_id: 3}])
+User.create!([{username: "shahmeer.ahmad", password: "QRIC2017-3", password_confirmation: "QRIC2017-3",team_id: 3}])
+
+
+User.create!([{username: "julian.santini", password: "QRIC2017-4", password_confirmation: "QRIC2017-4",team_id: 4}])
+User.create!([{username: "raza.malik", password: "QRIC2017-4", password_confirmation: "QRIC2017-4",team_id: 4}])
+User.create!([{username: "philipp.summer", password: "QRIC2017-4", password_confirmation: "QRIC2017-4",team_id: 4}])
+User.create!([{username: "shrut.patel", password: "QRIC2017-4", password_confirmation: "QRIC2017-4",team_id: 4}])
+User.create!([{username: "patrick.neatt", password: "QRIC2017-4", password_confirmation: "QRIC2017-4",team_id: 4}])
+User.create!([{username: "jack.walsh", password: "QRIC2017-4", password_confirmation: "QRIC2017-4",team_id: 4}])
+
+
+User.create!([{username: "keaton.scarabelli", password: "QRIC2017-5", password_confirmation: "QRIC2017-5",team_id: 5}])
+User.create!([{username: "trevor.smith", password: "QRIC2017-5", password_confirmation: "QRIC2017-5",team_id: 5}])
+User.create!([{username: "qlno.daroza", password: "QRIC2017-5", password_confirmation: "QRIC2017-5",team_id: 5}])
+User.create!([{username: "eric.lee", password: "QRIC2017-5", password_confirmation: "QRIC2017-5",team_id: 5}])
+User.create!([{username: "joann.peachey", password: "QRIC2017-5", password_confirmation: "QRIC2017-5",team_id: 5}])
+
+User.create!([{username: "cameron.graham", password: "QRIC2017-6", password_confirmation: "QRIC2017-6",team_id: 6}])
+User.create!([{username: "ethan.sharp", password: "QRIC2017-6", password_confirmation: "QRIC2017-6",team_id: 6}])
+User.create!([{username: "nicholas.ayoub", password: "QRIC2017-6", password_confirmation: "QRIC2017-6",team_id: 6}])
+User.create!([{username: "kyle.tyler", password: "QRIC2017-6", password_confirmation: "QRIC2017-6",team_id: 6}])
+User.create!([{username: "wyatt.huber", password: "QRIC2017-6", password_confirmation: "QRIC2017-6",team_id: 6}])
+User.create!([{username: "james.allan", password: "QRIC2017-6", password_confirmation: "QRIC2017-6",team_id: 6}])
+
+
+User.create!([{username: "matthew.lam", password: "QRIC2017-7", password_confirmation: "QRIC2017-7",team_id: 7}])
+User.create!([{username: "andrew.gardiner", password: "QRIC2017-7", password_confirmation: "QRIC2017-7",team_id: 7}])
+User.create!([{username: "ian.jonson", password: "QRIC2017-7", password_confirmation: "QRIC2017-7",team_id: 7}])
+User.create!([{username: "kevin.keresztes", password: "QRIC2017-7", password_confirmation: "QRIC2017-7",team_id: 7}])
+User.create!([{username: "rabiya.adhia", password: "QRIC2017-7", password_confirmation: "QRIC2017-7",team_id: 7}])
+User.create!([{username: "olivier.kidd", password: "QRIC2017-7", password_confirmation: "QRIC2017-7",team_id: 7}])
+
+
+User.create!([{username: "hans.shen", password: "QRIC2017-8", password_confirmation: "QRIC2017-8",team_id: 8}])
+User.create!([{username: "alexis.d’souza", password: "QRIC2017-8", password_confirmation: "QRIC2017-8",team_id: 8}])
+User.create!([{username: "Mackenzie.fe", password: "QRIC2017-8", password_confirmation: "QRIC2017-8",team_id: 8}])
+User.create!([{username: "hetesh.seth", password: "QRIC2017-8", password_confirmation: "QRIC2017-8",team_id: 8}])
+User.create!([{username: "ines.felicella", password: "QRIC2017-8", password_confirmation: "QRIC2017-8",team_id: 8}])
+
+User.create!([{username: "amit.kumar", password: "QRIC2017-9", password_confirmation: "QRIC2017-9",team_id: 9}])
+User.create!([{username: "robert.burns", password: "QRIC2017-9", password_confirmation: "QRIC2017-9",team_id: 9}])
+User.create!([{username: "gregory.warkentin", password: "QRIC2017-9", password_confirmation: "QRIC2017-9",team_id: 9}])
+User.create!([{username: "max.vo", password: "QRIC2017-9", password_confirmation: "QRIC2017-9",team_id: 9}])
+User.create!([{username: "william.woodfine", password: "QRIC2017-9", password_confirmation: "QRIC2017-9",team_id: 9}])
+
+User.create!([{username: "sam.morse", password: "QRIC2017-10", password_confirmation: "QRIC2017-10",team_id: 10}])
+User.create!([{username: "david.worsley", password: "QRIC2017-10", password_confirmation: "QRIC2017-10",team_id: 10}])
+User.create!([{username: "aj.keilty", password: "QRIC2017-10", password_confirmation: "QRIC2017-10",team_id: 10}])
+User.create!([{username: "chris.vandewater", password: "QRIC2017-10", password_confirmation: "QRIC2017-10",team_id: 10}])
+
+PropertyType.create!([{ description: "Multi-Res" }])
+PropertyType.create!([{ description: "Industrial" }])
+PropertyType.create!([{ description: "Retail" }])
+PropertyType.create!([{ description: "Office" }])
+
+Property.create!([{property_type_id: 3,value: 21000000,name: "Park Royal Shopping Center", city: "Vancouver", province: "British Columbia",team_id: 1, in_development: false}])
+Property.create!([{property_type_id: 3,value: 16725000,name: "Market Mall", city: "Saskatoon", province: "Saskatchewan",team_id: 2, in_development: false}])
+Property.create!([{property_type_id: 3,value: 18397000,name: "West Edmonton Mall", city: "Edmonton", province: "Alberta",team_id: 3, in_development: false}])
+Property.create!([{property_type_id: 3,value: 15872091,name: "Metropolis at Metrotown", city: "Vancouver", province: "British Columbia",team_id: 4, in_development: false}])
+Property.create!([{property_type_id: 3,value: 19872091,name: "Coquitlam Center Mall", city: "Coquitlam", province: "British Columbia",team_id: 5, in_development: false}])
+Property.create!([{property_type_id: 3,value: 20872091,name: "Outlet Collection at Niagra", city: "Niagra Falls", province: "Ontario",team_id: 6, in_development: false}])
+Property.create!([{property_type_id: 3,value: 20839051,name: "Square One Shopping Center", city: "Mississauga", province: "Ontario",team_id: 7, in_development: false}])
+Property.create!([{property_type_id: 3,value: 19378051,name: "Cornwall Center", city: "Regina", province: "Saskatchewan",team_id: 8, in_development: false}])
+Property.create!([{property_type_id: 3,value: 18328161,name: "The Center", city: "Saskatoon", province: "Saskatchewan",team_id: 9, in_development: false}])
+Property.create!([{property_type_id: 3,value: 18328161,name: "The Center", city: "Saskatoon", province: "Saskatchewan",team_id: 10, in_development: false}])
+
+
+Property.create!([{property_type_id: 4,value: 13729161,name: "McCallum Hill Center", city: "Regina", province: "Saskatchewan",team_id: 1, in_development: false}])
+Property.create!([{property_type_id: 4,value: 15727361,name: "Avord Tower", city: "Regina", province: "Saskatchewan",team_id: 2, in_development: false}])
+Property.create!([{property_type_id: 4,value: 16747561,name: "TD Canada Trust Tower", city: "Toronto", province: "Ontario",team_id: 3, in_development: false}])
+Property.create!([{property_type_id: 4,value: 15728321,name: "Northwest Tower", city: "Regina", province: "Saint John",team_id: 4, in_development: false}])
+Property.create!([{property_type_id: 4,value: 14229161,name: "Saskatoon Square", city: "Saskatoon", province: "Saskatchewan",team_id: 5, in_development: false}])
+Property.create!([{property_type_id: 4,value: 152349161,name: "Jeske Corporate Center", city: "Langley", province: "British Columbia",team_id: 6, in_development: false}])
+Property.create!([{property_type_id: 4,value: 16289161,name: "Phoenix Building", city: "Saskatoon", province: "Saskatchewan",team_id: 7, in_development: false}])
+Property.create!([{property_type_id: 4,value: 17000001,name: "Maryland Place", city: "Calgary", province: "Alberta",team_id: 8, in_development: false}])
+Property.create!([{property_type_id: 4,value: 16743161,name: "Sanofi Building", city: "Laval", province: "Quebec",team_id: 9, in_development: false}])
+Property.create!([{property_type_id: 4,value: 14329161,name: "Tour Laura", city: "Laval", province: "Quebec",team_id: 10, in_development: false}])
+
+Property.create!([{property_type_id: 1,value: 15000000,name: "The Uptown Residence.", city: "Toronto", province: "Ontario",team_id: 1, in_development: false}])
+Property.create!([{property_type_id: 1,value: 14980000,name: "Le LDV.", city: "Montreal", province: "Quebec",team_id: 2, in_development: false}])
+Property.create!([{property_type_id: 1,value: 12870000,name: "Atrie Residence.", city: "Delta", province: "British Columbia",team_id: 3, in_development: false}])
+Property.create!([{property_type_id: 1,value: 10480000,name: "Territorial Estates.", city: "North Battlford", province: "Saskatchewan",team_id: 4, in_development: false}])
+Property.create!([{property_type_id: 1,value: 15990000,name: "Absolute World South.", city: "Mississauga", province: "Ontario",team_id: 5, in_development: false}])
+Property.create!([{property_type_id: 1,value: 14880000,name: "Minto Metropole.", city: "Ottawa", province: "Ontario",team_id: 6, in_development: false}])
+Property.create!([{property_type_id: 1,value: 10000000,name: "La Renaissance Apartments.", city: "Saskatoon", province: "Saskatchewan",team_id: 7, in_development: false}])
+Property.create!([{property_type_id: 1,value: 12550000,name: "Centennial Towers.", city: "Moncton", province: "New Brunswick",team_id: 8, in_development: false}])
+Property.create!([{property_type_id: 1,value: 11330000,name: "Stars Inn and Suites.", city: "Edmonton", province: "Alberta",team_id: 9, in_development: false}])
+Property.create!([{property_type_id: 1,value: 14760000,name: "The Bowry.", city: "Ottawa", province: "Ontario",team_id: 10, in_development: false}])
+
+Property.create!([{property_type_id: 2,value: 5980000,name: "1 Chandler Ave.", city: "Amherst", province: "Nova Scotia",team_id: 1, in_development: false}])
+Property.create!([{property_type_id: 2,value: 9760000,name: "London Industrial.", city: "London", province: "Ontario",team_id: 2, in_development: false}])
+Property.create!([{property_type_id: 2,value: 6578000,name: "211 Hutchings Street.", city: "Winnipeg", province: "Manitoba",team_id: 3, in_development: false}])
+Property.create!([{property_type_id: 2,value: 8325000,name: "The Vito Shipyard.", city: "Delta", province: "British Columbia",team_id: 4, in_development: false}])
+Property.create!([{property_type_id: 2,value: 7550000,name: "Hamilton Industrial.", city: "Hamilton", province: "Ontario",team_id: 5, in_development: false}])
+Property.create!([{property_type_id: 2,value: 8669000,name: "60 d’Anvers.", city: "Sainte Augestine", province: "Quebec",team_id: 6, in_development: false}])
+Property.create!([{property_type_id: 2,value: 6998000,name: "Northwest Warehouse.", city: "Calgary", province: "Alberta",team_id: 7, in_development: false}])
+Property.create!([{property_type_id: 2,value: 5668000,name: "Industrial Shop.", city: "Fort Mac", province: "Alberta",team_id: 8, in_development: false}])
+Property.create!([{property_type_id: 2,value: 5000000,name: "Jet Power Building.", city: "Edmonton", province: "Alberta",team_id: 9, in_development: false}])
+Property.create!([{property_type_id: 2,value: 6108000,name: "15 International Place.", city: "St. John’s", province: "Newfoundland",team_id: 10, in_development: false}])
+
+
+Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 1}])
+Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 2}])
+Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 3}])
+Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 4}])
+Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 5}])
+
+Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 6}])
+
+Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 7}])
+
+Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 8}])
+
+Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 9}])
+
+Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 10}])
+
+
+Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 11}])
+
+Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 12}])
+
+Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 13}])
+
+Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 14}])
+
+Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 15}])
+
+Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 16}])
+
+Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 17}])
+
+Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 18}])
+
+Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 19}])
+
+Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 20}])
+
+
+Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 21}])
+
+Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 22}])
+
+Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 23}])
+
+Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 24}])
+
+Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 25}])
+
+Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 26}])
+
+Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 27}])
+
+Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 28}])
+
+Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 29}])
+
+Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 30}])
+
+Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 31}])
+
+Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 32}])
+
+Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 33}])
+
+Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 34}])
+
+Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 35}])
+
+Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 36}])
+
+Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 37}])
+
+Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 38}])
+
+Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 39}])
+
+Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 40}])
+
+i = 1
 Property.all.each do |prop|
-	development = Development.create!([{cost: 500, used: false, value: 1000, development_time: 2}])
-	my_development = development[0]
-	prop.development = my_development
-	my_development.property = prop
-	prop.save!
-	my_development.save!
+  prop.development_id = i
+  prop.save!
+  i += 1
 end
-
-
-6.times do |i|
-  user = User.new
-	user.username = Faker::Name.unique.name
-	user.password = 'valid_password'
-	user.password_confirmation = 'valid_password'
-	user.team_id = i+1
-	user.save!
-end
-
 
 Incentive.create([{description: "4 Industrial Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType1Count", completed_key: "propertyType1"}])
 Incentive.create([{description: "7 Multi-Residential Properties Owned", value: 4000000, incentive_type: 1, calculation_key: "propertyType2Count", completed_key: "propertyType1"}])
