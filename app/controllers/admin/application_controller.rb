@@ -5,7 +5,6 @@ class Admin::ApplicationController < ActionController::Base
   # Methods omitted
 
   def require_admin
-    current_user.admin = true
     unless current_user.admin?
       redirect_to root_path
     end

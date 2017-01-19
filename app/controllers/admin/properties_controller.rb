@@ -5,6 +5,13 @@ class Admin::PropertiesController < Admin::ApplicationController
     @properties = Property.all
   end
 
+  def change_team
+    user = User.find(session[:user_id])
+    user.team_id = params[:team_id]
+    user.save!
+    redirect_to admin_properties_path, :notice => 'changed teams'
+  end
+
   def shock1
   	Property.all.each do |prop|
   	  if prop.developed == false

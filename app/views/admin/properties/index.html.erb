@@ -4,3 +4,20 @@
   <%= link_to "Shock Three", shock3_admin_properties_path %>
   <%= link_to "Shock Four", shock4_admin_properties_path %>
 </div>
+
+<div class='shock-button-grid'>
+  <%= link_to "Team One", change_team_admin_properties_path(team_id: 1) %>
+  <%= link_to "Team Two", change_team_admin_properties_path(team_id: 2) %>
+  <%= link_to "Team Three", change_team_admin_properties_path(team_id: 3) %>
+  <%= link_to "Team Four", change_team_admin_properties_path(team_id: 4) %>
+  <%= link_to "Team Five", change_team_admin_properties_path(team_id: 5) %>
+  <%= link_to "Team Six", change_team_admin_properties_path(team_id: 6) %>
+  <%= link_to "Team Seven", change_team_admin_properties_path(team_id: 7) %>
+  <%= link_to "Team Eight", change_team_admin_properties_path(team_id: 8) %>
+  <%= link_to "Team Nine", change_team_admin_properties_path(team_id: 9) %>
+  <%= link_to "Team Ten", change_team_admin_properties_path(team_id: 10) %>
+</div>
+
+<% flash.each do |k, v| %>
+ 	<div id="error"><%= v %></div>
+<% end %>

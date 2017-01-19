@@ -95,7 +95,7 @@
         <li class="cards__item">
           <div class="card">
             <div class="card__content">
-              <div class="card__title">Trade Initiator: <%= Team.find(@trade_request.offeror_id).team_name %></div>
+              <div class="card__title"><%= Team.find(@trade_request.offeror_id).team_name %></div>
                 <ul id="card__info">
                   <li>
                     Cash Offer: <%= number_to_currency(@trade_request.outgoing_cash, :unit => "$") %>
@@ -107,7 +107,7 @@
         <li class="cards__item">
           <div class="card">
             <div class="card__content">
-              <div class="card__title">Trade Recipient: <%= Team.find(@trade_request.offeree_id).team_name %></div>
+              <div class="card__title"><%= Team.find(@trade_request.offeree_id).team_name %></div>
                 <ul id="card__info">
                   <li>
                     Cash Offer: <%= number_to_currency(@trade_request.incoming_cash, :unit => "$") %>
