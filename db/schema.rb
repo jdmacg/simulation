@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119902949) do
+ActiveRecord::Schema.define(version: 20180119902951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 20180119902949) do
     t.integer  "property_type_id"
     t.decimal  "value"
     t.string   "poster_image_url"
-    t.integer  "province"
     t.integer  "development_id"
     t.string   "name"
     t.integer  "value_t1"
@@ -55,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180119902949) do
     t.integer  "value_t3"
     t.integer  "value_t4"
     t.integer  "value_t5"
+    t.string   "province"
     t.index ["development_id"], name: "index_properties_on_development_id", using: :btree
     t.index ["property_type_id"], name: "index_properties_on_property_type_id", using: :btree
   end
