@@ -12,24 +12,31 @@
               <div class="card__image card__image--fence"></div>
               <div class="card__content">
                 <div class="card__title"><%= prop.name %></div>
-                  <ul id="card__info">
-                    <li>
-                      Value: <%= number_to_currency(prop.value, :unit => "$") %>
-                    </li>
-                    <li>
-                      <% if prop.developed %>
-                        Developed: Yes
-                      <% else %>
-                        Developed: No
-                      <% end %>
-                    </li>
-                    <li>
-                      Asset Class: <%= prop.property_type.description %>
-                    </li>
-                    <li>
-                      Development Value: <%= number_to_currency(prop.development.value, :unit => "$") %>
-                    </li>
-                  </ul>
+               <ul id="card__info">
+                <li>
+                  City: <%= prop.city %>
+                </li>
+                <li>
+                  Province: <%= prop.province %>
+                </li>
+                <li>
+                  Value: <%= number_to_currency(prop.value, :unit => "$") %>
+                </li>
+                <% if !prop.developed %>
+                <li>
+                  Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
+                <li>
+                <%end%>
+                  <% if prop.developed %>
+                    Developed: Yes
+                  <% else %>
+                    Developed: No
+                  <% end %>
+                </li>
+                <li>
+                  Asset Class: <%= prop.property_type.description %>
+                </li>
+              </ul>
               </div>
             </div>
           </li>
@@ -49,21 +56,31 @@
               <div class="card__image card__image--fence"></div>
               <div class="card__content">
                 <div class="card__title"><%= prop.name %></div>
-                  <ul id="card__info">
-                    <li>
-                      Value: <%= number_to_currency(prop.value, :unit => "$") %>
-                    </li>
-                    <li>
-                      <% if prop.developed %>
-                        Developed: Yes
-                      <% else %>
-                        Developed: No
-                      <% end %>
-                    </li>
-                    <li>
-                      Development Value: <%= number_to_currency(prop.development.value, :unit => "$") %>
-                    </li>
-                  </ul>
+              <ul id="card__info">
+                <li>
+                  City: <%= prop.city %>
+                </li>
+                <li>
+                  Province: <%= prop.province %>
+                </li>
+                <li>
+                  Value: <%= number_to_currency(prop.value, :unit => "$") %>
+                </li>
+                <% if !prop.developed %>
+                <li>
+                  Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
+                <li>
+                <%end%>
+                  <% if prop.developed %>
+                    Developed: Yes
+                  <% else %>
+                    Developed: No
+                  <% end %>
+                </li>
+                <li>
+                  Asset Class: <%= prop.property_type.description %>
+                </li>
+              </ul>
               </div>
             </div>
           </li>

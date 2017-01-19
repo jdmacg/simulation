@@ -11,7 +11,7 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	if prop.province == 'Alberta'
   	  	  prop.value = prop.value * 0.9
   	  	  prop.save!
-  	  	elsif prop.province = 'Quebec'
+  	  	elsif prop.province == 'Quebec'
   	  	  prop.value = prop.value *  0.9
   	  	  prop.save!
   	  	else
@@ -30,7 +30,7 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	if prop.city == 'Toronto'
   	  	  prop.value = prop.value * 1.1
   	  	  prop.save!
-  	  	elsif prop.city = 'Vancouver'
+  	  	elsif prop.city == 'Vancouver'
   	  	  prop.value = prop.value * 1.1
   	  	  prop.save!
   	  	end
@@ -69,7 +69,7 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	if prop.city == 'Toronto'
   	  	  prop.value = prop.value * 1.16
   	  	  prop.save!
-  	  	elsif prop.city = 'Vancouver'
+  	  	elsif prop.city == 'Vancouver'
   	  	  prop.value = prop.value * 1.16
   	  	  prop.save!
   	  	end
