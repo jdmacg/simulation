@@ -101,6 +101,7 @@
         </li>
     </ul>
     <% if @trade_request.response_turn == current_user.team_id && !@trade_request.completed%>
+      <h2>response turn: <%= @trade_request.response_turn %>
       <%= link_to 'Counter Offer', edit_trade_request_path(@trade_request) %>
       <td><%= link_to 'Decline Offer', @trade_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
