@@ -19,10 +19,13 @@
                   City: <%= prop.city %>
                 </li>
                 <li>
-                  Value: <%= prop.value %>
+                  Province: <%= prop.province %>
                 </li>
                 <li>
-                  Development Cost: <%=prop.development.cost%>
+                  Value: <%= number_to_currency(prop.value, :unit => "$") %>
+                </li>
+                <li>
+                  Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
                 <li>
                   <% if prop.developed %>
                     Developed: Yes
