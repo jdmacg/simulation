@@ -5,7 +5,7 @@ class PropertiesController < ApplicationController
   # GET /properties.json
   def index
     @properties = Property.all
-    @teams = Team.all
+    @teams = Team.order(:id)
   end
   # GET /properties/1
   # GET /properties/1.json

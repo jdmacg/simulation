@@ -72,7 +72,7 @@
 
   <h4>Select a Team to Trade With</h4>
   <div class="team-links">
-    <% Team.all.each do |team| %>
+    <% Team.order(:id).each do |team| %>
       <% if team.id != current_user.team_id %>
         <%= link_to "Team " + team.id.to_s, new_trade_request_path(:id => team.id), :data_hover => "team_links" %>
       <% end %>

@@ -54,8 +54,7 @@
           <div class="cell">
           <%=number_to_currency(incentive.value, :unit => "$")%>
           </div>
-
-          <% @calculations.keys.sort%>
+          <%@calculations = Hash[@calculations.sort_by {|k,v| k.to_s.to_i }]%>
           <% @calculations.each do |team,values| %>
             <div class="cell">
               <%= values[incentive.calculation_key.to_sym] %>
