@@ -52,9 +52,9 @@
             <%=incentive.description%>
           </div>
           <div class="cell">
-          <%=incentive.value%>
+          <%=number_to_currency(incentive.value, :unit => "$")%>
           </div>
-         
+
           <% @calculations.keys.sort%>
           <% @calculations.each do |team,values| %>
             <div class="cell">
@@ -67,5 +67,5 @@
         </div>
       <% end %>
   </div>
-  
+
 </div>
