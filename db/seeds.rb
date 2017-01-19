@@ -223,6 +223,7 @@ Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2
 
 i = 1
 Property.all.each do |prop|
+  puts i
   prop.development_id = i
   prop.save!
   i += 1

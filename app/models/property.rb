@@ -1,7 +1,7 @@
 class Property < ApplicationRecord
   belongs_to :team, optional: true
   belongs_to :property_type
-  belongs_to :development
+  belongs_to :development, optional: true
 
   def adjust_property_value
     self.value += self.development.value
