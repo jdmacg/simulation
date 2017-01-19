@@ -42,7 +42,7 @@ class TradeRequestsController < ApplicationController
     if current_user.team_id == t_r[:offeree_id]
       @trade_request.response_turn = t_r[:offeror_id]
     else
-      @trade_request.response_turn = t_r[:offeror_id]
+      @trade_request.response_turn = t_r[:offeree_id]
     end
     @trade_request.outgoing_properties = params[:outgoing_property]
     @trade_request.incoming_properties = params[:incoming_property]
