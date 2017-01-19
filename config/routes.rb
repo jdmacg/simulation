@@ -24,10 +24,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :properties do
       collection do
-        get 'shockone'
-        get 'shocktwo'
-        get 'shockthree'
-        get 'shockfour'
+        get 'shock1'
+        get 'shock2'
+        get 'shock3'
+        get 'shock4'
       end
     end
   end
