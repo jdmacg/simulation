@@ -229,8 +229,8 @@ Property.all.each do |prop|
   i += 1
 end
 
-Incentive.create([{description: "4 Industrial Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType1Count", completed_key: "propertyType1"}])
-Incentive.create([{description: "4 Multi-Residential Properties Owned", value: 4000000, incentive_type: 1, calculation_key: "propertyType2Count", completed_key: "propertyType1"}])
+Incentive.create([{description: "4 Industrial Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType2Count", completed_key: "propertyType1"}])
+Incentive.create([{description: "4 Multi-Residential Properties Owned", value: 4000000, incentive_type: 1, calculation_key: "propertyType1Count", completed_key: "propertyType1"}])
 Incentive.create([{description: "4 Office Properties Owned", value: 6000000, incentive_type: 1, calculation_key: "propertyType3Count", completed_key: "propertyType1"}])
 Incentive.create([{description: "4 Retail Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType4Count", completed_key: "propertyType1"}])
 Incentive.create([{description: "3 Properties owned in Alberta", value: 6000000, incentive_type: 1, calculation_key: "province1Count", completed_key: "province1"}])
