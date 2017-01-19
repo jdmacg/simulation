@@ -114,7 +114,7 @@ Property.create!([{property_type_id: 4,value: 15727361,name: "Avord Tower", city
 Property.create!([{property_type_id: 4,value: 16747561,name: "TD Canada Trust Tower", city: "Toronto", province: "Ontario",team_id: 3, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 15728321,name: "Northwest Tower", city: "Regina", province: "Saskatchewan",team_id: 4, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 14229161,name: "Saskatoon Square", city: "Saskatoon", province: "Saskatchewan",team_id: 5, in_development: false, developed: false}])
-Property.create!([{property_type_id: 4,value: 152349161,name: "Jeske Corporate Center", city: "Langley", province: "British Columbia",team_id: 6, in_development: false, developed: false}])
+Property.create!([{property_type_id: 4,value: 15234916,name: "Jeske Corporate Center", city: "Langley", province: "British Columbia",team_id: 6, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 16289161,name: "Phoenix Building", city: "Saskatoon", province: "Saskatchewan",team_id: 7, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 17000001,name: "Maryland Place", city: "Calgary", province: "Alberta",team_id: 8, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 16743161,name: "Sanofi Building", city: "Laval", province: "Quebec",team_id: 9, in_development: false, developed: false}])
@@ -201,25 +201,25 @@ Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2,
 
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 30}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 31}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 31}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 32}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 32}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 33}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 33}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 34}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 34}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 35}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 35}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 36}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 36}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 37}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 37}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 38}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 38}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 39}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 39}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 40}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 40}])
 
 i = 1
 Property.all.each do |prop|

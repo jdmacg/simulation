@@ -45,10 +45,14 @@ class Team < ApplicationRecord
   	results[:province6] = true if results[:province6Count] >= 2
   	results[:tradedPropertiesCount] = 0
   	TradeRequest.where(:completed => true, :offeror_id => self.id).each do |request|
-  		results[:tradedPropertiesCount] += request.incoming_properties.size
+      if request.incoming_properties
+  		  results[:tradedPropertiesCount] += request.incoming_properties.size
+      end
   	end
   	TradeRequest.where(:completed => true, :offeree_id => self.id).each do |request|
-  		results[:tradedPropertiesCount] += request.outgoing_properties.size
+      if request.outgoing_properties
+  		  results[:tradedPropertiesCount] += request.outgoing_properties.size
+      end
   	end
   	results[:traded1] = true if results[:tradedPropertiesCount] >= 10
   	results[:traded2] = true if results[:tradedPropertiesCount] >= 20
