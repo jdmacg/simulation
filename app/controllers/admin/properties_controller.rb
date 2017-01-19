@@ -21,7 +21,7 @@ class Admin::PropertiesController < Admin::ApplicationController
       end
 	  end
 	end
-	redirect_to admin_properties_path, :notice 'shocked 1 properly'
+	redirect_to admin_properties_path, :notice => 'shocked 1 properly'
   end
 
   def shock2
@@ -49,7 +49,7 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	end
       end
 	  end
-    redirect_to admin_properties_path, :notice 'shocked 2 properly'
+    redirect_to admin_properties_path, :notice => 'shocked 2 properly'
 	end
 
 
@@ -60,7 +60,7 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	prop.save!
   	  end
   	end
-	redirect_to admin_properties_path, :notice 'shocked 3 properly'
+	redirect_to admin_properties_path, :notice => 'shocked 3 properly'
   end
 
   def shock4
@@ -96,5 +96,5 @@ class Admin::PropertiesController < Admin::ApplicationController
       end
 	  end
 	end
-  redirect_to admin_properties_path, :notice 'shocked 4 properly'
+  redirect_to admin_properties_path, :notice => 'shocked 4 properly'
 end
