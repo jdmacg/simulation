@@ -36,7 +36,7 @@
           <%= trade_request.outgoing_properties ? trade_request.outgoing_properties.length : nil %>
         </div>
         <div class="cell">
-          <%= trade_request.outgoing_cash ? trade_request.outgoing_cash : nil%>
+          <%= trade_request.outgoing_cash ? number_to_currency(trade_request.outgoing_cash, :unit => "$") : nil%>
         </div>
         <div class="cell">
           <%= trade_request.offeror_id %>
@@ -45,7 +45,7 @@
           <%= trade_request.incoming_properties ? trade_request.incoming_properties.length : nil %>
         </div>
         <div class="cell">
-          <%= trade_request.incoming_cash ? trade_request.incoming_cash : nil %>
+          <%= trade_request.incoming_cash ? number_to_currency(trade_request.incoming_cash) : nil %>
         </div>
         <div class="cell">
           <% if trade_request.completed %>

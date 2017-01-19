@@ -18,13 +18,13 @@
                   City: <%= prop.city %>
                 </li>
                 <li>
-                  Value: <%= prop.value %>
+                  Value: <%= number_to_currency(prop.value, :unit => "$") %>
                 </li>
                 <li>
-                  Development Value: <%= prop.development.value %>
+                  Development Value: <%= number_to_currency(prop.development.value, :unit => "$") %>
                 </li>
                 <li>
-                  Development Cost: <%=prop.development.cost%>
+                  Development Cost: <%= number_to_currency(prop.development.cost, :unit => "$") %>
                 <li>
                   <% if prop.developed %>
                     Developed: Yes
@@ -37,8 +37,6 @@
                 <li>
                   Asset Class: <%= prop.property_type.description %>
                 </li>
-                <li>
-                  Total Value: <%=prop.getValue()%>
               </ul>
           </div>
         </div>

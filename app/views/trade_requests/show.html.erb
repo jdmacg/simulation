@@ -14,7 +14,7 @@
                 <div class="card__title"><%= prop.name %></div>
                   <ul id="card__info">
                     <li>
-                      Value: <%= prop.value %>
+                      Value: <%= number_to_currency(prop.value, :unit => "$") %>
                     </li>
                     <li>
                       <% if prop.developed %>
@@ -27,7 +27,7 @@
                       Asset Class: <%= prop.property_type.description %>
                     </li>
                     <li>
-                      Development Value: <%= prop.development.value %>
+                      Development Value: <%= number_to_currency(prop.development.value, :unit => "$") %>
                     </li>
                   </ul>
               </div>
