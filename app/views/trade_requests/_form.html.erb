@@ -23,7 +23,7 @@
             <% current_user.team.properties.each do |prop| %>
               <div id="property-option">
                 <%= check_box_tag "outgoing_property[]", prop.id %>
-                <%= label_tag 'outgoing_property', prop.city %>
+                <%= label_tag 'outgoing_property', prop.name %>
               </div>
             <% end %>
           </li>
@@ -40,7 +40,7 @@
             <% Team.find(@team_id).properties.each do |prop| %>
               <div id="property-option">
                 <%= check_box_tag "incoming_property[]", prop.id %>
-                <%= label_tag 'incoming_property', prop.city %>
+                <%= label_tag 'incoming_property', prop.name %>
               </div>
             <% end %>
           </li>
