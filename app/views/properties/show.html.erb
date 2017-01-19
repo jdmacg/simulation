@@ -24,7 +24,7 @@
                   <% end %>
                 </li>
                 <li>
-                  Development Value: <%= number_to_currency(@property.development.value, :unit => "$") %>
+                  Development Value: <%= number_to_currency(number_to_currency(@property.development.value, :unit => "$"), :unit => "$") %>
                 </li>
               </ul>
             <%= link_to 'Develop', develop_path(@property.id), class: "btn btn--block card__btn" %>
