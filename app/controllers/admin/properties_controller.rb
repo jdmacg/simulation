@@ -49,9 +49,9 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	end
       end
 	  end
+    redirect_to admin_properties_path, :notice 'shocked 2 properly'
 	end
-	redirect_to admin_properties_path, :notice 'shocked 2 properly'
-  end
+
 
   def shock3
   	Property.all.each do |prop|
@@ -96,6 +96,5 @@ class Admin::PropertiesController < Admin::ApplicationController
       end
 	  end
 	end
-	redirect_to admin_properties_path, :notice 'shocked 4 properly'
-  end
+  redirect_to admin_properties_path, :notice 'shocked 4 properly'
 end
