@@ -44,8 +44,13 @@ class TradeRequestsController < ApplicationController
     @trade_request.incoming_properties = params[:incoming_property]
     can_trade_outgoing = TradeRequest.tradeable(@trade_request.outgoing_properties)
     can_trade_incoming = TradeRequest.tradeable(@trade_request.incoming_properties)
-    if @trade_request.save! && can_trade_outgoing && can_trade_incoming
-      redirect_to trade_requests_path, notice: "Your trade request was successfully submitted"
+    if can_trade_outgoing && can_trade_incoming
+      if @trade_request.save!
+        redirect_to trade_requests_path, notice: "Your trade request was successfully submitted"
+      else
+        flash[:error] = "Please specify properties, cash, or both, or verify that all properties are not developed!"
+        redirect_to trade_requests_path
+      end
     else
       flash[:error] = "Please specify properties, cash, or both, or verify that all properties are not developed!"
       redirect_to trade_requests_path
