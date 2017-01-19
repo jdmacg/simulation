@@ -51,7 +51,7 @@
                 <div class="card__title"><%= prop.name %></div>
                   <ul id="card__info">
                     <li>
-                      Value: <%= prop.value %>
+                      Value: <%= number_to_currency(prop.value, :unit => "$") %>
                     </li>
                     <li>
                       <% if prop.developed %>
@@ -61,7 +61,7 @@
                       <% end %>
                     </li>
                     <li>
-                      Development Value: <%= prop.development.value %>
+                      Development Value: <%= number_to_currency(prop.development.value, :unit => "$") %>
                     </li>
                   </ul>
               </div>
@@ -81,7 +81,7 @@
               <div class="card__title">Trade Initiator: <%= Team.find(@trade_request.offeror_id).team_name %></div>
                 <ul id="card__info">
                   <li>
-                    Cash Offer: <%= @trade_request.outgoing_cash %>
+                    Cash Offer: <%= number_to_currency(@trade_request.outgoing_cash, :unit => "$") %>
                   </li>
                 </ul>
             </div>
@@ -93,7 +93,7 @@
               <div class="card__title">Trade Recipient: <%= Team.find(@trade_request.offeree_id).team_name %></div>
                 <ul id="card__info">
                   <li>
-                    Cash Offer: <%= @trade_request.incoming_cash %>
+                    Cash Offer: <%= number_to_currency(@trade_request.incoming_cash, :unit => "$") %>
                   </li>
                 </ul>
             </div>
