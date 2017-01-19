@@ -30,6 +30,18 @@
         <div class="cell">
           Team 6 Count
         </div>
+        <div class="cell">
+          Team 7 Count
+        </div>
+        <div class="cell">
+          Team 8 Count
+        </div>
+        <div class="cell">
+          Team 9 Count
+        </div>
+        <div class="cell">
+          Team 10 Count
+        </div>
         <!-- <div class="cell">
           Trade Request
         </div> -->
@@ -42,6 +54,8 @@
           <div class="cell">
           <%=incentive.value%>
           </div>
+         
+          <% @calculations.keys.sort%>
           <% @calculations.each do |team,values| %>
             <div class="cell">
               <%= values[incentive.calculation_key.to_sym] %>
