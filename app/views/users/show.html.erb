@@ -22,9 +22,6 @@
                   Value: <%= prop.value %>
                 </li>
                 <li>
-                  Development Value: <%= prop.development.value %>
-                </li>
-                <li>
                   Development Cost: <%=prop.development.cost%>
                 <li>
                   <% if prop.developed %>
@@ -35,9 +32,6 @@
                 </li>
                 <li>
                   Asset Class: <%= prop.property_type.description %>
-                </li>
-                <li>
-                  Total Value: <%=prop.getValue()%>
                 </li>
               </ul>
             <%if !prop.developed and !prop.in_development%>
