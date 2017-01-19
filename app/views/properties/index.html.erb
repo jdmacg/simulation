@@ -20,7 +20,7 @@
                     City: <%= prop.city %>
                   </li>
                   <li>
-                    Value: <%= prop.value %>
+                    Value: <%= number_to_currency(prop.value, :unit => "$") %>
                   </li>
                   <li>
                     <% if prop.developed %>
