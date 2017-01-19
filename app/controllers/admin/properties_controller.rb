@@ -16,7 +16,7 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	  prop.save!
   	  	else
   	  	  prop.value *= 1.03
-  	  	  save!
+  	  	  prop.save!
   	  	end
       end
 	  end
@@ -96,10 +96,6 @@ class Admin::PropertiesController < Admin::ApplicationController
       end
 	  end
 	end
-<<<<<<< Updated upstream
-
-=======
 	redirect_to admin_properties_path, :notice 'shocked 4 properly'
   end
->>>>>>> Stashed changes
 end
