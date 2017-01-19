@@ -9,10 +9,10 @@ class Admin::PropertiesController < Admin::ApplicationController
   	Property.all.each do |prop|
   	  if prop.developed == false
   	  	if prop.province == 'Alberta'
-  	  	  prop.value *= 1.1
+  	  	  prop.value *= 0.9
   	  	  prop.save!
   	  	elsif prop.province = 'Quebec'
-  	  	  prop.value *= 1.1
+  	  	  prop.value *= 0.9
   	  	  prop.save!
   	  	else
   	  	  prop.value *= 1.03
