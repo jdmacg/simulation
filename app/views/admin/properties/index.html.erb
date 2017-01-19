@@ -18,6 +18,8 @@
   <%= link_to "Team Ten", change_team_admin_properties_path(team_id: 10) %>
 </div>
 
+<%= link_to "Home Page", users_path %>
+
 <% flash.each do |k, v| %>
  	<div id="error"><%= v %></div>
 <% end %>
