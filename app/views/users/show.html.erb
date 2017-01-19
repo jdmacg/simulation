@@ -3,6 +3,9 @@
   <% flash.each do |k, v| %>
     <div id="error"><%= v %></div>
   <% end %>
+  <h1>
+    Team: <%=@team.id%>
+  </h1>
   <p>
   Total Cash: <%=number_to_currency(@team.cash_balance, :unit => "$")%>
   </p>
