@@ -62,8 +62,7 @@ class TradeRequest < ApplicationRecord
 	end
 
 	def self.getOtherParty(tr, id)
-		binding.pry
-		(tr.offeror_id == id) ? tr.offeree_id : id
+		(tr.offeror_id == id) ? tr.offeree_id : tr.offeror_id
 	end
 
 	def self.tradeable(props)

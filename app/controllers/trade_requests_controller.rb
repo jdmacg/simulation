@@ -55,14 +55,22 @@ class TradeRequestsController < ApplicationController
   # PATCH/PUT /trade_requests/1
   # PATCH/PUT /trade_requests/1.json
   def update
-    respond_to do |format|
-      if @trade_request.update(trade_request_params)
-        format.html { redirect_to @trade_request, notice: 'Trade request was successfully updated.' }
-        format.json { render :show, status: :ok, location: @trade_request }
-      else
-        format.html { render :edit }
-        format.json { render json: @trade_request.errors, status: :unprocessable_entity }
-      end
+    t_r = params[:trade_request]
+    @trade_request.offeror_id = t_r[:offeror_id]
+    @trade_request.offeree_id = t_r[:offeree_id]
+    @trade_request.outgoing_cash = t_r[:outgoing_cash]
+    @trade_request.incoming_cash = t_r[:incoming_cash]
+    @trade_request.completed = false
+    @trade_request.response_turn = TradeRequest.getOtherParty(@trade_request, current_user.team_id)
+    @trade_request.outgoing_properties = params[:outgoing_property]
+    @trade_request.incoming_properties = params[:incoming_property]
+    can_trade_outgoing = TradeRequest.tradeable(@trade_request.outgoing_properties)
+    can_trade_incoming = TradeRequest.tradeable(@trade_request.incoming_properties)
+    if @trade_request.save! && can_trade_outgoing && can_trade_incoming
+      redirect_to trade_requests_path, notice: "Your trade request was successfully submitted"
+    else
+      flash[:error] = "Please specify properties, cash, or both, or verify that all properties are not developed!"
+      redirect_to trade_requests_path
     end
   end
 
