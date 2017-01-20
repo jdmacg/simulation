@@ -17,9 +17,66 @@ class TradeRequest < ApplicationRecord
 		swap_cash(offeror, offeree, outgoing_cash, incoming_cash)
 	end
 
+	def validTrade
+		return false if !self.cashValid
+		return false if !TradeRequest.tradeable(self.incoming_properties)
+		return false if !TradeRequest.tradeable(self.outgoing_properties)
+		return false if !self.propertiesValid
+		return true
+	end
+
+	def propertiesValid
+		offeror = Team.find(self.offeror_id)
+		offeree = Team.find(self.offeree_id)
+		binding.pry()
+		if incoming_properties
+			incoming_properties.each do |prop|
+				property = Property.find(prop.to_i)
+				return false if property.team_id != offeree.id
+			end
+		end
+		if outgoing_properties
+			outgoing_properties.each do |prop|
+				property = Property.find(prop.to_i)
+				return false if  property.team_id != offeror.id
+			end
+		end
+		return true
+	end
+
+
+
+
+	def cashValid
+		if self.incoming_cash
+			if ! self.incoming_cash.between?(0,1000000000) 
+				return false
+			end
+			if self.incoming_cash > Team.find(self.offeree_id).cash_balance
+				return false
+			end
+		end
+		if self.outgoing_cash
+			if ! self.outgoing_cash.between?(0,1000000000)
+				return false
+			end
+			if self.outgoing_cash > Team.find(self.offeror_id).cash_balance
+				return false
+			end
+		end
+		return true
+	end
+
+
 	def swap_cash(u1, u2, c1, c2)
-		c1 ? (u1.cash_balance -= c1  && u2.cash_balance += c1) : nil
-		c2 ? (u2.cash_balance -= c2 && u1.cash_balance += c2) : nil
+		if c1 
+			u1.cash_balance -= c1 
+			u2.cash_balance += c1
+		end
+		if c2 
+			u2.cash_balance -= c2 
+			u1.cash_balance += c2
+		end
 		u2.save!
 		u1.save!
 	end
@@ -69,11 +126,9 @@ class TradeRequest < ApplicationRecord
 		tradeable = true
 		if (props)
 			props.each do |prop|
-				prop = Property.find(prop)
-				tradeable = !prop.developed
+				property = Property.find(prop)
+				tradeable = !property.developed?
 			end
-		else
-			tradeable = false
 		end
 		return tradeable
 	end

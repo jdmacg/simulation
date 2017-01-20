@@ -1,6 +1,6 @@
 <%= render 'sidebar' %>
 <div class='content-container'>
-  <h1>Active Trade Requests</h1>
+  <h1>Trade Requests</h1>
   <h4>
     <% flash.each do |k, v| %>
       <div id="error"><%= v %></div>
@@ -9,19 +9,19 @@
   <div class="table">
     <div class="row header blue">
       <div class="cell">
-        # Properties Offered
+        Trading Partner
       </div>
       <div class="cell">
-        Your Cash Offer
+        # Properties Giving Up
       </div>
       <div class="cell">
-        Counterparty
+        Cash Offered
       </div>
       <div class="cell">
-        # Counterparty Properties
+        Properties Requested
       </div>
       <div class="cell">
-        Counterparty Cash
+        Cash Requested
       </div>
       <div class="cell">
         Status
@@ -32,20 +32,20 @@
     </div>
     <% TradeRequest.where(offeror_id: @team.id).or(TradeRequest.where(offeree_id: @team.id)).each do |trade_request| %>
       <div class="row">
-        <div class="cell">
-          <%= trade_request.outgoing_properties ? trade_request.outgoing_properties.length : nil %>
+         <div class="cell">
+          <%= trade_request.offeror_id != @team.id ?trade_request.offeror_id: trade_request.offeree_id%>
         </div>
-        <div class="cell">
-          <%= trade_request.outgoing_cash ? number_to_currency(trade_request.outgoing_cash, :unit => "$") : nil%>
+       <div class="cell">
+          <%= trade_request.offeror_id == @team.id ? trade_request.outgoing_properties ? trade_request.outgoing_properties.length : nil : trade_request.incoming_properties ? trade_request.incoming_properties.length : nil%>
         </div>
-        <div class="cell">
-          <%= trade_request.offeror_id %>
+       <div class="cell">
+          <%= trade_request.offeror_id == @team.id ? trade_request.outgoing_cash ? number_to_currency(trade_request.outgoing_cash, :unit => "$") : nil : trade_request.incoming_cash ? number_to_currency(trade_request.incoming_cash) : nil%>
         </div>
-        <div class="cell">
-          <%= trade_request.incoming_properties ? trade_request.incoming_properties.length : nil %>
+       <div class="cell">
+          <%= trade_request.offeror_id == @team.id ? trade_request.incoming_properties ? trade_request.incoming_properties.length : nil : trade_request.outgoing_properties ? trade_request.outgoing_properties.length : nil%>
         </div>
-        <div class="cell">
-          <%= trade_request.incoming_cash ? number_to_currency(trade_request.incoming_cash) : nil %>
+       <div class="cell">
+          <%= trade_request.offeror_id == @team.id ? trade_request.incoming_cash ? number_to_currency(trade_request.incoming_cash, :unit => "$") : nil : trade_request.outgoing_cash ? number_to_currency(trade_request.outgoing_cash) : nil%>
         </div>
         <div class="cell">
           <% if trade_request.completed %>
@@ -59,7 +59,7 @@
             <% if trade_request.response_turn == current_user.team_id %>
               <%= link_to 'Accept Offer', accept_path(trade_request.id) %>
               <%= link_to 'Counter Offer', edit_trade_request_path(trade_request) %>
-              <%= link_to 'Decline Offer', trade_request, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Decline Offer', trade_request, method: :delete %>
             <% end %>
           <% end %>
           <%= link_to 'Show', trade_request_path(trade_request.id) %>
