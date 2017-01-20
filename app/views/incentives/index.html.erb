@@ -57,7 +57,7 @@
           <%@calculations = Hash[@calculations.sort_by {|k,v| k.to_s.to_i }]%>
           <% @calculations.each do |team,values| %>
             <div class="cell">
-              <%= values[incentive.calculation_key.to_sym] %>
+              <%= incentive.incentive_type == 1 ? values[incentive.calculation_key.to_sym] :  number_to_currency(values[incentive.calculation_key.to_sym])%>
             </div>
           <%end %>
           <!-- <div class="cell">
