@@ -78,7 +78,7 @@ class TradeRequestsController < ApplicationController
           redirect_to trade_requests_path, notice: "Specify properties or cash from each team"
         end
       else
-        flash[:error] = "Invalid cash specified!"
+        flash[:error] = "Invalid cash or properties specified!"
         redirect_to trade_requests_path
       end
     else 
