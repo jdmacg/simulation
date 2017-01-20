@@ -25,8 +25,9 @@ class UsersController < ApplicationController
 
   def develop
     @property = Property.find(params[:id])
-    flash = {}
-    if @property.development.used
+    if @property.team_id != User.find(session[:user_id]).team_id
+      redirect_to users_path, alert: "You don't have permission to do that"
+    elsif @property.development.used
       redirect_to users_path, alert: "You have already developed this property"
     elsif !(Team.find(current_user.team_id).can_drop_cash_balance(@property.development.cost))
       redirect_to users_path, alert: "You cannot afford to develop this property"
