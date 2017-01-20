@@ -62,6 +62,9 @@ class Team < ApplicationRecord
   	results[:developments2] = true if results[:developmentsCount] > 5
   	results[:developments3] = true if results[:developmentsCount] > 8
 
+    results[:totalPropertyValue] = self.calcTotalPropertyValue()
+    results[:cashBalance] = self.cash_balance
+    self.properties ? results[:propertiesCount] = self.properties.count : results[:propertiesCount] = 0
 
   	return results
   end
@@ -69,7 +72,7 @@ class Team < ApplicationRecord
   def calcTotalPropertyValue()
   	sum = 0
   	self.properties.each do |prop|
-  		sum += prop.getValue();
+  		sum += prop.value;
   	end
   	return sum
   end

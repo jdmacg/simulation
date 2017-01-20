@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(session[:user_id])
     @team = Team.find(@user.team_id)
-    @properties = Property.where(team_id: @team.id)
+    @properties = Property.where(team_id: @team.id).order(:id)
     @totalPropertyValue = @team.calcTotalPropertyValue()
   end
 
