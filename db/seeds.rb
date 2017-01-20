@@ -19,7 +19,7 @@ Team.create!([{team_name: "Team Nine", cash_balance: 15000000}])
 Team.create!([{team_name: "Team Ten", cash_balance: 15000000}])
 
 User.create!([{username: "ben.sisokin", password: "blowjob", password_confirmation: "blowjob", team_id: 1, admin: true}])
-
+User.create!([{username: "jordan.mcgregor", password: "blowjob", password_confirmation: "blowjob", team_id: 1, admin: true}])
 
 User.create!([{username: "brodie.whitla", password: "QRIC2017-1", password_confirmation: "QRIC2017-1", team_id: 1}])
 User.create!([{username: "james.acres", password: "QRIC2017-1", password_confirmation: "QRIC2017-1", team_id: 1}])

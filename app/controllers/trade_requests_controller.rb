@@ -60,25 +60,29 @@ class TradeRequestsController < ApplicationController
   # PATCH/PUT /trade_requests/1.json
   def update
     t_r = params[:trade_request]
-    @trade_request.offeror_id = t_r[:offeror_id]
-    @trade_request.offeree_id = t_r[:offeree_id]
-    @trade_request.outgoing_cash = t_r[:outgoing_cash]
-    @trade_request.incoming_cash = t_r[:incoming_cash]
-    @trade_request.completed = false
-    @trade_request.response_turn = TradeRequest.getOtherParty(@trade_request, current_user.team_id)
-    @trade_request.outgoing_properties = params[:outgoing_property]
-    @trade_request.incoming_properties = params[:incoming_property]
-    can_trade_outgoing = TradeRequest.tradeable(@trade_request.outgoing_properties)
-    can_trade_incoming = TradeRequest.tradeable(@trade_request.incoming_properties)
-    if can_trade_outgoing && can_trade_incoming && @trade_request.cashValid
-      if @trade_request.save
-        redirect_to trade_requests_path, notice: "Your trade request was successfully submitted"
+    if @trade_request.offeree_id == User.find(session[:user_id]).team.id and @trade_request.completed == false
+      @trade_request.offeror_id = t_r[:offeror_id]
+      @trade_request.offeree_id = t_r[:offeree_id]
+      @trade_request.outgoing_cash = t_r[:outgoing_cash]
+      @trade_request.incoming_cash = t_r[:incoming_cash]
+      @trade_request.completed = false
+      @trade_request.response_turn = TradeRequest.getOtherParty(@trade_request, current_user.team_id)
+      @trade_request.outgoing_properties = params[:outgoing_property]
+      @trade_request.incoming_properties = params[:incoming_property]
+      can_trade_outgoing = TradeRequest.tradeable(@trade_request.outgoing_properties)
+      can_trade_incoming = TradeRequest.tradeable(@trade_request.incoming_properties)
+      if can_trade_outgoing && can_trade_incoming && @trade_request.cashValid
+        if @trade_request.save
+          redirect_to trade_requests_path, notice: "Your trade request was successfully submitted"
+        else
+          redirect_to trade_requests_path, notice: "Specify properties or cash from each team"
+        end
       else
-        redirect_to trade_requests_path, notice: "Specify properties or cash from each team"
+        flash[:error] = "Invalid cash specified!"
+        redirect_to trade_requests_path
       end
-    else
-      flash[:error] = "Invalid cash specified!"
-      redirect_to trade_requests_path
+    else 
+      redirect_to trade_requests_url, notice: "You don't have permission to do that"
     end
   end
 
