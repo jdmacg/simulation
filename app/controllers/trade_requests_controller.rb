@@ -84,17 +84,21 @@ class TradeRequestsController < ApplicationController
 
   def accept
     @trade_request = TradeRequest.find(params[:id])
-    if @trade_request.validTrade
-      @trade_request.execute_trade
-      @trade_request.completed = true
-        if @trade_request.save!
-          redirect_to trade_requests_url, notice: 'Trade request was successfully accepted.'
-        else
-          redirect_to trade_requests_url, notice: 'Invalid trade request.'
-        end
-    else
-      @trade_request.destroy
-      redirect_to trade_requests_url, notice: 'Trade Request No Longer Valid'
+    if User.find(session[:user_id]).team.id == @trade_request.offeree_id and @trade_request.completed == false
+      if @trade_request.validTrade
+        @trade_request.execute_trade
+        @trade_request.completed = true
+          if @trade_request.save!
+            redirect_to trade_requests_url, notice: 'Trade request was successfully accepted.'
+          else
+            redirect_to trade_requests_url, notice: 'Invalid trade request.'
+          end
+      else
+        @trade_request.destroy
+        redirect_to trade_requests_url, notice: 'Trade Request No Longer Valid'
+      end
+    else 
+      redirect_to trade_requests_url, notice: "You don't have permission to do that"
     end
   end
 
