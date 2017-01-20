@@ -28,7 +28,6 @@ class TradeRequest < ApplicationRecord
 	def propertiesValid
 		offeror = Team.find(self.offeror_id)
 		offeree = Team.find(self.offeree_id)
-		binding.pry()
 		if incoming_properties
 			incoming_properties.each do |prop|
 				property = Property.find(prop.to_i)
