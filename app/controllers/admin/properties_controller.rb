@@ -48,7 +48,7 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	  prop.value = prop.value * 1.12
   	  	  prop.save!
   	  	elsif prop.property_type_id == 3
-  	  	  prop.value = prop.value *1.1
+  	  	  prop.value = prop.value * 1.1
   	  	  prop.save!
   	  	elsif prop.property_type_id == 4
   	  	  prop.value = prop.value * 1.15
