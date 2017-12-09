@@ -7,6 +7,7 @@ class Admin::PropertiesController < Admin::ApplicationController
 
   def shock1
   	Property.all.each do |prop|
+      puts prop.developed
   	  if prop.developed == false
   	  	if prop.province == 'Alberta'
   	  	  prop.value = prop.value * 0.9

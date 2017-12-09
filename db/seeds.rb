@@ -252,4 +252,4 @@ Incentive.create([{description: "Most Properties Owned", value: 4000000, incenti
 Incentive.create([{description: "Most Industrial Properties Owned", value: 3000000, incentive_type: 2}])
 Incentive.create([{description: "Most Multi-Residential Properties Owned", value: 3000000, incentive_type: 2}])
 Incentive.create([{description: "Most Office Properties Owned", value: 3000000, incentive_type: 2}])
-Incentive.create([{description: "Most Retial Properties Owned", value: 3000000, incentive_type: 2}])
+Incentive.create([{description: "Most Retail Properties Owned", value: 3000000, incentive_type: 2}])

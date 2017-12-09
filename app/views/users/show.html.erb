@@ -3,10 +3,10 @@
   <% flash.each do |k, v| %>
     <div id="error"><%= v %></div>
   <% end %>
-  <p>
-  Total Cash: <%=@team.cash_balance%>
-  Total Property Value: <%=@totalPropertyValue%>
-  </p>
+  <div class="profile-snap">
+    <div class="cash_display">Total Cash: <%=number_to_currency(@team.cash_balance)%></div>
+    <div class="cash_display">Total Property Value: <%=number_to_currency(@totalPropertyValue)%></div>
+  </div>
   <ul class="cards">
     <% @properties.each do |prop| %>
       <li class="cards__item">

@@ -12,20 +12,28 @@
   #login-btn{
     width:50%;
     border-radius: 2px;
-    background: #03A9F4;
+    background: #2A2D33;
     color: white;
     padding: 25px;
     font-size: 1.5em;
     margin: 5px;
+    border: 2px solid #3498db;
+    &:hover{
+      background: black;
+    }
 
   }
   #signup-btn{
     width:50%;
     border-radius: 2px;
-    background: #FF5722;
+    background: #2A2D33;
     color: white;
     padding: 25px;
     font-size: 1.5em;
     margin: 5px;
+    border: 2px solid #3498db;
+    &:hover{
+      background: black;
+    }
   }
 }
