@@ -1,17 +1,22 @@
 #sidebar {
   height: 100%;
   padding: 0;
-  background: #2A2D33;
+  background: black;
   position: fixed;
   margin-right: 10px;
   top: 0;
+  width: 200px;
 }
 
 #sidebar-nav {
   height: calc(100% - 95px);
   padding: 0;
-  background: #2A2D33;
   margin-top: 120px;
+  background: #2c3e50;
+	background: -webkit-linear-gradient(top left, black 0%, #2c3e50 100%);
+	background: -moz-linear-gradient(top left, black 0%, #2c3e50 100%);
+	background: -o-linear-gradient(top left, black 0%, #2c3e50 100%);
+	background: linear-gradient(top bottom right, black 0%, #2c3e50 100%);
 }
 
 #sidebar-nav h2 {
@@ -19,7 +24,6 @@
   float: left;
   width: 100%;
   font-size: .8em;
-  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   padding: 3px 0 2px 20px;
@@ -71,7 +75,6 @@
   height: 100%;
   word-wrap: break-word;
   background: #FFFFFF;
-  font-family: Raleway, sans-serif;
 }
 ::-webkit-scrollbar {
     width: 12px;
