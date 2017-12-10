@@ -4,45 +4,38 @@
     <div id="error"><%= v %></div>
   <% end %>
   <div class="profile-snap">
-    <div class="cash_display">Total Cash: <%=number_to_currency(@team.cash_balance)%></div>
-    <div class="cash_display">Total Property Value: <%=number_to_currency(@totalPropertyValue)%></div>
+    <div class="cash_display">Total Cash: <%=number_to_currency(@team.cash_balance, precision: 0)%></div>
+    <div class="cash_display">Total Property Value: <%=number_to_currency(@totalPropertyValue, precision: 0)%></div>
   </div>
-  <ul class="cards">
+  <div class="cards">
     <% @properties.each do |prop| %>
-      <li class="cards__item">
-        <div class="card">
-          <div class="card__image card__image--fence"></div>
-          <div class="card__content">
-            <div class="card__title"><%= prop.name %></div>
-              <ul id="card__info">
-                <li>
-                  City: <%= prop.city %>
-                </li>
-                <li>
-                  Province: <%= prop.province %>
-                </li>
-                <li>
-                  Value: <%= number_to_currency(prop.value, :unit => "$") %>
-                </li>
-                <li>
-                  Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
-                <li>
-                  <% if prop.developed %>
-                    Developed: Yes
-                  <% elsif prop.in_development%>
-                    Developed: In Development
-                  <% end %>
-                </li>
-                <li>
-                  Asset Class: <%= prop.property_type.description %>
-                </li>
-              </ul>
-            <%if !prop.developed and !prop.in_development%>
-              <%= link_to 'Develop', develop_path(prop.id), class: "btn btn--block card__btn" %>
-            <%end%>
-          </div>
-        </div>
-      </li>
+        <div class="container">
+      		<header class="card-header">
+      			<div class="bio">
+              <img src="https://pbs.twimg.com/media/Cg_WlKDWkAAiqn4.jpg" alt="background" class="bg">
+      				<div class="desc">
+      					<h3><%= prop.name%></h3>
+      					<p>Located in <%= prop.city%> <%=prop.province%></p>
+      				</div>
+      			</div>
+      		</header>
+
+      		<div class="content">
+            <h2><%=prop.name%></h2>
+      			<div class="data">
+      	       <ul>
+                 <li>
+                   <%= number_to_currency(prop.value, precision: 0)%>
+                 </li>
+               </ul>
+      			</div>
+      			<div class="follow">
+              <%if !prop.developed and !prop.in_development%>
+                <%= link_to 'Develop', develop_path(prop.id), class: "dvlp-link" %>
+              <%end%>
+            </div>
+      		</div>
+      	</div>
     <% end %>
-  </ul>
+  </div>
 </div>
