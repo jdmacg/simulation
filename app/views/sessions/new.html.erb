@@ -1,21 +1,12 @@
 <% flash.each do |k, v| %>
   <div id="error"><%= v %></div>
 <% end %>
-<div class="home-page" id="login-signup">
-  <header>
-			<h1 class="title"><i class="fa fa-user"></i> User Log In</h1>
-	</header>
-	<section>
+<div class="wrapper">
+  <div class="container">
+		<h1 class="title">Welcome</h1>
     <%= form_for(:session, url: login_path) do |f| %>
-      <%= f.label :username %>
-      <%= f.text_field :username, class: 'mail' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password , class: 'password'%>
-      <%= f.submit 'Log In', class: 'login' %>
+      <%= f.text_field :username %>
+      <%= f.password_field :password %>
+      <%= f.submit 'Log In' %>
     <% end %>
-  </section>
-	<footer>
-		QRIC Trading Simulation
-	</footer>
 </div>
