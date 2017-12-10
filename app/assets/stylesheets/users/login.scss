@@ -1,15 +1,9 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
-
-.wrapper{
+.wrapper#login{
 	background: #2c3e50;
 	background: -webkit-linear-gradient(top left, black 0%, #2c3e50 100%);
 	background: -moz-linear-gradient(top left, black 0%, #2c3e50 100%);
 	background: -o-linear-gradient(top left, black 0%, #2c3e50 100%);
 	background: linear-gradient(top bottom right, black 0%, #2c3e50 100%);
-
 	position: absolute;
 	top: 50%;
 	left: 0;
@@ -27,7 +21,7 @@
 	}
 }
 
-.container{
+.container#login{
 	max-width: 600px;
 	margin: 0 auto;
 	padding: 80px 0;
@@ -48,6 +42,16 @@
   input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 30px #141B23 inset;
     -webkit-color: white;
+  }
+
+  input[type=text] {
+      border: 2px solid white;
+      background: transparent;
+  }
+
+  input[type=password] {
+      border: 2px solid white;
+      background: transparent;
   }
 
 	input{
@@ -74,7 +78,7 @@
 			width: 300px;
 			color: black;
 		}
-	}
+	 }
 
 	.btn{
 		color: #2c3e50;
@@ -88,16 +92,6 @@
 		&:hover{
       background: transparent;
 		}
-	}
-}
-}
-
-input[type=text] {
-    border: 2px solid white;
-    background: transparent;
-}
-
-input[type=password] {
-    border: 2px solid white;
-    background: transparent;
+	 }
+  }
 }

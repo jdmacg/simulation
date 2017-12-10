@@ -1,8 +1,8 @@
 <% flash.each do |k, v| %>
   <div id="error"><%= v %></div>
 <% end %>
-<div class="wrapper">
-  <div class="container">
+<div class="wrapper" id="login">
+  <div class="container" id="login">
 		<span class="title">Welcome to QRIC 2018</span>
     <%= form_for(:session, url: login_path) do |f| %>
       <%= f.text_field :username %>
