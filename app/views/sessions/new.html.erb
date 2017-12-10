@@ -3,10 +3,10 @@
 <% end %>
 <div class="wrapper">
   <div class="container">
-		<h1 class="title">Welcome</h1>
+		<span class="title">Welcome to QRIC 2018</span>
     <%= form_for(:session, url: login_path) do |f| %>
       <%= f.text_field :username %>
       <%= f.password_field :password %>
-      <%= f.submit 'Log In' %>
+      <%= f.submit 'Log In', class: "btn" %>
     <% end %>
 </div>
