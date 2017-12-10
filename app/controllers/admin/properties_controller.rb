@@ -5,6 +5,13 @@ class Admin::PropertiesController < Admin::ApplicationController
     @properties = Property.all
   end
 
+  def change_team
+    user = User.find(session[:user_id])
+    user.team_id = params[:team_id]
+    user.save!
+    redirect_to admin_properties_path, :notice => 'changed teams'
+  end
+
   def shock1
   	Property.all.each do |prop|
       puts prop.developed
@@ -12,7 +19,7 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	if prop.province == 'Alberta'
   	  	  prop.value = prop.value * 0.9
   	  	  prop.save!
-  	  	elsif prop.province = 'Quebec'
+  	  	elsif prop.province == 'Quebec'
   	  	  prop.value = prop.value *  0.9
   	  	  prop.save!
   	  	else
@@ -31,7 +38,7 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	if prop.city == 'Toronto'
   	  	  prop.value = prop.value * 1.1
   	  	  prop.save!
-  	  	elsif prop.city = 'Vancouver'
+  	  	elsif prop.city == 'Vancouver'
   	  	  prop.value = prop.value * 1.1
   	  	  prop.save!
   	  	end
@@ -42,7 +49,7 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	  prop.value = prop.value * 1.12
   	  	  prop.save!
   	  	elsif prop.property_type_id == 3
-  	  	  prop.value = prop.value *1.1
+  	  	  prop.value = prop.value * 1.1
   	  	  prop.save!
   	  	elsif prop.property_type_id == 4
   	  	  prop.value = prop.value * 1.15
@@ -70,7 +77,7 @@ class Admin::PropertiesController < Admin::ApplicationController
   	  	if prop.city == 'Toronto'
   	  	  prop.value = prop.value * 1.16
   	  	  prop.save!
-  	  	elsif prop.city = 'Vancouver'
+  	  	elsif prop.city == 'Vancouver'
   	  	  prop.value = prop.value * 1.16
   	  	  prop.save!
   	  	end

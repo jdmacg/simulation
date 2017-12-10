@@ -12,24 +12,31 @@
               <div class="card__image card__image--fence"></div>
               <div class="card__content">
                 <div class="card__title"><%= prop.name %></div>
-                  <ul id="card__info">
-                    <li>
-                      Value: <%= number_to_currency(prop.value, :unit => "$") %>
-                    </li>
-                    <li>
-                      <% if prop.developed %>
-                        Developed: Yes
-                      <% else %>
-                        Developed: No
-                      <% end %>
-                    </li>
-                    <li>
-                      Asset Class: <%= prop.property_type.description %>
-                    </li>
-                    <li>
-                      Development Value: <%= number_to_currency(prop.development.value, :unit => "$") %>
-                    </li>
-                  </ul>
+               <ul id="card__info">
+                <li>
+                  City: <%= prop.city %>
+                </li>
+                <li>
+                  Province: <%= prop.province %>
+                </li>
+                <li>
+                  Value: <%= number_to_currency(prop.value, :unit => "$") %>
+                </li>
+                <% if !prop.developed %>
+                <li>
+                  Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
+                <li>
+                <%end%>
+                  <% if prop.developed %>
+                    Developed: Yes
+                  <% else %>
+                    Developed: No
+                  <% end %>
+                </li>
+                <li>
+                  Asset Class: <%= prop.property_type.description %>
+                </li>
+              </ul>
               </div>
             </div>
           </li>
@@ -49,21 +56,31 @@
               <div class="card__image card__image--fence"></div>
               <div class="card__content">
                 <div class="card__title"><%= prop.name %></div>
-                  <ul id="card__info">
-                    <li>
-                      Value: <%= number_to_currency(prop.value, :unit => "$") %>
-                    </li>
-                    <li>
-                      <% if prop.developed %>
-                        Developed: Yes
-                      <% else %>
-                        Developed: No
-                      <% end %>
-                    </li>
-                    <li>
-                      Development Value: <%= number_to_currency(prop.development.value, :unit => "$") %>
-                    </li>
-                  </ul>
+              <ul id="card__info">
+                <li>
+                  City: <%= prop.city %>
+                </li>
+                <li>
+                  Province: <%= prop.province %>
+                </li>
+                <li>
+                  Value: <%= number_to_currency(prop.value, :unit => "$") %>
+                </li>
+                <% if !prop.developed %>
+                <li>
+                  Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
+                <li>
+                <%end%>
+                  <% if prop.developed %>
+                    Developed: Yes
+                  <% else %>
+                    Developed: No
+                  <% end %>
+                </li>
+                <li>
+                  Asset Class: <%= prop.property_type.description %>
+                </li>
+              </ul>
               </div>
             </div>
           </li>
@@ -78,7 +95,7 @@
         <li class="cards__item">
           <div class="card">
             <div class="card__content">
-              <div class="card__title">Trade Initiator: <%= Team.find(@trade_request.offeror_id).team_name %></div>
+              <div class="card__title"><%= Team.find(@trade_request.offeror_id).team_name %></div>
                 <ul id="card__info">
                   <li>
                     Cash Offer: <%= number_to_currency(@trade_request.outgoing_cash, :unit => "$") %>
@@ -90,7 +107,7 @@
         <li class="cards__item">
           <div class="card">
             <div class="card__content">
-              <div class="card__title">Trade Recipient: <%= Team.find(@trade_request.offeree_id).team_name %></div>
+              <div class="card__title"><%= Team.find(@trade_request.offeree_id).team_name %></div>
                 <ul id="card__info">
                   <li>
                     Cash Offer: <%= number_to_currency(@trade_request.incoming_cash, :unit => "$") %>

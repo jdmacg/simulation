@@ -19,7 +19,7 @@ Team.create!([{team_name: "Team Nine", cash_balance: 15000000}])
 Team.create!([{team_name: "Team Ten", cash_balance: 15000000}])
 
 User.create!([{username: "ben.sisokin", password: "blowjob", password_confirmation: "blowjob", team_id: 1, admin: true}])
-
+User.create!([{username: "jordan.mcgregor", password: "blowjob", password_confirmation: "blowjob", team_id: 1, admin: true}])
 
 User.create!([{username: "brodie.whitla", password: "QRIC2017-1", password_confirmation: "QRIC2017-1", team_id: 1}])
 User.create!([{username: "james.acres", password: "QRIC2017-1", password_confirmation: "QRIC2017-1", team_id: 1}])
@@ -98,8 +98,8 @@ PropertyType.create!([{ description: "Retail" }])
 PropertyType.create!([{ description: "Office" }])
 
 Property.create!([{property_type_id: 3,value: 21000000,name: "Park Royal Shopping Center", city: "Vancouver", province: "British Columbia",team_id: 1, in_development: false, developed: false}])
-Property.create!([{property_type_id: 3,value: 16725000,name: "Market Mall", city: "Saskatoon", province: "Saskatchewan",team_id: 2, in_development: false, developed: false, developed: false}])
-Property.create!([{property_type_id: 3,value: 18397000,name: "West Edmonton Mall", city: "Edmonton", province: "Alberta",team_id: 3, in_development: false, developed: false, developed: false}])
+Property.create!([{property_type_id: 3,value: 16725000,name: "Market Mall", city: "Saskatoon", province: "Saskatchewan",team_id: 2, in_development: false, developed: false}])
+Property.create!([{property_type_id: 3,value: 18397000,name: "West Edmonton Mall", city: "Edmonton", province: "Alberta",team_id: 3, in_development: false, developed: false}])
 Property.create!([{property_type_id: 3,value: 15872091,name: "Metropolis at Metrotown", city: "Vancouver", province: "British Columbia",team_id: 4, in_development: false, developed: false}])
 Property.create!([{property_type_id: 3,value: 19872091,name: "Coquitlam Center Mall", city: "Coquitlam", province: "British Columbia",team_id: 5, in_development: false, developed: false}])
 Property.create!([{property_type_id: 3,value: 20872091,name: "Outlet Collection at Niagra", city: "Niagra Falls", province: "Ontario",team_id: 6, in_development: false, developed: false}])
@@ -114,7 +114,7 @@ Property.create!([{property_type_id: 4,value: 15727361,name: "Avord Tower", city
 Property.create!([{property_type_id: 4,value: 16747561,name: "TD Canada Trust Tower", city: "Toronto", province: "Ontario",team_id: 3, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 15728321,name: "Northwest Tower", city: "Regina", province: "Saskatchewan",team_id: 4, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 14229161,name: "Saskatoon Square", city: "Saskatoon", province: "Saskatchewan",team_id: 5, in_development: false, developed: false}])
-Property.create!([{property_type_id: 4,value: 152349161,name: "Jeske Corporate Center", city: "Langley", province: "British Columbia",team_id: 6, in_development: false, developed: false}])
+Property.create!([{property_type_id: 4,value: 15234916,name: "Jeske Corporate Center", city: "Langley", province: "British Columbia",team_id: 6, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 16289161,name: "Phoenix Building", city: "Saskatoon", province: "Saskatchewan",team_id: 7, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 17000001,name: "Maryland Place", city: "Calgary", province: "Alberta",team_id: 8, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 16743161,name: "Sanofi Building", city: "Laval", province: "Quebec",team_id: 9, in_development: false, developed: false}])
@@ -201,25 +201,25 @@ Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2,
 
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 30}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 31}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 31}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 32}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 32}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 33}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 33}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 34}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 34}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 35}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 35}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 36}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 36}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 37}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 37}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 38}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 38}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 39}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 39}])
 
-Development.create!([{cost: 17000000, used: false, value: 0, development_time: 2, property_id: 40}])
+Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 40}])
 
 i = 1
 Property.all.each do |prop|
@@ -229,8 +229,8 @@ Property.all.each do |prop|
   i += 1
 end
 
-Incentive.create([{description: "4 Industrial Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType1Count", completed_key: "propertyType1"}])
-Incentive.create([{description: "4 Multi-Residential Properties Owned", value: 4000000, incentive_type: 1, calculation_key: "propertyType2Count", completed_key: "propertyType1"}])
+Incentive.create([{description: "4 Industrial Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType2Count", completed_key: "propertyType1"}])
+Incentive.create([{description: "4 Multi-Residential Properties Owned", value: 4000000, incentive_type: 1, calculation_key: "propertyType1Count", completed_key: "propertyType1"}])
 Incentive.create([{description: "4 Office Properties Owned", value: 6000000, incentive_type: 1, calculation_key: "propertyType3Count", completed_key: "propertyType1"}])
 Incentive.create([{description: "4 Retail Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType4Count", completed_key: "propertyType1"}])
 Incentive.create([{description: "3 Properties owned in Alberta", value: 6000000, incentive_type: 1, calculation_key: "province1Count", completed_key: "province1"}])
@@ -244,12 +244,13 @@ Incentive.create([{description: "15 Acquisitions Completed", value: 25000000, in
 Incentive.create([{description: "2 Developments Completed", value: 10000000, incentive_type: 1, calculation_key: "developmentsCount", completed_key: "developments1"}])
 Incentive.create([{description: "5 Developments Completed", value: 15000000, incentive_type: 1, calculation_key: "developmentsCount", completed_key: "developments2"}])
 Incentive.create([{description: "8 Developments Completed", value: 20000000, incentive_type: 1, calculation_key: "developmentsCount", completed_key: "developments3"}])
-Incentive.create([{description: "Lowest Cash Balance", value: 4000000, incentive_type: 2}])
-Incentive.create([{description: "Highest Property Value", value: 6000000, incentive_type: 2}])
-Incentive.create([{description: "Most Acquisitions", value: 7000000, incentive_type: 2}])
-Incentive.create([{description: "Most Developments", value: 5000000, incentive_type: 2}])
-Incentive.create([{description: "Most Properties Owned", value: 4000000, incentive_type: 2}])
-Incentive.create([{description: "Most Industrial Properties Owned", value: 3000000, incentive_type: 2}])
-Incentive.create([{description: "Most Multi-Residential Properties Owned", value: 3000000, incentive_type: 2}])
-Incentive.create([{description: "Most Office Properties Owned", value: 3000000, incentive_type: 2}])
-Incentive.create([{description: "Most Retail Properties Owned", value: 3000000, incentive_type: 2}])
+
+Incentive.create([{description: "Most Acquisitions", value: 7000000, incentive_type: 1, calculation_key: "tradedPropertiesCount"}])
+Incentive.create([{description: "Most Developments", value: 5000000, incentive_type: 1, calculation_key: "developmentsCount"}])
+Incentive.create([{description: "Most Properties Owned", value: 4000000, incentive_type: 1, calculation_key: "propertiesCount"}])
+Incentive.create([{description: "Most Industrial Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType2Count"}])
+Incentive.create([{description: "Most Multi-Residential Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType1Count"}])
+Incentive.create([{description: "Most Office Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType3Count"}])
+Incentive.create([{description: "Most Retial Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType4Count"}])
+Incentive.create([{description: "Lowest Cash Balance", value: 4000000, incentive_type: 2, calculation_key: "cashBalance"}])
+Incentive.create([{description: "Highest Property Value", value: 6000000, incentive_type: 2, calculation_key: "totalPropertyValue"}])

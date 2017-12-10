@@ -1,8 +1,11 @@
 <%= render "sidebar" %>
 <div class='content-container'>
+  <h1>Team: <%=@team.id%> </h1>
   <p>
-  Total Cash: <%=@team.cash_balance%>
-  Total Property Value: <%=@totalPropertyValue%>
+  Total Cash: <%=number_to_currency(@team.cash_balance, :unit => "$")%>
+  </p>
+  <p>
+  Total Property Value: <%=number_to_currency(@totalPropertyValue, :unit => "$")%>
   </p>
   <p id="notice"><%= notice %></p>
   <h1>Properties Owned</h1>
@@ -18,19 +21,19 @@
                   City: <%= prop.city %>
                 </li>
                 <li>
+                  Province: <%= prop.province %>
+                </li>
+                <li>
                   Value: <%= number_to_currency(prop.value, :unit => "$") %>
                 </li>
+                <% if !prop.developed %>
                 <li>
-                  Development Value: <%= number_to_currency(prop.development.value, :unit => "$") %>
-                </li>
+                  Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
                 <li>
-                  Development Cost: <%= number_to_currency(prop.development.cost, :unit => "$") %>
-                <li>
+                <%end%>
                   <% if prop.developed %>
                     Developed: Yes
-                  <% elsif prop.in_development%>
-                    Developed: In Development
-                  <%else%>
+                  <% else %>
                     Developed: No
                   <% end %>
                 </li>

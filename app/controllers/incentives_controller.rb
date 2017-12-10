@@ -4,7 +4,7 @@ class IncentivesController < ApplicationController
   # GET /incentives
   # GET /incentives.json
   def index
-    @incentives1 = Incentive.where(:incentive_type => 1)
+    @incentives1 = Incentive.all
     @calculations = Hash.new
     Team.all.each do |team|
       @calculations[team.id.to_s.to_sym] = team.calcIncentives()
