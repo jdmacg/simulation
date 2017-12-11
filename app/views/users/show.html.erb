@@ -3,48 +3,24 @@
   <% flash.each do |k, v| %>
     <div id="error"><%= v %></div>
   <% end %>
-  <div class="profile-snap">
-    <div class="cash_display">Total Cash: <%=number_to_currency(@team.cash_balance)%></div>
-    <div class="cash_display">Total Property Value: <%=number_to_currency(@totalPropertyValue)%></div>
-  </div>
-  <ul class="cards">
+
+
+  <div class="cards">
+    <div class='card' id="snapshot">
+      <span class="prop-title"><%=@team.team_name%></span>
+      <span class="prop-attr">Cash: <%=number_to_currency(@team.cash_balance, :unit => "$", :precision => 0)%></span>
+      <span class="prop-attr">Property Value: <%=number_to_currency(@totalPropertyValue, :unit => "$", :precision => 0)%></span>
+    </div>
     <% @properties.each do |prop| %>
-      <li class="cards__item">
-        <div class="card">
-          <div class="card__image card__image--fence"></div>
-          <div class="card__content">
-            <div class="card__title"><%= prop.name %></div>
-              <ul id="card__info">
-                <li>
-                  City: <%= prop.city %>
-                </li>
-                <li>
-                  Province: <%= prop.province %>
-                </li>
-                <li>
-                  Value: <%= number_to_currency(prop.value, :unit => "$") %>
-                </li>
-                <% if !prop.developed %>
-                <li>
-                  Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
-                <li>
-                <%end%>
-                  <% if prop.developed %>
-                    Developed: Yes
-                  <% else %>
-                    Developed: No
-                  <% end %>
-                </li>
-                <li>
-                  Asset Class: <%= prop.property_type.description %>
-                </li>
-              </ul>
-            <%if !prop.developed and !prop.in_development%>
-              <%= link_to 'Develop', develop_path(prop.id), class: "btn btn--block card__btn" %>
-            <%end%>
-          </div>
-        </div>
-      </li>
+      <div class='card' background="http://www.nallaneramproperties.com/wp-content/uploads/2016/10/property-connect-home.jpg">
+        <span class="prop-title"><%=prop.name%></span>
+        <span class="prop-attr"><%=prop.city%></span>
+        <%if !prop.developed and !prop.in_development%>
+          <%= link_to 'Develop', develop_path(prop.id), class: "btn" %>
+        <%end%>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
+
+<!-- TODO: Add financial snapshot button with popup - display cash and number of properties -->
