@@ -53,6 +53,17 @@
       -webkit-background-clip: text;
     }
   }
+  .top-info{
+    height: 33%;
+    width: 100%;
+  }
+  .center-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 33%;
+    width: 100%;
+  }
   .prop-title{
     margin: 0;
     font-size: 3em;
@@ -62,4 +73,25 @@
     font-size: 1em;
     color: white
   }
+  .prop-team{
+    font-size: 2em;
+  }
+  .bottom-info{
+    height: 33%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .property-value{
+      display: flex;
+      justify-content: center;
+      font-size: 2em;
+      color: white;
+    }
+    .asset-class{
+      display: flex;
+      justify-content: center;
+    }
+  }
+
 }
