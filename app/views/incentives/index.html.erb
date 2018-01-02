@@ -3,7 +3,6 @@
 <h1>Incentives</h1>
 
 <br>
-
   <div class="table">
       <div class="row header blue">
         <div class="cell">
@@ -46,7 +45,7 @@
           Trade Request
         </div> -->
       </div>
-      <% @incentives1.each do |incentive| %>
+      <% Incentive.all.each do |incentive| %>
         <div class="row">
           <div class="cell">
             <%=incentive.description%>

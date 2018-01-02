@@ -1,4 +1,4 @@
-class TradeRequest < ApplicationRecord
+valid_tradeclass TradeRequest < ApplicationRecord
 	# belongs_to :requester, class_name: "Team"
 	# belongs_to :requestee, class_name: "Team"
 	validate :property_or_money_outgoing
@@ -17,15 +17,15 @@ class TradeRequest < ApplicationRecord
 		swap_cash(offeror, offeree, outgoing_cash, incoming_cash)
 	end
 
-	def validTrade
-		return false if !self.cashValid
+	def valid_trade
+		return false if !self.cash_valid
 		return false if !TradeRequest.tradeable(self.incoming_properties)
 		return false if !TradeRequest.tradeable(self.outgoing_properties)
-		return false if !self.propertiesValid
+		return false if !self.properties_valid
 		return true
 	end
 
-	def propertiesValid
+	def properties_valid
 		offeror = Team.find(self.offeror_id)
 		offeree = Team.find(self.offeree_id)
 		if incoming_properties
@@ -43,12 +43,9 @@ class TradeRequest < ApplicationRecord
 		return true
 	end
 
-
-
-
-	def cashValid
+	def cash_valid
 		if self.incoming_cash
-			if ! self.incoming_cash.between?(0,1000000000) 
+			if ! self.incoming_cash.between?(0,1000000000)
 				return false
 			end
 			if self.incoming_cash > Team.find(self.offeree_id).cash_balance
@@ -66,14 +63,13 @@ class TradeRequest < ApplicationRecord
 		return true
 	end
 
-
 	def swap_cash(u1, u2, c1, c2)
-		if c1 
-			u1.cash_balance -= c1 
+		if c1
+			u1.cash_balance -= c1
 			u2.cash_balance += c1
 		end
-		if c2 
-			u2.cash_balance -= c2 
+		if c2
+			u2.cash_balance -= c2
 			u1.cash_balance += c2
 		end
 		u2.save!
