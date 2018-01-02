@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20180119902951) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "value"
-    t.integer  "type"
     t.integer  "incentive_type"
     t.string   "description"
     t.string   "calculation_key"
@@ -46,7 +45,7 @@ ActiveRecord::Schema.define(version: 20180119902951) do
     t.datetime "updated_at",       null: false
     t.integer  "property_type_id"
     t.decimal  "value"
-    t.string   "poster_image_url"
+    t.text     "poster_image_url"
     t.integer  "development_id"
     t.string   "name"
     t.integer  "value_t1"
@@ -105,4 +104,5 @@ ActiveRecord::Schema.define(version: 20180119902951) do
 
   add_foreign_key "developments", "properties"
   add_foreign_key "properties", "developments"
+  add_foreign_key "properties", "property_types"
 end

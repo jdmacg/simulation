@@ -4,48 +4,25 @@
   <% flash.each do |k, v| %>
     <div id="error"><%= v %></div>
   <% end %>
-  <h1>All Properties</h1>
   <br>
-  <% @teams.each do |team| %>
-    <h2> <%= team.team_name %> Properties</h2>
-    <ul class="cards">
-      <% team.properties.each do |prop| %>
-        <li class="cards__item">
-          <div class="card">
-            <div class="card__image card__image--fence"></div>
-            <div class="card__content">
-              <div class="card__title"><%= prop.name %></div>
-              <ul id="card__info">
-                <li>
-                  City: <%= prop.city %>
-                </li>
-                <li>
-                  Province: <%= prop.province %>
-                </li>
-                <li>
-                  Value: <%= number_to_currency(prop.value, :unit => "$") %>
-                </li>
-                <% if !prop.developed %>
-                <li>
-                  Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
-                <li>
-                <%end%>
-                  <% if prop.developed %>
-                    Developed: Yes
-                  <% else %>
-                    Developed: No
-                  <% end %>
-                </li>
-                <li>
-                  Asset Class: <%= prop.property_type.description %>
-                </li>
-              </ul>
+    <div class="cards">
+    <% @teams.each do |team| %>
+        <% team.properties.each do |prop| %>
+          <div class='card' background="http://www.nallaneramproperties.com/wp-content/uploads/2016/10/property-connect-home.jpg">
+            <div class="top-info"></div>
+            <div class="center-info">
+              <span class="prop-title"><%=prop.name%></span>
+              <span class="prop-attr"><%=prop.city%></span>
+              <span class="prop-team"><%=team.team_name%></span>
             </div>
+            <div class="bottom-info">
+              <span class="property-value"><%=number_to_currency(prop.value, :unit => "$", :precision => 0)%></span>
+              <span class="asset-class"><%=prop.property_type.description%></span>
+           </div>
           </div>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+        <% end %>
+    <% end %>
+  </div>
 </div>
 
 

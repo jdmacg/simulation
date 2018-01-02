@@ -1,11 +1,12 @@
 class TradeRequest < ApplicationRecord
-	# belongs_to :requester, class_name: "Team"
-	# belongs_to :requestee, class_name: "Team"
+
 	validate :property_or_money_outgoing
 	validate :property_or_money_incoming
 	validates :offeror_id, presence: true
 	validates :offeree_id, presence: true
 
+
+	#Carries out the trade by swapping properties and cash.
 	def execute_trade
 		offeror = Team.find(self.offeror_id)
 		offeree = Team.find(self.offeree_id)
@@ -17,15 +18,16 @@ class TradeRequest < ApplicationRecord
 		swap_cash(offeror, offeree, outgoing_cash, incoming_cash)
 	end
 
-	def validTrade
-		return false if !self.cashValid
+	def valid_trade
+		return false if !self.cash_valid
 		return false if !TradeRequest.tradeable(self.incoming_properties)
 		return false if !TradeRequest.tradeable(self.outgoing_properties)
-		return false if !self.propertiesValid
+		return false if !self.properties_valid
 		return true
 	end
 
-	def propertiesValid
+	#Validate property swap for the trade. Returns false if properties are no longer in possession of a given team.
+	def properties_valid
 		offeror = Team.find(self.offeror_id)
 		offeree = Team.find(self.offeree_id)
 		if incoming_properties
@@ -43,12 +45,10 @@ class TradeRequest < ApplicationRecord
 		return true
 	end
 
-
-
-
-	def cashValid
+	#Validate cash swap for the trade. Returns false if cash is outside max limits or is greater than a teams cash balance.
+	def cash_valid
 		if self.incoming_cash
-			if ! self.incoming_cash.between?(0,1000000000) 
+			if ! self.incoming_cash.between?(0,1000000000)
 				return false
 			end
 			if self.incoming_cash > Team.find(self.offeree_id).cash_balance
@@ -66,33 +66,43 @@ class TradeRequest < ApplicationRecord
 		return true
 	end
 
-
+	#Cash swapping method - simply exchanges the tendered cash amounts between the two parties.
 	def swap_cash(u1, u2, c1, c2)
-		if c1 
-			u1.cash_balance -= c1 
+		if c1
+			u1.cash_balance -= c1
 			u2.cash_balance += c1
 		end
-		if c2 
-			u2.cash_balance -= c2 
+		if c2
+			u2.cash_balance -= c2
 			u1.cash_balance += c2
 		end
 		u2.save!
 		u1.save!
 	end
 
+	#Ensures that something is being offered.
 	def property_or_money_outgoing
 		if (!outgoing_properties && !outgoing_cash)
 			errors[:base] << "Specify properties, cash, or both."
 		end
 	end
 
+	#Ensures that something is being requested.
+	def property_or_money_incoming
+		if (!incoming_properties == 0 && !incoming_cash)
+			errors[:base] << "Specify properties, cash, or both."
+		end
+	end
+
+	#Employs helper methods to swap properties offered by each team.
 	def swap_properties(offeror, offeror_properties, offeree, offeree_properties)
 		pass_and_delete_properties(offeror_properties, offeror, offeree)
 		pass_and_delete_properties(offeree_properties, offeree, offeror)
 	end
 
+	#Passes properties tendered by one team to the other, and deletes traded properties from the passing teams portfolio.
 	def pass_and_delete_properties(props, sender, receiver)
-		if (props)
+		if props
 			props.each do |prop|
 				property = Property.find(prop)
 				receiver.properties << property
@@ -103,24 +113,12 @@ class TradeRequest < ApplicationRecord
 		end
 	end
 
-	def property_or_money_incoming
-		if (!incoming_properties == 0 && !incoming_cash)
-			errors[:base] << "Specify properties, cash, or both."
-		end
-	end
-
-	def self.getProperties(props)
-		return_props = []
-		props.each do |prop|
-			return_props << Property.find(prop.to_i)
-		end
-		return return_props
-	end
-
+	#Returns the id of the opposite party for a given trade request.
 	def self.getOtherParty(tr, id)
 		(tr.offeror_id == id) ? tr.offeree_id : tr.offeror_id
 	end
 
+	#Verifies that the properties in a given request are not developed. If they are, the trade request is deemed invalid.
 	def self.tradeable(props)
 		tradeable = true
 		if (props)
