@@ -26,21 +26,21 @@ class Team < ApplicationRecord
   	results[:propertyType1Count] = Property.where(:team_id => self.id, :property_type => 1).count
   	results[:propertyType1] = true if results[:propertyType1Count] >= 4
   	results[:propertyType2Count] = Property.where(:team_id => self.id, :property_type => 2).count
-  	results[:propertyType2] = true if results[:propertyType2Count] >= 4
+  	results[:propertyType2] = true if results[:propertyType2Count] >= 7
   	results[:propertyType3Count] = Property.where(:team_id => self.id, :property_type => 3).count
-  	results[:propertyType3] = true if results[:propertyType3Count] >= 4
+  	results[:propertyType3] = true if results[:propertyType3Count] >= 3
   	results[:propertyType4Count] = Property.where(:team_id => self.id, :property_type => 4).count
-  	results[:propertyType4] = true if results[:propertyType4Count] >= 4
+  	results[:propertyType4] = true if results[:propertyType4Count] >= 7
   	results[:province1Count] = Property.where(:team_id => self.id, :province => 'Alberta').count
-  	results[:province1] = true if results[:province1Count] >= 3
+  	results[:province1] = true if results[:province1Count] >= 4
   	results[:province2Count] = Property.where(:team_id => self.id, :province => 'British Columbia').count
-  	results[:province2] = true if results[:province2Count] >= 3
+  	results[:province2] = true if results[:province2Count] >= 4
   	results[:province3Count] = Property.where(:team_id => self.id, :province => 'Nova Scotia').count
   	results[:province3] = true if results[:province3Count] >= 3
   	results[:province4Count] = Property.where(:team_id => self.id, :province => 'Ontario').count
   	results[:province4] = true if results[:province4Count] >= 3
   	results[:province5Count] = Property.where(:team_id => self.id, :province => 'Quebec').count
-  	results[:province5] = true if results[:province5Count] >= 2
+  	results[:province5] = true if results[:province5Count] >= 3
   	results[:province6Count] = Property.where(:team_id => self.id, :province => 'Saskatchewan').count
   	results[:province6] = true if results[:province6Count] >= 2
   	results[:tradedPropertiesCount] = 0
