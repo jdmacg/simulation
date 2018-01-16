@@ -105,4 +105,15 @@ class Admin::PropertiesController < Admin::ApplicationController
 	  end
     redirect_to admin_properties_path, :notice => 'shocked 4 properly'
 	end
+
+  def end_game
+    Incentive.all.each do |incentive|
+      @calculations = Hash[@calculations.sort_by {|k,v| k.to_s.to_i }]
+      binding.pry
+      # @calculations.each do |team,values|
+      #   incentive.incentive_type == 1 ? values[incentive.calculation_key.to_sym] :  number_to_currency(values[incentive.calculation_key.to_sym])
+      # end
+    end
+  end
+
 end
