@@ -228,8 +228,8 @@ Property.all.each do |prop|
   i += 1
 end
 
-Incentive.create([{description: "4 Industrial Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType1", completed_key: "propertyType1"}])
-Incentive.create([{description: "7 Multi-Residential Properties Owned", value: 4000000, incentive_type: 1, calculation_key: "propertyType2", completed_key: "propertyType2"}])
+Incentive.create([{description: "4 Industrial Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType1Count", completed_key: "propertyType1"}])
+Incentive.create([{description: "7 Multi-Residential Properties Owned", value: 4000000, incentive_type: 1, calculation_key: "propertyType2Count", completed_key: "propertyType2"}])
 Incentive.create([{description: "3 Office Properties Owned", value: 6000000, incentive_type: 1, calculation_key: "propertyType3Count", completed_key: "propertyType3"}])
 Incentive.create([{description: "7 Retail Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType4Count", completed_key: "propertyType4"}])
 Incentive.create([{description: "4 Properties owned in Alberta", value: 4000000, incentive_type: 1, calculation_key: "province1Count", completed_key: "province1"}])
@@ -250,6 +250,6 @@ Incentive.create([{description: "Most Properties Owned", value: 4000000, incenti
 Incentive.create([{description: "Most Industrial Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType2Count"}])
 Incentive.create([{description: "Most Multi-Residential Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType1Count"}])
 Incentive.create([{description: "Most Office Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType3Count"}])
-Incentive.create([{description: "Most Retial Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType4Count"}])
+Incentive.create([{description: "Most Retail Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType4Count"}])
 Incentive.create([{description: "Lowest Cash Balance", value: 4000000, incentive_type: 2, calculation_key: "cashBalance"}])
 Incentive.create([{description: "Highest Property Value", value: 6000000, incentive_type: 2, calculation_key: "totalPropertyValue"}])
