@@ -65,7 +65,20 @@ class Team < ApplicationRecord
     results[:totalPropertyValue] = self.calcTotalPropertyValue()
     results[:cashBalance] = self.cash_balance
     self.properties ? results[:propertiesCount] = self.properties.count : results[:propertiesCount] = 0
-
+    results[:acquisitions_made] = 0
+    TradeRequest.where(:completed => true, :offeror_id => self.id).each do |request|
+      if request.incoming_properties
+        results[:acquisitions_made] += request.incoming_properties.size
+      end
+    end
+    results[:industrial_properties] = 0
+    results[:multi_res_properties] = 0
+    results[:office_properties] = 0
+    results[:retail_properties] = 0
+    self.properties ? results[:industrial_properties] = self.properties.where(:property_type => 1).count : results[:industrial_properties] = 0
+    self.properties ? results[:multi_res_properties] = self.properties.where(:property_type => 2).count : results[:industrial_properties] = 0
+    self.properties ? results[:office_properties] = self.properties.where(:property_type => 4).count : results[:industrial_properties] = 0
+    self.properties ? results[:retail_properties] = self.properties.where(:property_type => 3).count : results[:industrial_properties] = 0
   	return results
   end
 
