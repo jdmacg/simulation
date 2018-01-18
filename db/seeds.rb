@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 #   User.create([{name: jordan'}])
 
+# TODO: Add a single round entry in the database. Trade requests will belong to a round,
+# TODO: the round will have many trade requests. This will itemize the trade requests by round
+# TODO: (or shock). Then we can keep a trade log in the admin section.
+
 Team.create!([{team_name: "Team One", cash_balance: 15000000}])
 Team.create!([{team_name: "Team Two", cash_balance: 15000000}])
 Team.create!([{team_name: "Team Three", cash_balance: 15000000}])
