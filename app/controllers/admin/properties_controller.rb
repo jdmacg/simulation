@@ -12,98 +12,173 @@ class Admin::PropertiesController < Admin::ApplicationController
     redirect_to admin_properties_path, :notice => 'changed teams'
   end
 
-  def shock1
-  	Property.all.each do |prop|
-  	  if prop.developed == false
-  	  	if prop.province == 'Alberta'
-  	  	  prop.value = prop.value * 0.9
-  	  	  prop.save!
-  	  	elsif prop.province == 'Quebec'
-  	  	  prop.value = prop.value *  0.9
-  	  	  prop.save!
-  	  	else
-  	  	  prop.value = prop.value * 1.03
-  	  	  prop.save!
-  	  	end
+  def get_ab_props
+    alberta_props = Property.where(province: "Albert")
+    return alberta_props
+  end
+
+  def get_bc_props
+    bc_props = Property.where(province: "British Columbia")
+    return bc_props
+  end
+
+  def get_sask_props
+    sask_props = Property.where(province: "Saskatchewan")
+    return sask_props
+  end
+
+  def get_mn_props
+    mn_props = Property.where(province: "Manitoba")
+    return mn_props
+  end
+
+  def get_on_props
+    on_props = Property.where(province: "Ontario")
+    return on_props
+  end
+
+  def get_qc_props
+    qc_props = Property.where(province: "Quebec")
+    return qc_props
+  end
+
+  def get_ns_props
+    ns_props = Property.where(province: "Nova Scotia")
+    return ns_props
+  end
+
+  def get_nb_props
+    nb_props = Property.where(province: "New Brunswick")
+    return nb_props
+  end
+
+  def get_nf_props
+    nf_props = Property.where(province: "Newfoundland")
+    return nf_props
+  end
+
+  def adjust_props(props, values)
+    props.each do |prop|
+      if prop.developed == false
+        if prop.property_type_id == 1
+          prop.value = prop.value*(1+values[0])
+          prop.save!
+        elsif prop.property_type_id == 2
+           prop.value = prop.value*(1+values[1])
+           prop.save!
+        elsif prop.property_type_id == 3
+          prop.value = prop.value*(1+values[2])
+          prop.save!
+        else
+          prop.value = prop.value*(1+values[3])
+          prop.save!
+        end
       end
-	  end
-    redirect_to admin_properties_path, :notice => 'shocked 1 properly'
+    end
+  end
+
+  def shock1
+    alberta_adjustments = [-0.06, -0.05, -0.05, -0.02]
+    sask_adjustments = [0, -0.04, -0.03, -0.02]
+    mn_adjustments = [-0.03, -0.02, -0.01, -0.01]
+    on_adjustments = [0.02, 0.02, 0.02, 0.02]
+    qc_adjustments = [0.01, 0.01, 0.01, 0.01]
+    alberta_props = get_ab_props
+    sask_props = get_sask_props
+    mn_props = get_mn_props
+    on_props = get_on_props
+    qc_props = get_qc_props
+    adjust_props(alberta_props, alberta_adjustments)
+    adjust_props(sask_props, sask_adjustments)
+    adjust_props(mn_props, mn_adjustments)
+    adjust_props(on_props, on_adjustments)
+    adjust_props(qc_props, qc_adjustments)
+    redirect_to admin_properties_path, :notice => 'Crude oil shock executed'
 	end
 
 
   def shock2
-  	Property.all.each do |prop|
-  	  if prop.developed == false
-  	  	if prop.city == 'Toronto'
-  	  	  prop.value = prop.value * 1.1
-  	  	  prop.save!
-  	  	elsif prop.city == 'Vancouver'
-  	  	  prop.value = prop.value * 1.1
-  	  	  prop.save!
-  	  	end
-  	  	if prop.property_type_id == 1
-  	  	  prop.value = prop.value * 1.08
-  	  	  prop.save!
-  	  	elsif prop.property_type_id == 2
-  	  	  prop.value = prop.value * 1.12
-  	  	  prop.save!
-  	  	elsif prop.property_type_id == 3
-  	  	  prop.value = prop.value * 1.1
-  	  	  prop.save!
-  	  	elsif prop.property_type_id == 4
-  	  	  prop.value = prop.value * 1.15
-  	  	  prop.save!
-  	  	end
-      end
-	  end
-    redirect_to admin_properties_path, :notice => 'shocked 2 properly'
+    adjustments = [-0.01, 0.05, 0, -0.02]
+    alberta_props = get_ab_props
+    bc_props = get_bc_props
+    sask_props = get_sask_props
+    mn_props = get_mn_props
+    on_props = get_on_props
+    qc_props = get_qc_props
+    ns_props = get_ns_props
+    nb_props = get_nb_props
+    nf_props = get_nf_props
+    adjust_props(alberta_props, adjustments)
+    adjust_props(bc_props, adjustments)
+    adjust_props(sask_props, adjustments)
+    adjust_props(mn_props, adjustments)
+    adjust_props(on_props, adjustments)
+    adjust_props(qc_props, adjustments)
+    adjust_props(ns_props, adjustments)
+    adjust_props(nb_props, adjustments)
+    adjust_props(nf_props, adjustments)
+    redirect_to admin_properties_path, :notice => 'Industrial shock executed'
 	end
 
 
   def shock3
-  	Property.all.each do |prop|
-  	  if prop.developed == false
-  	  	prop.value = prop.value * 0.87
-  	  	prop.save!
-  	  end
-  	end
-	redirect_to admin_properties_path, :notice => 'shocked 3 properly'
+    adjustments = [0, 0.04, 0, -0.05]
+    alberta_props = get_ab_props
+    bc_props = get_bc_props
+    sask_props = get_sask_props
+    mn_props = get_mn_props
+    on_props = get_on_props
+    qc_props = get_qc_props
+    ns_props = get_ns_props
+    nb_props = get_nb_props
+    nf_props = get_nf_props
+    adjust_props(alberta_props, adjustments)
+    adjust_props(bc_props, adjustments)
+    adjust_props(sask_props, adjustments)
+    adjust_props(mn_props, adjustments)
+    adjust_props(on_props, adjustments)
+    adjust_props(qc_props, adjustments)
+    adjust_props(ns_props, adjustments)
+    adjust_props(nb_props, adjustments)
+    adjust_props(nf_props, adjustments)
+    redirect_to admin_properties_path, :notice => 'E-Commerce shock executed'
   end
 
   def shock4
-  	Property.all.each do |prop|
-  	  if prop.developed == false
-  	  	if prop.city == 'Toronto'
-  	  	  prop.value = prop.value * 1.16
-  	  	  prop.save!
-  	  	elsif prop.city == 'Vancouver'
-  	  	  prop.value = prop.value * 1.16
-  	  	  prop.save!
-  	  	end
-  	  	if prop.province == 'Alberta'
-  	  	  prop.value = prop.value * 1.22
-  	  	  prop.save!
-  	  	elsif prop.province == 'Quebec'
-  	  	  prop.value = prop.value * 1.22
-  	  	  prop.save!
-  	  	end
-  	  	if prop.property_type_id == 1
-  	  	  prop.value = prop.value * 1.03
-  	  	  prop.save!
-  	  	elsif prop.property_type_id == 2
-  	  	  prop.value = prop.value * 1.04
-  	  	  prop.save!
-  	  	elsif prop.property_type_id == 3
-  	  	  prop.value = prop.value * 1.05
-  	  	  prop.save!
-  	  	elsif prop.property_type_id == 4
-  	  	  prop.value = prop.value * 1.07
-  	  	  prop.save!
-  	  	end
-      end
-	  end
-    redirect_to admin_properties_path, :notice => 'shocked 4 properly'
+    adjustments = [-0.03, -0.06, -0.07, -0.04]
+    alberta_props = get_ab_props
+    bc_props = get_bc_props
+    sask_props = get_sask_props
+    mn_props = get_mn_props
+    on_props = get_on_props
+    qc_props = get_qc_props
+    ns_props = get_ns_props
+    nb_props = get_nb_props
+    nf_props = get_nf_props
+    adjust_props(alberta_props, adjustments)
+    adjust_props(bc_props, adjustments)
+    adjust_props(sask_props, adjustments)
+    adjust_props(mn_props, adjustments)
+    adjust_props(on_props, adjustments)
+    adjust_props(qc_props, adjustments)
+    adjust_props(ns_props, adjustments)
+    adjust_props(nb_props, adjustments)
+    adjust_props(nf_props, adjustments)
+    redirect_to admin_properties_path, :notice => 'Interest rate and OSFI shock executed'
 	end
+
+  def shock5
+    bc_adjustments = [0.05, 0.01, 0.08, 0.03]
+    on_adjustments = [0.05, 0.01, 0.07, 0.02]
+    qc_adjustments = [0.02, 0.01, 0.03, 0.01]
+    bc_props = get_bc_props
+    on_props = get_on_props
+    qc_props = get_qc_props
+    adjust_props(bc_props, bc_adjustments)
+    adjust_props(on_props, on_adjustments)
+    adjust_props(qc_props, qc_adjustments)
+    redirect_to admin_properties_path, :notice => 'Foreign investment shock executed'
+  end
 
   def end_game
     lowest_end_cash = []
