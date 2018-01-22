@@ -96,10 +96,12 @@ User.create!([{username: "david.worsley", password: "QRIC2017-10", password_conf
 User.create!([{username: "aj.keilty", password: "QRIC2017-10", password_confirmation: "QRIC2017-10",team_id: 10}])
 User.create!([{username: "chris.vandewater", password: "QRIC2017-10", password_confirmation: "QRIC2017-10",team_id: 10}])
 
-PropertyType.create!([{ description: "Multi-Res" }])
-PropertyType.create!([{ description: "Industrial" }])
-PropertyType.create!([{ description: "Retail" }])
+
 PropertyType.create!([{ description: "Office" }])
+PropertyType.create!([{ description: "Industrial" }])
+PropertyType.create!([{ description: "Multi-Res" }])
+PropertyType.create!([{ description: "Retail" }])
+
 
 Property.create!([{property_type_id: 3,value: 21000000,name: "Park Royal Shopping Center", city: "Vancouver", province: "British Columbia",team_id: 1, in_development: false, developed: false}])
 Property.create!([{property_type_id: 3,value: 16725000,name: "Market Mall", city: "Saskatoon", province: "Saskatchewan",team_id: 2, in_development: false, developed: false}])

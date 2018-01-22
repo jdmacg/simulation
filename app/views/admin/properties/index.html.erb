@@ -1,26 +1,102 @@
-<div class='shock-button-grid'>
-  <%= link_to "Shock One", shock1_admin_properties_path %>
-  <%= link_to "Shock Two", shock2_admin_properties_path %>
-  <%= link_to "Shock Three", shock3_admin_properties_path %>
-  <%= link_to "Shock Four", shock4_admin_properties_path %>
-  <%= link_to "End Game", end_game_admin_properties_path %>
+<div class='admin-head'>
+  <h1>DASHBOARD</h1>
 </div>
 
-<div class='shock-button-grid'>
-  <%= link_to "Team One", change_team_admin_properties_path(team_id: 1) %>
-  <%= link_to "Team Two", change_team_admin_properties_path(team_id: 2) %>
-  <%= link_to "Team Three", change_team_admin_properties_path(team_id: 3) %>
-  <%= link_to "Team Four", change_team_admin_properties_path(team_id: 4) %>
-  <%= link_to "Team Five", change_team_admin_properties_path(team_id: 5) %>
-  <%= link_to "Team Six", change_team_admin_properties_path(team_id: 6) %>
-  <%= link_to "Team Seven", change_team_admin_properties_path(team_id: 7) %>
-  <%= link_to "Team Eight", change_team_admin_properties_path(team_id: 8) %>
-  <%= link_to "Team Nine", change_team_admin_properties_path(team_id: 9) %>
-  <%= link_to "Team Ten", change_team_admin_properties_path(team_id: 10) %>
-</div>
+<div class="admin-grouping">
+  <div class='button-grid' id='shocks'>
+      <span class="admin-btn"><%= link_to "Crude Oil", shock1_admin_properties_path %></span>
+      <span class="admin-btn"><%= link_to "Industrial", shock2_admin_properties_path %></span>
+      <span class="admin-btn"><%= link_to "E-Commerce", shock3_admin_properties_path %></span>
+      <span class="admin-btn"><%= link_to "Interest Rates and OSFI", shock4_admin_properties_path %></span>
+      <span class="admin-btn"><%= link_to "Foreign Investment", shock5_admin_properties_path %></span>
+  </div>
 
-<%= link_to "Home Page", users_path %>
+  <div class='button-grid' id='teams'>
+    <span class="admin-btn"><%= link_to "Team One", change_team_admin_properties_path(team_id: 1) %></span>
+    <span class="admin-btn"><%= link_to "Team Two", change_team_admin_properties_path(team_id: 2) %></span>
+    <span class="admin-btn"><%= link_to "Team Three", change_team_admin_properties_path(team_id: 3) %></span>
+    <span class="admin-btn"><%= link_to "Team Four", change_team_admin_properties_path(team_id: 4) %></span>
+    <span class="admin-btn"><%= link_to "Team Five", change_team_admin_properties_path(team_id: 5) %></span>
+    <span class="admin-btn"><%= link_to "Team Six", change_team_admin_properties_path(team_id: 6) %></span>
+    <span class="admin-btn"><%= link_to "Team Seven", change_team_admin_properties_path(team_id: 7) %></span>
+    <span class="admin-btn"><%= link_to "Team Eight", change_team_admin_properties_path(team_id: 8) %></span>
+    <span class="admin-btn"><%= link_to "Team Nine", change_team_admin_properties_path(team_id: 9) %></span>
+    <span class="admin-btn"><%= link_to "Team Ten", change_team_admin_properties_path(team_id: 10) %></span>
+  </div>
+
+  <div class='button-grid' id='other'>
+    <span class="admin-btn" id="home"><%= link_to "Home Page", users_path %></span>
+    <span class="admin-btn"><%= link_to "End Game", end_game_admin_properties_path %></span>
+  </div>
+
+</div>
 
 <% flash.each do |k, v| %>
  	<div id="error"><%= v %></div>
 <% end %>
+
+
+<style>
+    body{
+    	background-color: #fff;
+      font-family: 'Source Sans Pro', sans-serif;
+    	font-weight: 400;
+    	font-size: 1em;
+    	color: #666;
+      margin: 0px;
+    }
+    .admin-head{
+      margin: 50px 50px 20px 50px;
+      border-bottom: 1px solid black;
+      color: #bdc3c7;
+      font-size: 1em
+    }
+
+    .admin-grouping{
+      width: 90%;
+      margin-left: 50px;
+    }
+
+    .button-grid{
+      height: 75px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .admin-btn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #2c3e50;
+      height: 50px;
+      width: 175px;
+      border-radius: 2px;
+    }
+
+    #shocks .admin-btn{
+      font-size: 0.9em;
+      width: 175px;
+    }
+
+    #teams .admin-btn{
+      font-size: 0.75em;
+      width: 8.5%;
+    }
+
+
+    .admin-btn a:link{
+      color: #fff;
+      text-decoration: none;
+    }
+
+    a:visited{
+      color: #27ae60;
+      text-decoration: none;
+    }
+
+    #home{
+      width: 175px;
+      color: #fff;
+    }
+
+</style>

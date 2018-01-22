@@ -28,6 +28,7 @@ Rails.application.routes.draw do
         get 'shock2'
         get 'shock3'
         get 'shock4'
+        get 'shock5'
         get 'end_game'
         get 'change_team'
       end
