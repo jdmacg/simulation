@@ -62,19 +62,14 @@ h2 {
 }
 
 .content-container{
-	margin-left: 300px;
+	margin-left: 220px;
+  margin-top: 15px;
 }
 
-.admin-head{
-  margin: 50px 50px 20px 50px;
-  border-bottom: 1px solid black;
-  color: #bdc3c7;
+.content-container#properties{
+  margin-top: 2px;
 }
 
-.shock-button-grid{
-  height: 75px;
-  width: 100%;
-  border: 1px solid black;
-  display: flex;
-  justify-content: space-around;
+.content-container#teams{
+  margin-top: -18px;
 }

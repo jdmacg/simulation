@@ -45,7 +45,7 @@
     margin-top: 50px;
     border: 1px solid white;
     padding: 5px 50px 5px 50px;
-    border-radius: 10px;
+    border-radius: 2px;
     &:hover{
       background: white;
       color: transparent;
@@ -53,6 +53,23 @@
       -webkit-background-clip: text;
     }
   }
+
+  .card__title{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+    color: #fff;
+  }
+
+  .card__info_main{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  #card__info{
+    padding: 10px;
+  }
+
   .top-info{
     height: 33%;
     width: 100%;
@@ -66,7 +83,7 @@
   }
   .prop-title{
     margin: 0;
-    font-size: 3em;
+    font-size: 2em;
     color: white;
   }
   .prop-attr{
