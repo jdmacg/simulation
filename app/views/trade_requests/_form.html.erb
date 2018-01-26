@@ -16,47 +16,53 @@
     <%= f.hidden_field :offeree_id, :value => @team_id%>
 
     <div class="new-trade">
-      <div class="new-trade" id="outgoing-items">
-        <ul>
-          <p id="offer-heading">Your Offer</p>
-          <li>
-            <% current_user.team.properties.each do |prop| %>
-              <% if !prop.developed %>
-                <div id="property-option">
-                  <%= check_box_tag "outgoing_property[]", prop.id %>
-                  <%= label_tag 'outgoing_property', prop.name %>
-                </div>
-              <%end%>
-            <% end %>
-          </li>
-          <li>
-            <%= f.label :outgoing_cash, :class=>"mat-label"%>
-            <%= f.text_field :outgoing_cash, :class =>'mat-input', :id =>'cash-outgoing'%><br />
-          </li>
-        </ul>
+      <div class="trade-container" id="left">
+        <div class="new-trade" id="outgoing-items">
+          <ul>
+            <p id="offer-heading">Your Offer</p>
+            <li>
+              <% current_user.team.properties.each do |prop| %>
+                <% if !prop.developed %>
+                  <div id="property-option">
+                    <%= check_box_tag "outgoing_property[]", prop.id %>
+                    <%= label_tag 'outgoing_property', prop.name, :class => 'prop-label' %>
+                  </div>
+                <%end%>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <%= f.label :outgoing_cash, :class=>"mat-label"%>
+          <%= f.text_field :outgoing_cash, :class =>'mat-input', :id =>'cash-outgoing'%><br />
+        </div>
       </div>
-      <div class="new-trade" id="requested-items">
-        <ul>
-          <p id="offer-heading">Your Request</p>
-          <li>
-            <% Team.find(@team_id).properties.each do |prop| %>
-              <% if !prop.developed %>
-                <div id="property-option">
-                  <%= check_box_tag "incoming_property[]", prop.id %>
-                  <%= label_tag 'incoming_property', prop.name %>
-                </div>
-              <%end%>
-            <% end %>
-          </li>
-          <li>
-            <%= f.label :incoming_cash, :class=>"mat-label"%>
-            <%= f.text_field :incoming_cash, :class =>'mat-input', :id =>'cash-incoming'%><br />
-          </li>
-        </ul>
+      <div class="trade-container" id="right">
+        <div class="new-trade" id="requested-items">
+          <ul>
+            <p id="offer-heading">Your Request</p>
+            <li>
+              <% Team.find(@team_id).properties.each do |prop| %>
+                <% if !prop.developed %>
+                  <div id="property-option">
+                    <%= check_box_tag "incoming_property[]", prop.id %>
+                    <%= label_tag 'incoming_property', prop.name, :class => 'prop-label' %>
+                  </div>
+                <%end%>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <%= f.label :incoming_cash, :class=>"mat-label"%>
+          <%= f.text_field :incoming_cash, :class =>'mat-input', :id =>'cash-incoming'%><br />
+        </div>
       </div>
     </div>
 
     <%= f.submit 'Submit Request', class: 'submit-btn' %>
+    <%= link_to 'Back', trade_requests_path, class: 'back-btn' %>
+
 
   <% end %>
 </div>
