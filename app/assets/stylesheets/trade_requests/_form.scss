@@ -107,8 +107,9 @@ li #property-option .prop-label{
 .back-btn-container{
 
 }
-.back-btn{
-
+.back-btn a:hover{
+	color: blue;
+	background: white;
 }
 .submit-btn{
 	width: 200px;

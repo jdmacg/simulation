@@ -61,7 +61,9 @@
     </div>
 
     <%= f.submit 'Submit Request', class: 'submit-btn' %>
-    <%= link_to 'Back', trade_requests_path, class: 'back-btn' %>
+    <div class='back-btn'>
+      <%= link_to "Back".html_safe, trade_requests_path, :class => 'back-btn' %>
+    </div>
 
 
   <% end %>
