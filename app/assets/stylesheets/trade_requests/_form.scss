@@ -1,6 +1,9 @@
 // Place all the styles related to the TradeRequests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.trade-container{
+	width: 50%;
+}
 
 .new-trade{
 	display: flex;
@@ -12,15 +15,14 @@
 
 .new-trade #outgoing-items{
 	display: flex;
-	width: 50%;
 	flex-direction: column;
-	border-right: 1px solid #2980b9;
+	height: 250px;
 }
 
 .new-trade #requested-items{
 	display: flex;
 	flex-direction: column;
-	width: 50%;
+	height: 250px;
 }
 
 .new-trade #property-options{
@@ -28,6 +30,8 @@
 	margin-top: 25px;
 	flex-wrap: wrap;
 }
+
+
 
 label[for="team-check"]{
 	border: 1px solid black;
@@ -43,8 +47,25 @@ label[for="team-check"]{
 li #property-option{
 	display:flex;
 	padding: 5px;
-	border-bottom: 1px solid #2980b9;
+	border: 1px solid white;
+	border-radius: 2px;
+	margin: 5px;
+	background: #96281B;
+	color: white;
 }
+
+li #property-option input{
+  position: absolute;
+  cursor: pointer;
+	margin-right: 10px;
+}
+
+li #property-option .prop-label{
+  margin-left: 20px;
+}
+
+
+
 ///END SELECT BOXES
 
 
@@ -83,13 +104,19 @@ li #property-option{
 
 
 ///SUBMIT BTN
+.back-btn-container{
+	
+}
+.back-btn{
+
+}
 .submit-btn{
 	width: 200px;
 	height: 50px;
 	border: 1px solid black;
 	background: white;
+	margin-top: 10px;
 	cursor: pointer;
-	margin-left: 40px;
 	&:hover{
 		border: none;
 		background: black;

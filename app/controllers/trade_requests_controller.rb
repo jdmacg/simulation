@@ -44,7 +44,7 @@ class TradeRequestsController < ApplicationController
     @trade_request.incoming_properties = params[:incoming_property]
     can_trade_outgoing = TradeRequest.tradeable(@trade_request.outgoing_properties)
     can_trade_incoming = TradeRequest.tradeable(@trade_request.incoming_properties)
-    if can_trade_outgoing && can_trade_incoming && @trade_request.cashValid
+    if can_trade_outgoing && can_trade_incoming && @trade_request.cash_valid
       if @trade_request.save
         redirect_to trade_requests_path, notice: "Your trade request was successfully submitted"
       else
@@ -81,7 +81,7 @@ class TradeRequestsController < ApplicationController
         flash[:error] = "Invalid cash or properties specified!"
         redirect_to trade_requests_path
       end
-    else 
+    else
       redirect_to trade_requests_url, notice: "You don't have permission to do that"
     end
   end
@@ -89,7 +89,7 @@ class TradeRequestsController < ApplicationController
   def accept
     @trade_request = TradeRequest.find(params[:id])
     if User.find(session[:user_id]).team.id == @trade_request.offeree_id and @trade_request.completed == false
-      if @trade_request.validTrade
+      if @trade_request.valid_trade
         @trade_request.execute_trade
         @trade_request.completed = true
           if @trade_request.save!
@@ -101,7 +101,7 @@ class TradeRequestsController < ApplicationController
         @trade_request.destroy
         redirect_to trade_requests_url, notice: 'Trade Request No Longer Valid'
       end
-    else 
+    else
       redirect_to trade_requests_url, notice: "You don't have permission to do that"
     end
   end

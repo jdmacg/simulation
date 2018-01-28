@@ -1,14 +1,15 @@
 <%= render "sidebar" %>
 <div class='content-container'>
-  <h1>Team: <%=@team.id%> </h1>
-  <p>
-  Total Cash: <%=number_to_currency(@team.cash_balance, :unit => "$")%>
-  </p>
-  <p>
-  Total Property Value: <%=number_to_currency(@totalPropertyValue, :unit => "$")%>
-  </p>
-  <p id="notice"><%= notice %></p>
-  <h1>Properties Owned</h1>
+  <h1>Team <%=@team.id%> </h1>
+  <div class='team-head'>
+    <p>
+    Total Cash: <%=number_to_currency(@team.cash_balance, :unit => "$")%>
+    </p>
+    <p>
+    Total Property Value: <%=number_to_currency(@totalPropertyValue, :unit => "$")%>
+    </p>
+    <p id="notice"><%= notice %></p>
+  </div>
   <ul class="cards">
     <% @properties.each do |prop| %>
       <li class="cards__item">
@@ -16,33 +17,35 @@
           <div class="card__image card__image--fence"></div>
           <div class="card__content">
             <div class="card__title"><%= prop.name %></div>
-              <ul id="card__info">
-                <li>
-                  City: <%= prop.city %>
-                </li>
-                <li>
-                  Province: <%= prop.province %>
-                </li>
-                <li>
-                  Value: <%= number_to_currency(prop.value, :unit => "$") %>
-                </li>
-                <% if !prop.developed %>
-                <li>
-                  Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
-                <li>
-                <%end%>
-                  <% if prop.developed %>
-                    Developed: Yes
-                  <% else %>
-                    Developed: No
-                  <% end %>
-                </li>
-                <li>
-                  Asset Class: <%= prop.property_type.description %>
-                </li>
-              </ul>
+              <div class="card__info_main">
+                <ul id="card__info">
+                  <li>
+                    <%= prop.city %>, <%= prop.province %>
+                  </li>
+                  <li>
+                    Value: <%= number_to_currency(prop.value, :unit => "$") %>
+                  </li>
+                  <li>
+                    Asset Class: <%= prop.property_type.description %>
+                  </li>
+                </ul>
+                <ul id="card__info">
+                  <% if !prop.developed %>
+                  <li>
+                    Dev. Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
+                  </li>
+                  <li>
+                  <%end%>
+                    <% if prop.developed %>
+                      Developed: Yes
+                    <% else %>
+                      Developed: No
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
       </li>
     <% end %>
   </ul>
