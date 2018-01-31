@@ -35,6 +35,57 @@
  	<div id="error"><%= v %></div>
 <% end %>
 
+<!-- <div class='standings-header'>
+  <span>Team Name</span>
+  <span>Properties</span>
+  <span>Cash Value</span>
+  <span>Property Value</span>
+</div> -->
+
+<!-- <div class='standings-body'>
+  <% Team.all.each do |team| %>
+    <div class='standings-entry'>
+      <div id="team-entry"><%=team.team_name%></div>
+      <div id="properties-entry">Fill</div>
+      <div id="cash-entry"><%=team.cash_balance%></div>
+      <div id="prop-value-entry"><%=team.calcTotalPropertyValue()%></div>
+    </div>
+  <% end %>
+</div> -->
+<div class="table">
+  <div class="row-header">
+    <div class="cell">
+      Team Name
+    </div>
+    <div class="cell">
+      Properties
+    </div>
+    <div class="cell">
+      Cash Balance
+    </div>
+    <div class="cell">
+      Property Value
+    </div>
+  </div>
+
+  <% Team.all.each do |team| %>
+  <div class="row">
+    <div class="cell" data-title="Team Name">
+      <%=team.team_name%>
+    </div>
+    <div class="cell" data-title="Properties">
+      <%= team.properties.size %>
+    </div>
+    <div class="cell" data-title="Cash Balance">
+      <%=number_to_currency(team.cash_balance, :unit => "$")%>
+    </div>
+    <div class="cell" data-title="Property Value">
+      <%=number_to_currency(team.calcTotalPropertyValue(), :unit => "$")%>
+    </div>
+  </div>
+  <% end %>
+</div>
+
 
 <style>
     body{
@@ -98,5 +149,67 @@
       color: #fff;
       background: #5C0B0B;
     }
+    .table{
+      margin: 0 0 40px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      display: table;
+      width: 90%;
+      margin-left: 50px;
+    }
+
+    .row{
+      display: table-row;
+      background: #34495e;
+      color: #ffffff;
+    }
+
+      .row-header{
+        display: table-row;
+        background: #f6f6f6;
+        font-weight: 900;
+        color: #ffffff;
+        background: #2c3e50;
+      }
+
+    .cell{
+      margin-bottom: 10px;
+      padding: 6px 12px;
+      display: table-cell;
+      &before{
+        margin-bottom: 3px;
+        content: attr(data-title);
+        min-width: 98px;
+        font-size: 10px;
+        line-height: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #969696;
+        display: block;
+      }
+    }
+
+    /*.standings-header{
+      display: flex;
+      justify-content: space-around;
+      margin-top: 50px;
+      color: black;
+      border-bottom: 1px solid black;
+      padding: 5px;
+    }
+
+    .standings-body{
+      width: 100%
+    }
+
+    .standings-entry{
+      color: white;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 50px;
+      margin: 5px;
+      border: 1px solid white;
+      background-color: #2c3e50;
+    }*/
 
 </style>

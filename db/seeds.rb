@@ -153,77 +153,40 @@ Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2,
 Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 3}])
 Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 4}])
 Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 5}])
-
 Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 6}])
-
 Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 7}])
-
 Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 8}])
-
 Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 9}])
-
 Development.create!([{cost: 1300000, used: false, value: 0, development_time: 2, property_id: 10}])
-
-
 Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 11}])
-
 Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 12}])
-
 Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 13}])
-
 Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 14}])
-
 Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 15}])
-
 Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 16}])
-
 Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 17}])
-
 Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 18}])
-
 Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 19}])
-
 Development.create!([{cost: 700000, used: false, value: 0, development_time: 2, property_id: 20}])
-
-
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 21}])
-
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 22}])
-
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 23}])
-
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 24}])
-
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 25}])
-
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 26}])
-
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 27}])
-
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 28}])
-
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 29}])
-
 Development.create!([{cost: 2000000, used: false, value: 0, development_time: 2, property_id: 30}])
-
 Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 31}])
-
 Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 32}])
-
 Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 33}])
-
 Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 34}])
-
 Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 35}])
-
 Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 36}])
-
 Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 37}])
-
 Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 38}])
-
 Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 39}])
-
 Development.create!([{cost: 1700000, used: false, value: 0, development_time: 2, property_id: 40}])
 
 i = 1
@@ -240,6 +203,7 @@ Incentive.create([{description: "3 Office Properties Owned", value: 6000000, inc
 Incentive.create([{description: "7 Retail Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType4Count", completed_key: "propertyType4"}])
 Incentive.create([{description: "4 Properties owned in Alberta", value: 4000000, incentive_type: 1, calculation_key: "province1Count", completed_key: "province1"}])
 Incentive.create([{description: "4 Properties owned in British Columia", value: 4000000, incentive_type: 1, calculation_key: "province2Count", completed_key: "province2"}])
+Incentive.create([{description: "3 Properties owned in Nova Scotia", value: 4000000, incentive_type: 1, calculation_key: "province3Count", completed_key: "province3"}])
 Incentive.create([{description: "3 Properties owned in Ontario", value: 4000000, incentive_type: 1, calculation_key: "province4Count", completed_key: "province4"}])
 Incentive.create([{description: "3 Properties owned in Quebec", value: 4000000, incentive_type: 1, calculation_key: "province5Count", completed_key: "province5"}])
 Incentive.create([{description: "2 Properties owned in Saskatchewan", value: 4000000, incentive_type: 1, calculation_key: "province6Count", completed_key: "province6"}])
@@ -252,7 +216,6 @@ Incentive.create([{description: "8 Developments Completed", value: 10000000, inc
 
 Incentive.create([{description: "Most Acquisitions", value: 7000000, incentive_type: 1, calculation_key: "tradedPropertiesCount"}])
 Incentive.create([{description: "Most Developments", value: 5000000, incentive_type: 1, calculation_key: "developmentsCount"}])
-Incentive.create([{description: "Most Properties Owned", value: 4000000, incentive_type: 1, calculation_key: "propertiesCount"}])
 Incentive.create([{description: "Most Industrial Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType2Count"}])
 Incentive.create([{description: "Most Multi-Residential Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType1Count"}])
 Incentive.create([{description: "Most Office Properties Owned", value: 3000000, incentive_type: 1, calculation_key: "propertyType3Count"}])

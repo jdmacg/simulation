@@ -74,7 +74,7 @@
   <div class="team-links">
     <% Team.order(:id).each do |team| %>
       <% if team.id != current_user.team_id %>
-        <%= link_to "Team " + team.id.to_s, new_trade_request_path(:id => team.id), :data_hover => "team_links" %>
+        <%= link_to "Team " + team.id.to_s, new_trade_request_path(:id => team.id), :data_hover => "team_links", :class => 'team-trade-btn'%>
       <% end %>
     <% end %>
   </div>

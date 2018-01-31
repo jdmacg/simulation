@@ -1,0 +1,901 @@
+/* line 1, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/admin/admin.scss */
+.admin-head {
+  margin: 50px 50px 20px 50px;
+  border-bottom: 1px solid black;
+  color: #bdc3c7;
+}
+
+/* line 7, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/admin/admin.scss */
+.shock-button-grid {
+  height: 75px;
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+}
+/* line 1, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #696969;
+}
+
+/* line 10, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card#snapshot {
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  background: #2c3e50;
+  background: -webkit-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: -moz-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: -o-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: linear-gradient(top bottom right, black 0%, #2c3e50 100%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 2.5px;
+}
+
+/* line 27, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card {
+  height: 300px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  background-image: url("http://www.nallaneramproperties.com/wp-content/uploads/2016/10/property-connect-home.jpg");
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 2.5px;
+}
+/* line 38, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+/* line 43, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .btn {
+  margin-bottom: -50px;
+  margin-top: 50px;
+  border: 1px solid white;
+  padding: 5px 50px 5px 50px;
+  border-radius: 2px;
+  color: white;
+}
+/* line 50, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .btn:hover {
+  background: white;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+/* line 58, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .card__title {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+  color: #fff;
+}
+/* line 65, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .card__info_main {
+  display: flex;
+  justify-content: space-evenly;
+}
+/* line 70, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card #card__info {
+  padding: 10px;
+}
+/* line 74, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .top-info {
+  height: 33%;
+  width: 100%;
+}
+/* line 78, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .center-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 33%;
+  width: 100%;
+}
+/* line 85, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .prop-title {
+  margin: 0;
+  font-size: 2em;
+  color: white;
+}
+/* line 90, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .prop-attr {
+  font-size: 1em;
+}
+/* line 93, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .prop-team {
+  font-size: 2em;
+  color: white;
+  margin-top: 20px;
+}
+/* line 98, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .bottom-info {
+  height: 33%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* line 104, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .bottom-info .property-value {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  color: white;
+}
+/* line 110, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/cards.scss */
+.card .bottom-info .asset-class {
+  display: flex;
+  justify-content: center;
+}
+/* line 3, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/header.scss */
+.header {
+  width: 100%;
+  background: #ffffff;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 100px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #2c3e50;
+  background: -webkit-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: -moz-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: -o-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: linear-gradient(top bottom right, black 0%, #2c3e50 100%);
+}
+/* line 18, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/header.scss */
+.header .logout-btn {
+  align-self: center;
+  font-size: 15px;
+  margin-left: 95%;
+}
+/* line 22, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/header.scss */
+.header .logout-btn:hover {
+  color: #ecf0f1;
+  background: transparent;
+}
+/* line 1, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 4, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+body {
+  background: #FFFFFF;
+  height: 100%;
+}
+
+/* line 9, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-size: 13px;
+  line-height: 18px;
+  margin: 33px;
+}
+
+/* line 15, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 24, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 28, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 34, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+th {
+  padding-bottom: 5px;
+}
+
+/* line 38, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+td {
+  padding-bottom: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 45, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 50, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 54, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 60, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 68, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 79, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+/* line 85, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+label {
+  display: block;
+}
+
+/* line 89, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/scaffolds.scss */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+/* line 1, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+#sidebar {
+  height: 100%;
+  padding: 0;
+  background: black;
+  position: fixed;
+  margin-right: 10px;
+  top: 0;
+  width: 200px;
+}
+
+/* line 11, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+#sidebar-nav {
+  height: calc(100% - 95px);
+  padding: 0;
+  margin-top: 120px;
+  background: #2c3e50;
+  background: -webkit-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: -moz-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: -o-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: linear-gradient(top bottom right, black 0%, #2c3e50 100%);
+}
+
+/* line 22, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+#sidebar-nav h2 {
+  color: #60636B;
+  float: left;
+  width: 100%;
+  font-size: .8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 3px 0 2px 20px;
+  border-top: 1px solid #4D4C4C;
+  box-sizing: border-box;
+  margin: 10px 0;
+}
+
+/* line 40, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+#sidebar-nav ul li a {
+  color: #C2C2C2;
+  font-size: .95em;
+  padding: 15px 20px;
+  float: left;
+  width: 100%;
+  font-weight: 600;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 51, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+#sidebar-nav ul li:hover a, #sidebar-nav ul li:hover a i, #sidebar-nav li.active a, #sidebar-nav li.active a i {
+  color: #333;
+}
+
+/* line 54, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+#sidebar-nav ul li:hover a {
+  background: #fff;
+  color: #333;
+}
+
+/* line 58, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+#sidebar-nav ul li.active a {
+  background: #fff;
+  color: #333;
+}
+
+/* line 62, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+#sidebar-nav ul li.active a i {
+  background: #fff;
+}
+
+/* line 65, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+#sidebar-nav i {
+  padding-right: 8px;
+  font-size: 1.3em;
+  color: #60636B;
+  width: 25px;
+  text-align: center;
+}
+
+/* line 72, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+#content {
+  float: left;
+  width: calc(100% - 210px);
+  height: 100%;
+  word-wrap: break-word;
+  background: #FFFFFF;
+}
+
+/* line 79, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* line 82, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* line 86, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+/* line 90, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+.content {
+  float: left;
+  background: #E9EEF4;
+  width: 100%;
+  height: calc(100% - 64px);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 99, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+.content-header {
+  background: #fff;
+  float: left;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+
+/* line 110, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+.content-header h1 {
+  margin: 0;
+  font-weight: normal;
+  padding-bottom: 5px;
+}
+
+/* line 115, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+.content-header p {
+  margin: 0;
+  padding-left: 2px;
+}
+
+/* line 119, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+.widget-box {
+  background: #fff;
+  border: 1px solid #E0E0E0;
+  float: left;
+  width: 100%;
+  margin: 0 0 15px 15px;
+}
+
+/* line 126, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+.widget-header {
+  background: #279BE4;
+}
+
+/* line 129, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+.widget-header h2 {
+  font-size: 15px;
+  font-weight: normal;
+  margin: 0;
+  padding: 11px 15px;
+  color: #F9F9F9;
+  display: inline-block;
+}
+
+/* line 137, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+.sample-widget {
+  max-width: 47%;
+}
+
+/* line 138, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/sidebar.scss */
+.widget-box .fa-cog {
+  float: right;
+  color: #fff;
+  margin: 11px 11px 0 0;
+  font-size: 20px;
+}
+/* line 1, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/table-scaffold.scss */
+.table {
+  width: 80%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+}
+@media screen and (max-width: 580px) {
+  /* line 1, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/table-scaffold.scss */
+  .table {
+    display: block;
+  }
+}
+
+/* line 11, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/table-scaffold.scss */
+.row {
+  display: table-row;
+  background: #f6f6f6;
+}
+/* line 14, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/table-scaffold.scss */
+.row:nth-of-type(odd) {
+  background: #e9e9e9;
+}
+/* line 17, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/table-scaffold.scss */
+.row.header {
+  font-weight: 900;
+  color: #ffffff;
+  background: #ea6153;
+}
+/* line 22, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/table-scaffold.scss */
+.row.green {
+  background: #27ae60;
+}
+/* line 26, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/table-scaffold.scss */
+.row.blue {
+  background: #34495e;
+}
+@media screen and (max-width: 580px) {
+  /* line 11, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/table-scaffold.scss */
+  .row {
+    padding: 8px 0;
+    display: block;
+  }
+}
+
+/* line 35, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/table-scaffold.scss */
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+@media screen and (max-width: 580px) {
+  /* line 35, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/table-scaffold.scss */
+  .cell {
+    padding: 2px 12px;
+    display: block;
+  }
+}
+/* line 4, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/teams.scss */
+.team-head {
+  display: flex;
+  justify-content: space-evenly;
+  width: 88%;
+}
+/* line 4, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.trade-container {
+  width: 50%;
+}
+
+/* line 8, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.new-trade {
+  display: flex;
+}
+
+/* line 12, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.new-trade #offer-heading {
+  font-size: 20px;
+}
+
+/* line 16, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.new-trade #outgoing-items {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+}
+
+/* line 22, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.new-trade #requested-items {
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+}
+
+/* line 28, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.new-trade #property-options {
+  display: flex;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+/* line 36, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+label[for="team-check"] {
+  border: 1px solid black;
+  border-radius: 0.5px;
+}
+
+/* line 42, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+#team-check {
+  display: none;
+}
+
+/* line 47, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+li #property-option {
+  display: flex;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 2.5px;
+  margin: 5px;
+  background: #b71c1c;
+  color: white;
+}
+
+/* line 57, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+li #property-option input {
+  position: absolute;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* line 63, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+li #property-option .prop-label {
+  margin-left: 20px;
+}
+
+/* line 73, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.mat-label {
+  display: block;
+  font-size: 16px;
+  transform: translateY(25px);
+  color: #e2e2e2;
+  transition: all 0.5s;
+}
+
+/* line 81, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.mat-input {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+/* line 91, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.is-active::after {
+  transform: scaleX(1);
+}
+
+/* line 95, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.is-active .mat-label {
+  color: #3498db;
+}
+
+/* line 99, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.is-completed .mat-label {
+  font-size: 12px;
+  transform: translateY(0);
+}
+
+/* line 110, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.back-btn a:hover {
+  color: blue;
+  background: white;
+}
+
+/* line 114, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.submit-btn {
+  width: 200px;
+  height: 50px;
+  border: 1px solid black;
+  background: white;
+  margin-top: 10px;
+  cursor: pointer;
+}
+/* line 121, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/_form.scss */
+.submit-btn:hover {
+  border: none;
+  background: black;
+  color: white;
+}
+/* line 1, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/index.scss */
+.team-links {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  flex-direction: row;
+}
+
+/* line 8, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/index.scss */
+.team-links a {
+  border: 1px solid black;
+  margin: 5px;
+  border-radius: 1px;
+  padding: 5px;
+  color: #34495e;
+}
+
+/* line 16, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/trade_requests/index.scss */
+.team-links a:hover {
+  border: 1px solid black;
+  margin: 5px;
+  border-radius: 1px;
+  padding: 5px;
+  background: white;
+  color: black;
+  width: 40px;
+}
+/* line 2, /Users/GrahamSM/development/qric_sim/simulation/app/assets/stylesheets/trade_requests/show.scss */
+.show-trade-req {
+  margin-left: 220px;
+}
+/* line 1, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.wrapper#login {
+  background: #2c3e50;
+  background: -webkit-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: -moz-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: -o-linear-gradient(top left, black 0%, #2c3e50 100%);
+  background: linear-gradient(top bottom right, black 0%, #2c3e50 100%);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin-top: -350px;
+}
+/* line 17, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.wrapper#login.form-success .container .title {
+  transform: translateY(85px);
+}
+
+/* line 24, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.container#login {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80px 0;
+  height: 400px;
+  text-align: center;
+}
+/* line 31, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.container#login .title {
+  font-size: 30px;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-put;
+  color: #ecf0f1;
+}
+/* line 38, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.container#login form {
+  padding: 20px 0;
+}
+/* line 41, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.container#login form input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #141B23 inset;
+  -webkit-color: white;
+}
+/* line 46, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.container#login form input[type=text] {
+  border: 2px solid white;
+  background: transparent;
+}
+/* line 51, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.container#login form input[type=password] {
+  border: 2px solid white;
+  background: transparent;
+}
+/* line 56, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.container#login form input {
+  outline: 0;
+  width: 250px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  transition-duration: 0.25s;
+  font-weight: 300;
+}
+/* line 69, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.container#login form input:hover {
+  background: transparent;
+  background-color: fade(white, 40%);
+}
+/* line 74, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.container#login form input:focus {
+  background: transparent;
+  background-color: white;
+  width: 300px;
+  color: black;
+}
+/* line 82, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.container#login form .btn {
+  color: #2c3e50;
+  border-radius: 3px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+  transition-duration: 0.25s;
+  border: 2px solid white;
+}
+/* line 91, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/login.scss */
+.container#login form .btn:hover {
+  background: transparent;
+}
+/* line 1, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/users/show.scss */
+.profile-snap {
+  width: 95%;
+  display: flex;
+  justify-content: space-evenly;
+}
+/* line 1, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/welcomes.scss */
+.welcome-options {
+  width: 500px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -100px;
+  position: absolute;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  display: flex;
+  justify-content: space-between;
+}
+/* line 12, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/welcomes.scss */
+.welcome-options #login-btn {
+  width: 50%;
+  border-radius: 2px;
+  background: #2A2D33;
+  color: white;
+  padding: 25px;
+  font-size: 1.5em;
+  margin: 5px;
+  border: 2px solid #3498db;
+}
+/* line 21, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/welcomes.scss */
+.welcome-options #login-btn:hover {
+  background: black;
+}
+/* line 26, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/welcomes.scss */
+.welcome-options #signup-btn {
+  width: 50%;
+  border-radius: 2px;
+  background: #2A2D33;
+  color: white;
+  padding: 25px;
+  font-size: 1.5em;
+  margin: 5px;
+  border: 2px solid #3498db;
+}
+/* line 35, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/welcomes.scss */
+.welcome-options #signup-btn:hover {
+  background: black;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+@import "http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css";
+@import "http://fonts.googleapis.com/css?family=Roboto:700,400";
+@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300";
+/* line 24, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/application.scss */
+html {
+  font-size: 62.5%;
+}
+
+/* line 27, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/application.scss */
+body {
+  background-color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  color: #666;
+  margin: 0px;
+}
+
+/* line 36, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/application.scss */
+img {
+  max-width: 100%;
+}
+
+/* line 40, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/application.scss */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 46, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/application.scss */
+a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+/* line 50, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/application.scss */
+a:hover {
+  color: #2980b9;
+}
+
+/* line 54, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/application.scss */
+h2 {
+  line-height: 1.2;
+}
+
+/* line 59, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/application.scss */
+#error {
+  color: red;
+  font-weight: 1em;
+  padding: 10px;
+}
+
+/* line 65, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/application.scss */
+.content-container {
+  margin-left: 220px;
+  margin-top: 15px;
+}
+
+/* line 70, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/application.scss */
+.content-container#properties {
+  margin-top: 2px;
+}
+
+/* line 74, /Users/GrahamSM/Development/qric_sim/simulation/app/assets/stylesheets/application.scss */
+.content-container#teams {
+  margin-top: -18px;
+}

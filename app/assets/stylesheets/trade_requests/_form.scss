@@ -48,9 +48,9 @@ li #property-option{
 	display:flex;
 	padding: 5px;
 	border: 1px solid white;
-	border-radius: 2px;
+	border-radius: 2.5px;
 	margin: 5px;
-	background: #96281B;
+	background: #b71c1c;;
 	color: white;
 }
 
@@ -105,10 +105,11 @@ li #property-option .prop-label{
 
 ///SUBMIT BTN
 .back-btn-container{
-	
-}
-.back-btn{
 
+}
+.back-btn a:hover{
+	color: blue;
+	background: white;
 }
 .submit-btn{
 	width: 200px;
