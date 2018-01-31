@@ -64,8 +64,11 @@ class Admin::PropertiesController < Admin::ApplicationController
           prop.value = prop.value*(1+values[0])
           prop.save!
         elsif prop.property_type_id == 2
+           binding.pry
            prop.value = prop.value*(1+values[1])
+           binding.pry
            prop.save!
+           binding.pry
         elsif prop.property_type_id == 3
           prop.value = prop.value*(1+values[2])
           prop.save!
@@ -260,15 +263,33 @@ class Admin::PropertiesController < Admin::ApplicationController
     most_mr_props_team = most_mr_props.rindex(most_mr_props.max)+1
     most_office_props_team = most_office_props.rindex(most_office_props.max)+1
     most_retail_props_team = most_retail_props.rindex(most_retail_props.max)+1
-    Team.all.where(:id => lowest_end_cash_team)[0].cash_balance += Incentive.all.where(:calculation_key => "cashBalance")[0].value
-    Team.all.where(:id => highest_end_prop_team)[0].cash_balance += Incentive.all.where(:calculation_key => "totalPropertyValue")[0].value
-    Team.all.where(:id => most_aquisitions_team)[0].cash_balance += Incentive.all.where(:calculation_key => "tradedPropertiesCount")[0].value
-    Team.all.where(:id => most_developments_team)[0].cash_balance += Incentive.all.where(:calculation_key => "developmentsCount")[0].value
-    Team.all.where(:id => most_props_team)[0].cash_balance += Incentive.all.where(:calculation_key => "propertiesCount")[0].value
-    Team.all.where(:id => most_ind_props_team)[0].cash_balance += Incentive.all.where(:calculation_key => "propertyType2Count")[0].value
-    Team.all.where(:id => most_mr_props_team)[0].cash_balance += Incentive.all.where(:calculation_key => "propertyType1Count")[0].value
-    Team.all.where(:id => most_office_props_team)[0].cash_balance += Incentive.all.where(:calculation_key => "propertyType3Count")[0].value
-    Team.all.where(:id => most_retail_props_team)[0].cash_balance += Incentive.all.where(:calculation_key => "propertyType4Count")[0].value
+    x1 = Team.all.where(:id => lowest_end_cash_team)[0]
+    x1.cash_balance += Incentive.all.where(:calculation_key => "cashBalance")[0].value
+    x1.save!
+    x2 = Team.all.where(:id => highest_end_prop_team)[0]
+    x2.cash_balance += Incentive.all.where(:calculation_key => "totalPropertyValue")[0].value
+    x2.save!
+    x3 = Team.all.where(:id => most_aquisitions_team)[0]
+    x3.cash_balance += Incentive.all.where(:calculation_key => "tradedPropertiesCount")[0].value
+    x3.save!
+    x4 = Team.all.where(:id => most_developments_team)[0]
+    x4.cash_balance += Incentive.all.where(:calculation_key => "developmentsCount")[0].value
+    x4.save!
+    x5 = Team.all.where(:id => most_props_team)[0]
+    x5.cash_balance += Incentive.all.where(:calculation_key => "propertiesCount")[0].value
+    x5.save!
+    x6 = Team.all.where(:id => most_ind_props_team)[0]
+    x6.cash_balance += Incentive.all.where(:calculation_key => "propertyType2Count")[0].value
+    x6.save!
+    x7 = Team.all.where(:id => most_mr_props_team)[0]
+    x7.cash_balance += Incentive.all.where(:calculation_key => "propertyType1Count")[0].value
+    x7.save!
+    x8 = Team.all.where(:id => most_office_props_team)[0]
+    x8.cash_balance += Incentive.all.where(:calculation_key => "propertyType3Count")[0].value
+    x8.save!
+    x9 = Team.all.where(:id => most_retail_props_team)[0]
+    x9.cash_balance += Incentive.all.where(:calculation_key => "propertyType4Count")[0].value
+    x9.save!
     redirect_to admin_properties_path, :notice => 'Ended game and updated incentives'
   end
 end
