@@ -188,7 +188,7 @@ Property.create!([{property_type_id: 4,value: 21000000,name: "265 Thomas Alton B
 Development.create!([{cost: 499500, used: false, value: 1200000, development_time: 3, property_id: 1}])
 Development.create!([{cost: 60000000, used: false, value: 75000000, development_time: 3, property_id: 2}])
 Development.create!([{cost: 52500000, used: false, value: 65000000, development_time: 3, property_id: 3}])
-Development.create!([{cost: 20000000, used: false, value: 55000000, development_time: 3 property_id: 4}])
+Development.create!([{cost: 20000000, used: false, value: 55000000, development_time: 3, property_id: 4}])
 Development.create!([{cost: 11580000, used: false, value: 25000000, development_time: 3, property_id: 5}])
 Development.create!([{cost: 6460000, used: false, value: 15000000, development_time: 3, property_id: 6}])
 Development.create!([{cost: 3031000, used: false, value: 9000000, development_time: 3, property_id: 7}])
@@ -223,6 +223,9 @@ Property.all.each do |prop|
   prop.development_id = i
   prop.save!
   i += 1
+  if i>=30
+    break
+  end
 end
 
 Incentive.create([{description: "4 Industrial Properties Owned", value: 5000000, incentive_type: 1, calculation_key: "propertyType1Count", completed_key: "propertyType1"}])

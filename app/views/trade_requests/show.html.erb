@@ -22,14 +22,14 @@
                 <li>
                   Value: <%= number_to_currency(prop.value, :unit => "$") %>
                 </li>
-                <% if !prop.developed %>
+                <% if prop.development && !prop.developed %>
                 <li>
                   Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
                 <li>
                 <%end%>
-                  <% if prop.developed %>
+                  <% if prop.development && prop.developed %>
                     Developed: Yes
-                  <% else %>
+                  <% elsif prop.development && !prop.developed %>
                     Developed: No
                   <% end %>
                 </li>
@@ -66,7 +66,7 @@
                 <li>
                   Value: <%= number_to_currency(prop.value, :unit => "$") %>
                 </li>
-                <% if !prop.developed %>
+                <% if prop.development && !prop.developed %>
                 <li>
                   Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
                 <li>
