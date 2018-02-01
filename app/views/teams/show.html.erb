@@ -1,12 +1,12 @@
 <%= render "sidebar" %>
 <div class='content-container'>
-  <h1>Team <%=@team.id%> </h1>
+  <h1 class='team-header'>Team <%=@team.id%> </h1>
   <div class='team-head'>
-    <p>
-    Total Cash: <%=number_to_currency(@team.cash_balance, :unit => "$")%>
+    <p class='cash-snap'>
+    Total Cash: <%=number_to_currency(@team.cash_balance, :unit => "$", :precision => 0)%>
     </p>
-    <p>
-    Total Property Value: <%=number_to_currency(@totalPropertyValue, :unit => "$")%>
+    <p class='portfolio-snap'>
+    Total Portfolio Value: <%=number_to_currency(@totalPropertyValue, :unit => "$", :precision => 0)%>
     </p>
     <p id="notice"><%= notice %></p>
   </div>
@@ -32,7 +32,7 @@
                 <ul id="card__info">
                   <% if !prop.developed %>
                   <li>
-                    Dev. Cost: <%=number_to_currency(prop.development.cost, :unit => "$")%>
+                    Dev. Cost: <%=number_to_currency(prop.development.cost, :unit => "$", :precision => 0)%>
                   </li>
                   <li>
                   <%end%>
