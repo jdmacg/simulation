@@ -30,15 +30,15 @@
                   </li>
                 </ul>
                 <ul id="card__info">
-                  <% if !prop.developed %>
+                  <% if prop.development && !prop.developed %>
                   <li>
                     Dev. Cost: <%=number_to_currency(prop.development.cost, :unit => "$", :precision => 0)%>
                   </li>
                   <li>
                   <%end%>
-                    <% if prop.developed %>
+                    <% if prop.development && prop.developed %>
                       Developed: Yes
-                    <% else %>
+                    <% elsif prop.development && !prop.developed %>
                       Developed: No
                     <% end %>
                   </li>
