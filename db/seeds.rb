@@ -69,10 +69,10 @@ Property.create!([{property_type_id: 4,value: 3200000,name: "500 Saint-Georges, 
 Property.create!([{property_type_id: 3,value: 170000000,name: "Shangri-La Vancouver", city: "Vancouver", province: "British Columbia",team_id: 2, in_development: false, developed: false}])
 
 Property.create!([{property_type_id: 4,value: 135000000,name: "Square One Shopping Center", city: "Mississauga", province: "Ontario",team_id: 8, in_development: false, developed: false}])
-Property.create!([{property_type_id: 1,value: 178000000,name: "Absolute World South.", city: "Mississauga", province: "Ontario",team_id: 5, in_development: false, developed: false}])
+Property.create!([{property_type_id: 1,value: 178000000,name: "Absolute World South.", city: "Mississauga", province: "Ontario",team_id: 1, in_development: false, developed: false}])
 Property.create!([{property_type_id: 1,value: 135000000,name: "McCallum Hill Center", city: "Regina", province: "Saskatchewan",team_id: 8, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 146000000,name: "Cornwall Center", city: "Regina", province: "Saskatchewan",team_id: 6, in_development: false, developed: false}])
-Property.create!([{property_type_id: 3,value: 135000000,name: "Minto Metropole.", city: "Ottawa", province: "Ontario",team_id: 7, in_development: false, developed: false}])
+Property.create!([{property_type_id: 3,value: 135000000,name: "Minto Metropole.", city: "Ottawa", province: "Ontario",team_id: 8, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 100000000,name: "The Center", city: "Saskatoon", province: "Saskatchewan",team_id: 2, in_development: false, developed: false}])
 Property.create!([{property_type_id: 3,value: 165000000,name: "La Renaissance Apartments.", city: "Saskatoon", province: "Saskatchewan",team_id: 3, in_development: false, developed: false}])
 Property.create!([{property_type_id: 3,value: 170000000,name: "Shangri-La Vancouver.", city: "Vancouver", province: "British Columbia",team_id: 2, in_development: false, developed: false}])
