@@ -132,7 +132,7 @@ Property.create!([{property_type_id: 4,value: 21000000,name: "265 Thomas Alton B
 Development.create!([{cost: 499500, used: false, value: 1200000, development_time: 3, property_id: 1}])
 Development.create!([{cost: 60000000, used: false, value: 65000000, development_time: 3, property_id: 2}])
 Development.create!([{cost: 52500000, used: false, value: 65000000, development_time: 3, property_id: 3}])
-Development.create!([{cost: 20000000, used: false, value: 35000000, development_time: 3 property_id: 4}])
+Development.create!([{cost: 20000000, used: false, value: 35000000, development_time: 3, property_id: 4}])
 Development.create!([{cost: 11580000, used: false, value: 25000000, development_time: 3, property_id: 5}])
 Development.create!([{cost: 6460000, used: false, value: 15000000, development_time: 3, property_id: 6}])
 Development.create!([{cost: 3031000, used: false, value: 2900000, development_time: 3, property_id: 7}])
