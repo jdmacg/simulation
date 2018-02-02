@@ -43,12 +43,12 @@
             <p id="offer-heading">Your Request</p>
             <li>
               <% Team.find(@team_id).properties.each do |prop| %>
-                <% if !prop.developed %>
+                <!-- <% if !prop.developed %> -->
                   <div id="property-option">
                     <%= check_box_tag "incoming_property[]", prop.id %>
                     <%= label_tag 'incoming_property', prop.name, :class => 'prop-label' %>
                   </div>
-                <%end%>
+                <!-- <%end%> -->
               <% end %>
             </li>
           </ul>

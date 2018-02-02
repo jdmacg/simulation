@@ -59,7 +59,6 @@ class Admin::PropertiesController < Admin::ApplicationController
 
   def adjust_props(props, values)
     props.each do |prop|
-      if prop.developed == false
         if prop.property_type_id == 1
           prop.value = prop.value*(1+values[0])
           prop.save!
@@ -76,7 +75,6 @@ class Admin::PropertiesController < Admin::ApplicationController
           prop.value = prop.value*(1+values[3])
           prop.save!
         end
-      end
     end
   end
 

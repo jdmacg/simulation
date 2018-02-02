@@ -20,8 +20,8 @@ class TradeRequest < ApplicationRecord
 
 	def valid_trade
 		return false if !self.cash_valid
-		return false if !TradeRequest.tradeable(self.incoming_properties)
-		return false if !TradeRequest.tradeable(self.outgoing_properties)
+		# return false if !TradeRequest.tradeable(self.incoming_properties)
+		# return false if !TradeRequest.tradeable(self.outgoing_properties)
 		return false if !self.properties_valid
 		return true
 	end
