@@ -16,7 +16,7 @@ Team.create!([{team_name: "RioCan", cash_balance: 132890000}])
 Team.create!([{team_name: "DREAM", cash_balance: 129500000}])
 Team.create!([{team_name: "NYX Capital", cash_balance: 32675000}])
 
-User.create!([{username: "jaron.keller", password: "qric-admin-1", password_confirmation: "qric-admin-1", team_id: 1, admin: true}])
+User.create!([{username: "jaron.kaller", password: "qric-admin-1", password_confirmation: "qric-admin-1", team_id: 1, admin: true}])
 User.create!([{username: "monica.carnicelli", password: "qric-admin-2", password_confirmation: "qric-admin-2", team_id: 1, admin: true}])
 
 User.create!([{username: "team.one", password: "4TGNWtjg", password_confirmation: "4TGNWtjg", team_id: 1}])
@@ -70,7 +70,7 @@ Property.create!([{property_type_id: 3,value: 170000000,name: "Shangri-La Vancou
 
 Property.create!([{property_type_id: 4,value: 135000000,name: "Square One Shopping Center", city: "Mississauga", province: "Ontario",team_id: 8, in_development: false, developed: false}])
 Property.create!([{property_type_id: 1,value: 178000000,name: "Absolute World South.", city: "Mississauga", province: "Ontario",team_id: 1, in_development: false, developed: false}])
-Property.create!([{property_type_id: 1,value: 135000000,name: "McCallum Hill Center", city: "Regina", province: "Saskatchewan",team_id: 8, in_development: false, developed: false}])
+Property.create!([{property_type_id: 1,value: 13500000,name: "McCallum Hill Center", city: "Regina", province: "Saskatchewan",team_id: 8, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 146000000,name: "Cornwall Center", city: "Regina", province: "Saskatchewan",team_id: 6, in_development: false, developed: false}])
 Property.create!([{property_type_id: 3,value: 135000000,name: "Minto Metropole.", city: "Ottawa", province: "Ontario",team_id: 8, in_development: false, developed: false}])
 Property.create!([{property_type_id: 4,value: 100000000,name: "The Center", city: "Saskatoon", province: "Saskatchewan",team_id: 2, in_development: false, developed: false}])
@@ -130,18 +130,18 @@ Property.create!([{property_type_id: 4,value: 21000000,name: "265 Thomas Alton B
 
 
 Development.create!([{cost: 499500, used: false, value: 1200000, development_time: 3, property_id: 1}])
-Development.create!([{cost: 60000000, used: false, value: 75000000, development_time: 3, property_id: 2}])
+Development.create!([{cost: 60000000, used: false, value: 65000000, development_time: 3, property_id: 2}])
 Development.create!([{cost: 52500000, used: false, value: 65000000, development_time: 3, property_id: 3}])
-Development.create!([{cost: 20000000, used: false, value: 55000000, development_time: 3, property_id: 4}])
+Development.create!([{cost: 20000000, used: false, value: 35000000, development_time: 3 property_id: 4}])
 Development.create!([{cost: 11580000, used: false, value: 25000000, development_time: 3, property_id: 5}])
 Development.create!([{cost: 6460000, used: false, value: 15000000, development_time: 3, property_id: 6}])
-Development.create!([{cost: 3031000, used: false, value: 9000000, development_time: 3, property_id: 7}])
-Development.create!([{cost: 22750000, used: false, value: 60000000, development_time: 3, property_id: 32}])
-Development.create!([{cost: 2500000, used: false, value: 6000000, development_time: 3, property_id: 9}])
-Development.create!([{cost: 2000000, used: false, value: 5000000, development_time: 3, property_id: 10}])
-Development.create!([{cost: 35000000, used: false, value: 50000000, development_time: 3, property_id: 31}])
+Development.create!([{cost: 3031000, used: false, value: 2900000, development_time: 3, property_id: 7}])
+Development.create!([{cost: 22750000, used: false, value: 20000000, development_time: 3, property_id: 32}])
+Development.create!([{cost: 2500000, used: false, value: 4000000, development_time: 3, property_id: 9}])
+Development.create!([{cost: 2000000, used: false, value: 35000000, development_time: 3, property_id: 10}])
+Development.create!([{cost: 35000000, used: false, value: 25000000, development_time: 3, property_id: 31}])
 Development.create!([{cost: 1550000, used: false, value: 1250000, development_time: 2, property_id: 49}])
-Development.create!([{cost: 1500000, used: false, value: 2750000, development_time: 2, property_id: 13}])
+Development.create!([{cost: 1500000, used: false, value: 1750000, development_time: 2, property_id: 13}])
 Development.create!([{cost: 1100000, used: false, value: 2500000, development_time: 2, property_id: 14}])
 Development.create!([{cost: 1100000, used: false, value: 2500000, development_time: 2, property_id: 15}])
 Development.create!([{cost: 1000000, used: false, value: 2000000, development_time: 2, property_id: 16}])
@@ -149,7 +149,7 @@ Development.create!([{cost: 590000, used: false, value: 1500000, development_tim
 Development.create!([{cost: 450000, used: false, value: 1100000, development_time: 2, property_id: 74}])
 Development.create!([{cost: 350000, used: false, value: 900000, development_time: 2, property_id: 19}])
 Development.create!([{cost: 330000, used: false, value: 750000, development_time: 1, property_id: 20}])
-Development.create!([{cost: 325000, used: false, value: 800000, development_time: 1, property_id: 21}])
+Development.create!([{cost: 325000, used: false, value: 300000, development_time: 1, property_id: 21}])
 Development.create!([{cost: 320000, used: false, value: 544000, development_time: 1, property_id: 22}])
 Development.create!([{cost: 200000, used: false, value: 340000, development_time: 1, property_id: 23}])
 Development.create!([{cost: 160000, used: false, value: 272000, development_time: 1, property_id: 24}])
@@ -158,6 +158,7 @@ Development.create!([{cost: 100000, used: false, value: 212500, development_time
 Development.create!([{cost: 30000, used: false, value: 170000, development_time: 1, property_id: 27}])
 Development.create!([{cost: 6000, used: false, value: 51000, development_time: 1, property_id: 28}])
 Development.create!([{cost: 125000, used: false, value: 42000, development_time: 1, property_id: 29}])
+
 
 
 
