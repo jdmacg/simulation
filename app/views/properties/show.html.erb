@@ -3,7 +3,7 @@
   <% flash.each do |k, v| %>
     <div id="error"><%= v %></div>
   <% end %>
-  
+
   <div class="cards">
       <div class="cards__item">
         <div class="card">
@@ -30,7 +30,9 @@
                   <% end %>
                 </li>
               </ul>
-            <%= link_to 'Develop', develop_path(@property.id), class: "btn btn--block card__btn" %>
+            <% if prop.development %>
+              <%= link_to 'Develop', develop_path(@property.id), class: "btn btn--block card__btn" %>
+            <% end %> 
           </div>
         </div>
       </div>

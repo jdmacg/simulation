@@ -46,21 +46,23 @@ class PropertiesController < ApplicationController
   def develop
     @property = Property.find(params[:id])
     flash = {}
-    if @property.development.used
-      flash[:error] = "You have already developed this property" #TODO not displaying
-      render 'show'
-      redirect_to users_path
-    elsif !(Team.find(current_user.team_id).can_drop_cash_balance(@property.development.cost))
-      flash[:error] = "You cannot afford to develop this property" #TODO not displaying
-      render 'show'
-      redirect_to users_path
-    else
-      message = @property.develop(current_user.team_id)
-      @development = @property.development
-      @development.save!
-      flash[:success] = message
-      flash[:notice] =  'Development was successfully initiated.'
-      redirect_to users_path
+    if @property.development
+      if @property.development.used
+        flash[:error] = "You have already developed this property" #TODO not displaying
+        render 'show'
+        redirect_to users_path
+      elsif !(Team.find(current_user.team_id).can_drop_cash_balance(@property.development.cost))
+        flash[:error] = "You cannot afford to develop this property" #TODO not displaying
+        render 'show'
+        redirect_to users_path
+      else
+        message = @property.develop(current_user.team_id)
+        @development = @property.development
+        @development.save!
+        flash[:success] = message
+        flash[:notice] =  'Development was successfully initiated.'
+        redirect_to users_path
+      end
     end
   end
 

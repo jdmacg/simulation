@@ -18,7 +18,7 @@
           <span class="prop-dev">Development Cost: <%=number_to_currency(prop.development.cost, :unit => "$", :precision => 0)%></span>
         <% end %>
         <span class="prop-type"><%=prop.property_type.description%></span>
-        <%if !prop.developed and !prop.in_development%>
+        <%if prop.development && !prop.developed and !prop.in_development%>
           <%= link_to 'Develop', develop_path(prop.id), class: "btn" %>
         <%end%>
       </div>
